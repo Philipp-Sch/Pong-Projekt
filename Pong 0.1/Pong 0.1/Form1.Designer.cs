@@ -1,6 +1,6 @@
 ﻿namespace Pong_0._1
 {
-    partial class Form1
+    partial class Pong
     {
         /// <summary>
         /// Required designer variable.
