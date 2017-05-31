@@ -1,6 +1,6 @@
-﻿namespace Pong_0._1
+﻿namespace Animationen_mit_GDI_
 {
-    partial class Pong
+    partial class Form1
     {
         /// <summary>
         /// Required designer variable.
@@ -28,17 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.SuspendLayout();
-            // 
-            // Pong
-            // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(336, 318);
-            this.Name = "Pong";
             this.Text = "Form1";
-            this.ResumeLayout(false);
-
         }
 
         #endregion
