@@ -21,5 +21,10 @@ namespace Pong_0._1
         {
             //safsd
         }
+
+        private void Pong_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

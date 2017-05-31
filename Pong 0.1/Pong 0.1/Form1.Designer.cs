@@ -81,6 +81,7 @@
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.Name = "Pong";
             this.Text = "PONG";
+            this.Load += new System.EventHandler(this.Pong_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
