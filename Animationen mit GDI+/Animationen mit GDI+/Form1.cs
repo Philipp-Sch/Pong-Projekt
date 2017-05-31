@@ -16,5 +16,12 @@ namespace Animationen_mit_GDI_
         {
             InitializeComponent();
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            Timer timer = new Timer();
+            
+
+        }
     }
 }
