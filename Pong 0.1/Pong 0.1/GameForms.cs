@@ -16,5 +16,13 @@ namespace Pong_0._1
         {
             InitializeComponent();
         }
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+        }
+        private void GameForms_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
