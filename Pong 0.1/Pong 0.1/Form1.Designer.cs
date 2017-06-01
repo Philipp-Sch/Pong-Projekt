@@ -54,9 +54,9 @@
             this.SettingsLabel.ForeColor = System.Drawing.Color.White;
             this.SettingsLabel.Location = new System.Drawing.Point(414, 254);
             this.SettingsLabel.Name = "SettingsLabel";
-            this.SettingsLabel.Size = new System.Drawing.Size(146, 64);
+            this.SettingsLabel.Size = new System.Drawing.Size(43, 64);
             this.SettingsLabel.TabIndex = 1;
-            this.SettingsLabel.Text = "Settings";
+            this.SettingsLabel.Text = "z";
             // 
             // ExitLabel
             // 
