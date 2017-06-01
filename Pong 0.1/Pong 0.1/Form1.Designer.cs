@@ -46,7 +46,6 @@
             this.PlayLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.PlayLabel.UseMnemonic = false;
             this.PlayLabel.Click += new System.EventHandler(this.label1_Click);
-            this.PlayLabel.MouseHover += new System.EventHandler(this.PlayLabel_MouseHover);
             // 
             // SettingsLabel
             // 
