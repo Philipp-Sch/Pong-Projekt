@@ -19,7 +19,21 @@ namespace Pong_0._1
 
         private void label1_Click(object sender, EventArgs e)
         {
-            //safsd
+        }
+
+        private void Pong_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ExitLabel_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void PlayLabel_MouseHover(object sender, EventArgs e)
+        {
+            PlayLabel.Size = new Size(40,40);
         }
     }
 }

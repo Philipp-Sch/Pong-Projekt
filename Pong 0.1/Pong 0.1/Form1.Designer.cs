@@ -28,9 +28,68 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.PlayLabel = new System.Windows.Forms.Label();
+            this.SettingsLabel = new System.Windows.Forms.Label();
+            this.ExitLabel = new System.Windows.Forms.Label();
+            this.SuspendLayout();
+            // 
+            // PlayLabel
+            // 
+            this.PlayLabel.Font = new System.Drawing.Font("Niagara Solid", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PlayLabel.ForeColor = System.Drawing.Color.White;
+            this.PlayLabel.Location = new System.Drawing.Point(330, 125);
+            this.PlayLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.PlayLabel.Name = "PlayLabel";
+            this.PlayLabel.Size = new System.Drawing.Size(71, 51);
+            this.PlayLabel.TabIndex = 0;
+            this.PlayLabel.Text = "Play";
+            this.PlayLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.PlayLabel.UseMnemonic = false;
+            this.PlayLabel.Click += new System.EventHandler(this.label1_Click);
+            this.PlayLabel.MouseHover += new System.EventHandler(this.PlayLabel_MouseHover);
+            // 
+            // SettingsLabel
+            // 
+            this.SettingsLabel.AutoSize = true;
+            this.SettingsLabel.Font = new System.Drawing.Font("Niagara Engraved", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SettingsLabel.ForeColor = System.Drawing.Color.White;
+            this.SettingsLabel.Location = new System.Drawing.Point(310, 206);
+            this.SettingsLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.SettingsLabel.Name = "SettingsLabel";
+            this.SettingsLabel.Size = new System.Drawing.Size(118, 51);
+            this.SettingsLabel.TabIndex = 1;
+            this.SettingsLabel.Text = "Settings";
+            // 
+            // ExitLabel
+            // 
+            this.ExitLabel.AutoSize = true;
+            this.ExitLabel.Font = new System.Drawing.Font("Niagara Engraved", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ExitLabel.ForeColor = System.Drawing.Color.White;
+            this.ExitLabel.Location = new System.Drawing.Point(336, 288);
+            this.ExitLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.ExitLabel.Name = "ExitLabel";
+            this.ExitLabel.Size = new System.Drawing.Size(67, 51);
+            this.ExitLabel.TabIndex = 2;
+            this.ExitLabel.Text = "Exit";
+            this.ExitLabel.Click += new System.EventHandler(this.ExitLabel_Click);
+            // 
+            // Pong
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Text = "Form1";
+            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ClientSize = new System.Drawing.Size(736, 449);
+            this.Controls.Add(this.ExitLabel);
+            this.Controls.Add(this.SettingsLabel);
+            this.Controls.Add(this.PlayLabel);
+            this.Cursor = System.Windows.Forms.Cursors.Default;
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Name = "Pong";
+            this.Text = "PONG";
+            this.Load += new System.EventHandler(this.Pong_Load);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
         }
 
         #endregion
