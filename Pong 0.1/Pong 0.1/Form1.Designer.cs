@@ -35,6 +35,8 @@
             // 
             // PlayLabel
             // 
+            this.PlayLabel.AutoSize = true;
+            this.PlayLabel.BackColor = System.Drawing.Color.Transparent;
             this.PlayLabel.Font = new System.Drawing.Font("Niagara Solid", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PlayLabel.ForeColor = System.Drawing.Color.White;
             this.PlayLabel.Location = new System.Drawing.Point(440, 154);
@@ -45,6 +47,8 @@
             this.PlayLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.PlayLabel.UseMnemonic = false;
             this.PlayLabel.Click += new System.EventHandler(this.label1_Click);
+            this.PlayLabel.MouseEnter += new System.EventHandler(this.PlayLabel_MouseEnter);
+            this.PlayLabel.MouseLeave += new System.EventHandler(this.PlayLabel_MouseLeave);
             // 
             // SettingsLabel
             // 
@@ -56,7 +60,9 @@
             this.SettingsLabel.Name = "SettingsLabel";
             this.SettingsLabel.Size = new System.Drawing.Size(43, 64);
             this.SettingsLabel.TabIndex = 1;
-            this.SettingsLabel.Text = "z";
+            this.SettingsLabel.Text = "Settings";
+            this.SettingsLabel.MouseEnter += new System.EventHandler(this.SettingsLabel_MouseEnter);
+            this.SettingsLabel.MouseLeave += new System.EventHandler(this.SettingsLabel_MouseLeave);
             // 
             // ExitLabel
             // 
@@ -69,6 +75,8 @@
             this.ExitLabel.TabIndex = 2;
             this.ExitLabel.Text = "Exit";
             this.ExitLabel.Click += new System.EventHandler(this.ExitLabel_Click);
+            this.ExitLabel.MouseEnter += new System.EventHandler(this.ExitLabel_MouseEnter);
+            this.ExitLabel.MouseLeave += new System.EventHandler(this.ExitLabel_MouseLeave);
             // 
             // Pong
             // 
