@@ -12,6 +12,10 @@ namespace Pong_0._1
 {
     public partial class GameForms : Form
     {
+        bool RechtsLinks = true;
+        bool ObenUnten = true;
+        int xKoordinate = 300;
+        int yKoordinate = 100;
         public GameForms()
         {
             InitializeComponent();
