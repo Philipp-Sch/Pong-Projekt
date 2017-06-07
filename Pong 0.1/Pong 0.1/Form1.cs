@@ -19,6 +19,10 @@ namespace Pong_0._1
 
         private void label1_Click(object sender, EventArgs e)
         {
+            this.Visible = false;
+            GameForms gameform = new GameForms();
+            gameform.ShowDialog();
+            this.Close();
         }
 
         private void Pong_Load(object sender, EventArgs e)
