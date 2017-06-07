@@ -96,6 +96,7 @@ namespace Pong_0._1
             e.Graphics.FillRectangle(Brushes.White, new Rectangle(BalkenBX, BalkenBY,BalkenWidth, BalkenHeight));//BalkenB
             e.Graphics.FillEllipse(Brushes.Yellow, new Rectangle(BallX,Bally,Ballradius,Ballradius));//Ball
 
+
             base.OnPaint(e);
         }
         private void GameForms_Load(object sender, EventArgs e)
