@@ -25,8 +25,8 @@ namespace Pong_0._1
 
         bool RechtsLinks = true;
         bool ObenUnten = true;
-        int xKoordinate = 300;
-        int yKoordinate = 100;
+        int xKoordinateBall = 300;
+        int yKoordinateBall = 100;
         public GameForms()
         {
             InitializeComponent();
@@ -47,6 +47,8 @@ namespace Pong_0._1
 
             BalkenBX = (this.Width - this.Width / 10) ;
             BalkenBY = this.Height / 2 - BalkenHeight;
+            yKoordinateBall = Height / 2 - 100;
+            xKoordinateBall = Width / 2 - 100;
         }
 
         private void TimerEventProcessor(Object myObject, EventArgs myEventArgs)
