@@ -13,6 +13,9 @@ namespace Pong_0._1
     public partial class GameForms : Form
     {
         Timer myTimer;
+        double BallX;
+        double Bally;
+        double Ballradius;
 
         public GameForms()
         {
@@ -20,6 +23,8 @@ namespace Pong_0._1
             myTimer = new Timer();
             myTimer.Tick += new EventHandler(TimerEventProcessor);
             myTimer.Interval = 50;
+            BallX = this.Width / 2 + Ballradius;
+            Bally = this.Height / 2 + Ballradius;
         }
 
         private void TimerEventProcessor(Object myObject, EventArgs myEventArgs)
