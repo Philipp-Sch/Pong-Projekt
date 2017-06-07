@@ -108,14 +108,14 @@ namespace Pong_0._1
         private void Balkenbewegung()
         {
             if (BalkenAHoch == true)
-                BalkenAY += 10;
-            else if (BalkenARunter == true)
                 BalkenAY -= 10;
+            else if (BalkenARunter == true)
+                BalkenAY += 10;
 
             if (BalkenBHoch == true)
-                BalkenBY += 10;
-            else if (BalkenBRunter == true)
                 BalkenBY -= 10;
+            else if (BalkenBRunter == true)
+                BalkenBY += 10;
         }
     }
 }
