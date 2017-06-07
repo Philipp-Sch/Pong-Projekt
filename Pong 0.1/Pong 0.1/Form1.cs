@@ -60,5 +60,11 @@ namespace Pong_0._1
         {
             ExitLabel.Font = new Font("Niagara Solid", 36);
         }
+
+        private void SettingsLabel_Click(object sender, EventArgs e)
+        {
+            Form neuesFormular = new SettingsForms();
+            neuesFormular.Show(this);
+        }
     }
 }
