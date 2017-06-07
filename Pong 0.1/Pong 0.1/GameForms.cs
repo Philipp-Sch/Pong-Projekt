@@ -33,7 +33,7 @@ namespace Pong_0._1
             InitializeComponent();
             myTimer = new Timer();
             myTimer.Tick += new EventHandler(TimerEventProcessor);
-            myTimer.Interval = 100;
+            myTimer.Interval = 1;
             myTimer.Start();
 
 
@@ -67,7 +67,7 @@ namespace Pong_0._1
             }
             if(RechtsLinks==false)
             {
-                Bally = Bally - 1;
+                BallX = BallX - 1;
             }
             if(ObenUnten== true)
             {
@@ -81,9 +81,13 @@ namespace Pong_0._1
             {
                 ObenUnten = false;
             }
-            if (BallX == 700)
+            if (BallX == Width-100)
             {
                 RechtsLinks = false;
+            }
+            if(Bally==Height-Ballradius-100)
+            {
+                ObenUnten = false;
             }
 
             Invalidate();
