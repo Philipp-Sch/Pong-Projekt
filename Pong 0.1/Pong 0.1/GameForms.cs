@@ -23,6 +23,11 @@ namespace Pong_0._1
         int BalkenHeight;
         int BalkenWidth;
 
+        bool BalkenAHoch = false;
+        bool BalkenARunter = false;
+        bool BalkenBHoch = false;
+        bool BalkenBRunter = false;
+
         bool RechtsLinks = true;
         bool ObenUnten = true;
         int xKoordinateBall = 300;
@@ -54,9 +59,14 @@ namespace Pong_0._1
         private void TimerEventProcessor(Object myObject, EventArgs myEventArgs)
         {
             myTimer.Stop();
+
+            Balkenbewegung();//Bei Buttonklick balken änderung
             Invalidate();
+
             myTimer.Start();
         }
+
+        
 
         protected override void OnPaint(PaintEventArgs e)
         {
@@ -69,6 +79,43 @@ namespace Pong_0._1
         private void GameForms_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void GameForms_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Down)
+                BalkenBRunter = true;
+            if (e.KeyCode == Keys.S)
+                BalkenARunter = true;
+            if (e.KeyCode == Keys.Up)
+                BalkenBHoch = true;
+            if (e.KeyCode == Keys.W)
+                BalkenAHoch = true;
+        }
+
+        private void GameForms_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Down)
+                BalkenBRunter = false;
+            if (e.KeyCode == Keys.S)
+                BalkenARunter = false;
+            if (e.KeyCode == Keys.Up)
+                BalkenBHoch = false;
+            if (e.KeyCode == Keys.W)
+                BalkenAHoch = false;
+        }
+
+        private void Balkenbewegung()
+        {
+            if (BalkenAHoch == true)
+                BalkenAY += 10;
+            else if (BalkenARunter == true)
+                BalkenAY -= 10;
+
+            if (BalkenBHoch == true)
+                BalkenBY += 10;
+            else if (BalkenBRunter == true)
+                BalkenBY -= 10;
         }
     }
 }

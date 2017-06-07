@@ -41,6 +41,8 @@
             this.Name = "GameForms";
             this.Text = "GameForms";
             this.Load += new System.EventHandler(this.GameForms_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GameForms_KeyDown);
+            this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.GameForms_KeyUp);
             this.ResumeLayout(false);
 
         }
