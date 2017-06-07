@@ -16,6 +16,12 @@ namespace Pong_0._1
         double BallX;
         double Bally;
         double Ballradius;
+        double BalkenAX;
+        double BalkenAY;
+        double BalkenBX;
+        double BalkenBY;
+        double BalkenHeight;
+        double BalkenWidth;
 
         public GameForms()
         {
@@ -25,6 +31,10 @@ namespace Pong_0._1
             myTimer.Interval = 50;
             BallX = this.Width / 2 + Ballradius;
             Bally = this.Height / 2 + Ballradius;
+            BalkenAX = this.Width / 10;
+            BalkenAY = this.Height / 2 - BalkenHeight;
+            BalkenBX = (this.Width - this.Width / 10 + BalkenWidth) ;
+            BalkenBY = this.Height / 2 - BalkenHeight;
         }
 
         private void TimerEventProcessor(Object myObject, EventArgs myEventArgs)
