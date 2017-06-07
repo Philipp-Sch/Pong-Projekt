@@ -31,8 +31,8 @@
             this.SettLabel = new System.Windows.Forms.Label();
             this.GoalLabel = new System.Windows.Forms.Label();
             this.RoundLabel = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.RoundComboBox = new System.Windows.Forms.ComboBox();
+            this.GoalComboBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // SettLabel
@@ -69,23 +69,44 @@
             this.RoundLabel.TabIndex = 2;
             this.RoundLabel.Text = "Anzahl der Runden";
             // 
-            // comboBox1
+            // RoundComboBox
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Niagara Engraved", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(510, 177);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(74, 42);
-            this.comboBox1.TabIndex = 3;
+            this.RoundComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.RoundComboBox.Font = new System.Drawing.Font("Niagara Engraved", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RoundComboBox.FormattingEnabled = true;
+            this.RoundComboBox.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9"});
+            this.RoundComboBox.Location = new System.Drawing.Point(510, 177);
+            this.RoundComboBox.Name = "RoundComboBox";
+            this.RoundComboBox.Size = new System.Drawing.Size(74, 42);
+            this.RoundComboBox.TabIndex = 3;
             // 
-            // comboBox2
+            // GoalComboBox
             // 
-            this.comboBox2.Font = new System.Drawing.Font("Niagara Engraved", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(510, 242);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(74, 46);
-            this.comboBox2.TabIndex = 4;
+            this.GoalComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.GoalComboBox.Font = new System.Drawing.Font("Niagara Engraved", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GoalComboBox.FormattingEnabled = true;
+            this.GoalComboBox.ItemHeight = 34;
+            this.GoalComboBox.Items.AddRange(new object[] {
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9"});
+            this.GoalComboBox.Location = new System.Drawing.Point(510, 243);
+            this.GoalComboBox.Name = "GoalComboBox";
+            this.GoalComboBox.Size = new System.Drawing.Size(74, 42);
+            this.GoalComboBox.TabIndex = 4;
             // 
             // SettingsForms
             // 
@@ -93,8 +114,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(734, 461);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.GoalComboBox);
+            this.Controls.Add(this.RoundComboBox);
             this.Controls.Add(this.RoundLabel);
             this.Controls.Add(this.GoalLabel);
             this.Controls.Add(this.SettLabel);
@@ -111,7 +132,7 @@
         private System.Windows.Forms.Label SettLabel;
         private System.Windows.Forms.Label GoalLabel;
         private System.Windows.Forms.Label RoundLabel;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox RoundComboBox;
+        private System.Windows.Forms.ComboBox GoalComboBox;
     }
 }

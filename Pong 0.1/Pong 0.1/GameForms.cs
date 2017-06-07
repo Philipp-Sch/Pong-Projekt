@@ -13,6 +13,7 @@ namespace Pong_0._1
     public partial class GameForms : Form
     {
         Timer myTimer;
+        int Alarm = 0;
         int BallX;
         int Bally;
         int Ballradius;
@@ -32,34 +33,41 @@ namespace Pong_0._1
             InitializeComponent();
             myTimer = new Timer();
             myTimer.Tick += new EventHandler(TimerEventProcessor);
-            myTimer.Interval = 100;
+            myTimer.Interval = 1;
             myTimer.Start();
 
-            Ballradius = 25;
-            BalkenHeight = 100;
-            BalkenWidth = 25;
 
-            BallX = this.Width / 2 + Ballradius;
-            Bally = this.Height / 2 + Ballradius;
-
-            BalkenAX = this.Width / 10 - BalkenWidth;
-            BalkenAY = this.Height / 2 - BalkenHeight;
-
-            BalkenBX = (this.Width - this.Width / 10) ;
-            BalkenBY = this.Height / 2 - BalkenHeight;
             
         }
 
         private void TimerEventProcessor(Object myObject, EventArgs myEventArgs)
         {
             myTimer.Stop();
+            if(Alarm==0)
+            {
+                Ballradius = 25;
+                BalkenHeight = 100;
+                BalkenWidth = 25;
+
+                BallX = this.Width / 2 + Ballradius;
+                Bally = this.Height / 2 + Ballradius;
+
+                BalkenAX = this.Width / 10 - BalkenWidth;
+                BalkenAY = this.Height / 2 - BalkenHeight;
+
+                BalkenBX = (this.Width - this.Width / 10);
+                BalkenBY = this.Height / 2 - BalkenHeight;
+
+            }
+            Alarm++;
+
             if (RechtsLinks == true)
             {
                 BallX = BallX + 1;
             }
             if(RechtsLinks==false)
             {
-                Bally = Bally - 1;
+                BallX = BallX - 1;
             }
             if(ObenUnten== true)
             {
@@ -68,7 +76,18 @@ namespace Pong_0._1
             if (ObenUnten == false)
             {
                 Bally = Bally - 1;
-
+            }
+            if (Bally == 0)
+            {
+                ObenUnten = false;
+            }
+            if (BallX == Width-Ballradius)
+            {
+                RechtsLinks = false;
+            }
+            if(Bally==Height-Ballradius)
+            {
+                ObenUnten = false;
             }
 
             Invalidate();
