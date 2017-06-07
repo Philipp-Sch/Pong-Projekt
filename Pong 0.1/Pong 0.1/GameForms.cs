@@ -25,10 +25,10 @@ namespace Pong_0._1
 
         bool RechtsLinks = true;
         bool ObenUnten = true;
-        int xKoordinateBall = 300;
-        int yKoordinateBall = 100;
+   
         public GameForms()
         {
+            DoubleBuffered = true;
             InitializeComponent();
             myTimer = new Timer();
             myTimer.Tick += new EventHandler(TimerEventProcessor);
@@ -47,13 +47,30 @@ namespace Pong_0._1
 
             BalkenBX = (this.Width - this.Width / 10) ;
             BalkenBY = this.Height / 2 - BalkenHeight;
-            yKoordinateBall = Height / 2 - 100;
-            xKoordinateBall = Width / 2 - 100;
+            
         }
 
         private void TimerEventProcessor(Object myObject, EventArgs myEventArgs)
         {
             myTimer.Stop();
+            if (RechtsLinks == true)
+            {
+                BallX = BallX + 1;
+            }
+            if(RechtsLinks==false)
+            {
+                Bally = Bally - 1;
+            }
+            if(ObenUnten== true)
+            {
+                Bally = Bally + 1;
+            }
+            if (ObenUnten == false)
+            {
+                Bally = Bally - 1;
+
+            }
+
             Invalidate();
             myTimer.Start();
         }
