@@ -13,15 +13,15 @@ namespace Pong_0._1
     public partial class GameForms : Form
     {
         Timer myTimer;
-        double BallX;
-        double Bally;
-        double Ballradius;
-        double BalkenAX;
-        double BalkenAY;
-        double BalkenBX;
-        double BalkenBY;
-        double BalkenHeight;
-        double BalkenWidth;
+        int BallX;
+        int Bally;
+        int Ballradius;
+        int BalkenAX;
+        int BalkenAY;
+        int BalkenBX;
+        int BalkenBY;
+        int BalkenHeight;
+        int BalkenWidth;
 
         bool RechtsLinks = true;
         bool ObenUnten = true;
@@ -32,26 +32,35 @@ namespace Pong_0._1
             InitializeComponent();
             myTimer = new Timer();
             myTimer.Tick += new EventHandler(TimerEventProcessor);
-            myTimer.Interval = 50;
+            myTimer.Interval = 100;
+            myTimer.Start();
+
+            Ballradius = 25;
+            BalkenHeight = 100;
+            BalkenWidth = 25;
+
             BallX = this.Width / 2 + Ballradius;
             Bally = this.Height / 2 + Ballradius;
-            BalkenAX = this.Width / 10;
+
+            BalkenAX = this.Width / 10 - BalkenWidth;
             BalkenAY = this.Height / 2 - BalkenHeight;
-            BalkenBX = (this.Width - this.Width / 10 + BalkenWidth) ;
+
+            BalkenBX = (this.Width - this.Width / 10) ;
             BalkenBY = this.Height / 2 - BalkenHeight;
         }
 
         private void TimerEventProcessor(Object myObject, EventArgs myEventArgs)
         {
             myTimer.Stop();
+            Invalidate();
             myTimer.Start();
         }
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            e.Graphics.FillRectangle(Brushes.White, new Rectangle(10,20 , 50, 100));
-            e.Graphics.FillRectangle(Brushes.White, new Rectangle(100, 20, 50, 100));
-            e.Graphics.FillEllipse(Brushes.Yellow, new Rectangle(Width / 2 - 100, Height / 2 - 100, 50, 50));
+            e.Graphics.FillRectangle(Brushes.White, new Rectangle(BalkenAX,BalkenAY ,BalkenWidth, BalkenHeight));//BalkenA
+            e.Graphics.FillRectangle(Brushes.White, new Rectangle(BalkenBX, BalkenBY,BalkenWidth, BalkenHeight));//BalkenB
+            e.Graphics.FillEllipse(Brushes.Yellow, new Rectangle(BallX,Bally,Ballradius,Ballradius));//Ball
 
             base.OnPaint(e);
         }
