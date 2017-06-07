@@ -16,5 +16,10 @@ namespace Pong_0._1
         {
             InitializeComponent();
         }
+
+        private void GoalLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

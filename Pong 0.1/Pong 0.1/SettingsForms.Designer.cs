@@ -28,43 +28,44 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.SettLabel = new System.Windows.Forms.Label();
+            this.GoalLabel = new System.Windows.Forms.Label();
+            this.RoundLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // SettLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Niagara Engraved", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(269, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(185, 51);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Einstellungen";
+            this.SettLabel.AutoSize = true;
+            this.SettLabel.Font = new System.Drawing.Font("Niagara Engraved", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SettLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.SettLabel.Location = new System.Drawing.Point(279, 21);
+            this.SettLabel.Name = "SettLabel";
+            this.SettLabel.Size = new System.Drawing.Size(185, 51);
+            this.SettLabel.TabIndex = 0;
+            this.SettLabel.Text = "Einstellungen";
             // 
-            // label2
+            // GoalLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Niagara Engraved", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(269, 60);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(185, 51);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Einstellungen";
+            this.GoalLabel.AutoSize = true;
+            this.GoalLabel.Font = new System.Drawing.Font("Niagara Engraved", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GoalLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.GoalLabel.Location = new System.Drawing.Point(264, 229);
+            this.GoalLabel.Name = "GoalLabel";
+            this.GoalLabel.Size = new System.Drawing.Size(217, 51);
+            this.GoalLabel.TabIndex = 1;
+            this.GoalLabel.Text = "Anzahl der Tore";
+            this.GoalLabel.Click += new System.EventHandler(this.GoalLabel_Click);
             // 
-            // label3
+            // RoundLabel
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Niagara Engraved", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label3.Location = new System.Drawing.Point(269, 111);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(185, 51);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Einstellungen";
+            this.RoundLabel.AutoSize = true;
+            this.RoundLabel.Font = new System.Drawing.Font("Niagara Engraved", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RoundLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.RoundLabel.Location = new System.Drawing.Point(251, 163);
+            this.RoundLabel.Name = "RoundLabel";
+            this.RoundLabel.Size = new System.Drawing.Size(244, 51);
+            this.RoundLabel.TabIndex = 2;
+            this.RoundLabel.Text = "Anzahl der Runden";
             // 
             // SettingsForms
             // 
@@ -72,9 +73,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(734, 461);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.RoundLabel);
+            this.Controls.Add(this.GoalLabel);
+            this.Controls.Add(this.SettLabel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "SettingsForms";
             this.Text = "Einstellungen";
@@ -85,8 +86,8 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label SettLabel;
+        private System.Windows.Forms.Label GoalLabel;
+        private System.Windows.Forms.Label RoundLabel;
     }
 }
