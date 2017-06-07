@@ -81,11 +81,11 @@ namespace Pong_0._1
             {
                 ObenUnten = false;
             }
-            if (BallX == Width-100)
+            if (BallX == Width-Ballradius)
             {
                 RechtsLinks = false;
             }
-            if(Bally==Height-Ballradius-100)
+            if(Bally==Height-Ballradius)
             {
                 ObenUnten = false;
             }
