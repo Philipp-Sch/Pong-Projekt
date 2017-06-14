@@ -116,13 +116,21 @@ namespace Pong_0._1
         private void GameForms_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Down)
+
                 BalkenBRunter = true;
+
+
             if (e.KeyCode == Keys.S)
                 BalkenARunter = true;
+
+
             if (e.KeyCode == Keys.Up)
                 BalkenBHoch = true;
+
+
             if (e.KeyCode == Keys.W)
                 BalkenAHoch = true;
+
         }
 
         private void GameForms_KeyUp(object sender, KeyEventArgs e)
@@ -140,14 +148,38 @@ namespace Pong_0._1
         private void Balkenbewegung()
         {
             if (BalkenAHoch == true)
-                BalkenAY -= 10;
+            {
+                if(BalkenAY -10 >= 0)
+                {
+                    BalkenAY -= 10;
+                }
+            }
+
             else if (BalkenARunter == true)
-                BalkenAY += 10;
+            {
+                if(BalkenAY +140 +10 <= this.Height)
+                {
+                    BalkenAY += 10;
+                }
+            }
 
             if (BalkenBHoch == true)
-                BalkenBY -= 10;
-            else if (BalkenBRunter == true)
-                BalkenBY += 10;
+            {
+                if(BalkenBY -10 >= 0)
+                {
+                    BalkenBY -= 10;
+                }
+            }
+
+            else if(BalkenBRunter == true)
+            {
+                if(BalkenBY +140 +10 <= this.Height)
+                {
+                    BalkenBY += 10;
+                }
+            }
+
+
         }
     }
 }
