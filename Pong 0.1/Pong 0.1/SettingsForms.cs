@@ -21,5 +21,10 @@ namespace Pong_0._1
         {
 
         }
+
+        private void SaveLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
