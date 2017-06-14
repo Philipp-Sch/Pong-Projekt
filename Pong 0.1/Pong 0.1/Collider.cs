@@ -8,5 +8,9 @@ namespace Pong_0._1
 {
     class Collider
     {
+        public Collider()
+        {
+
+        }
     }
 }
