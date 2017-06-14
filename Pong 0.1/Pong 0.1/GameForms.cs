@@ -12,6 +12,7 @@ namespace Pong_0._1
 {
     public partial class GameForms : Form
     {
+        Collider myCollider = new Collider();
         Timer myTimer;
         int Alarm = 0;
         int BallX;
@@ -31,7 +32,9 @@ namespace Pong_0._1
 
         bool RechtsLinks = true;
         bool ObenUnten = true;
-   
+
+        bool Collisionrechts;
+        bool Collisionlinks;
         public GameForms()
         {
             DoubleBuffered = true;
@@ -40,9 +43,6 @@ namespace Pong_0._1
             myTimer.Tick += new EventHandler(TimerEventProcessor);
             myTimer.Interval = 1;
             myTimer.Start();
-
-
-            
         }
 
         private void TimerEventProcessor(Object myObject, EventArgs myEventArgs)
@@ -65,6 +65,8 @@ namespace Pong_0._1
 
             }
             Alarm++;
+
+            
 
             if (RechtsLinks == true)
             {
@@ -94,6 +96,10 @@ namespace Pong_0._1
             {
                 ObenUnten = false;
             }
+            //Linker Balken Collesion überprüfen
+            Collisionlinks = myCollider.Collision(BallX,BallX + Ballradius,Bally,Bally + Ballradius,BalkenAX,BalkenAX + BalkenWidth,BalkenAY,BalkenAY + BalkenHeight);
+            //Rechter Balken Collesion überprüfen
+            Collisionrechts = myCollider.Collision(BallX, BallX + Ballradius, Bally, Bally + Ballradius, BalkenBX, BalkenBX + BalkenWidth, BalkenBY, BalkenBY + BalkenHeight);
 
             Balkenbewegung();//Bei Buttonklick balken änderung
             Invalidate();

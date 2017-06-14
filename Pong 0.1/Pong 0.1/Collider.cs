@@ -26,7 +26,7 @@ namespace Pong_0._1
 
         }
 
-        private bool Collision(int xa1, int xa2, int ya1, int ya2, int xb1, int xb2, int yb1, int yb2)
+        public bool Collision(int xa1, int xa2, int ya1, int ya2, int xb1, int xb2, int yb1, int yb2)
         {
             //Kantenwerte des Quadrates A
             XA1 = xa1;//Links
