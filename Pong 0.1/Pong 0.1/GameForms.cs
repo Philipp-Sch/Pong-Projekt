@@ -23,9 +23,9 @@ namespace Pong_0._1
         int BalkenBY;
         int BalkenHeight;
         int BalkenWidth;
-        int Rechts;
-        int Links;
-    
+        int Rechts = 0;
+        int Links = 0;
+        string Punktzahl;
 
         bool BalkenAHoch = false;
         bool BalkenARunter = false;
@@ -53,10 +53,16 @@ namespace Pong_0._1
             myTimer.Stop();
             if (Alarm ==1)
             {
-                System.Threading.Thread.Sleep(3000);
+                System.Threading.Thread.Sleep(1000);
             }
             if (Alarm == 0)
             {
+                Punktzahl = Links.ToString();
+                TextBoxLinkerSpieler.Clear();
+                TextBoxLinkerSpieler.AppendText(Punktzahl);
+                Punktzahl = Rechts.ToString();
+                TextBoxRechterSpieler.Clear();
+                TextBoxRechterSpieler.AppendText(Punktzahl);
               
                 Ballradius = 25;
                 BalkenHeight = 100;
@@ -97,15 +103,19 @@ namespace Pong_0._1
             }
             if (BallX == Width - Ballradius)
             {
+                Links++;
                 RechtsLinks = false;
+                Alarm = 0;
             }
-            if (Bally == Height - Ballradius)
+            if (Bally == 440)
             {
                 ObenUnten = false;
             }
             if (BallX==0)
             {
+                Rechts++;
                 RechtsLinks = true;
+                Alarm = 0;
             }
 
             Balkenbewegung();//Bei Buttonklick balken änderung

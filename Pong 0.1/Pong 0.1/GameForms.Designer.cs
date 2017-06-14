@@ -30,6 +30,8 @@
         {
             this.PlayerAPunkte = new System.Windows.Forms.Label();
             this.PlayerBPunkte = new System.Windows.Forms.Label();
+            this.TextBoxLinkerSpieler = new System.Windows.Forms.TextBox();
+            this.TextBoxRechterSpieler = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // PlayerAPunkte
@@ -52,12 +54,30 @@
             this.PlayerBPunkte.TabIndex = 1;
             this.PlayerBPunkte.Text = "Player B Punkte";
             // 
+            // TextBoxLinkerSpieler
+            // 
+            this.TextBoxLinkerSpieler.Enabled = false;
+            this.TextBoxLinkerSpieler.Location = new System.Drawing.Point(15, 25);
+            this.TextBoxLinkerSpieler.Name = "TextBoxLinkerSpieler";
+            this.TextBoxLinkerSpieler.Size = new System.Drawing.Size(100, 20);
+            this.TextBoxLinkerSpieler.TabIndex = 2;
+            // 
+            // TextBoxRechterSpieler
+            // 
+            this.TextBoxRechterSpieler.Enabled = false;
+            this.TextBoxRechterSpieler.Location = new System.Drawing.Point(622, 25);
+            this.TextBoxRechterSpieler.Name = "TextBoxRechterSpieler";
+            this.TextBoxRechterSpieler.Size = new System.Drawing.Size(100, 20);
+            this.TextBoxRechterSpieler.TabIndex = 3;
+            // 
             // GameForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(734, 461);
+            this.Controls.Add(this.TextBoxRechterSpieler);
+            this.Controls.Add(this.TextBoxLinkerSpieler);
             this.Controls.Add(this.PlayerBPunkte);
             this.Controls.Add(this.PlayerAPunkte);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -76,5 +96,7 @@
 
         private System.Windows.Forms.Label PlayerAPunkte;
         private System.Windows.Forms.Label PlayerBPunkte;
+        private System.Windows.Forms.TextBox TextBoxLinkerSpieler;
+        private System.Windows.Forms.TextBox TextBoxRechterSpieler;
     }
 }
