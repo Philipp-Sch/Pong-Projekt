@@ -25,7 +25,7 @@ namespace Pong_0._1
         int BalkenWidth;
         int Rechts;
         int Links;
-        int Warten;
+    
 
         bool BalkenAHoch = false;
         bool BalkenARunter = false;
@@ -51,6 +51,10 @@ namespace Pong_0._1
         private void TimerEventProcessor(Object myObject, EventArgs myEventArgs)
         {
             myTimer.Stop();
+            if (Alarm ==1)
+            {
+                System.Threading.Thread.Sleep(3000);
+            }
             if (Alarm == 0)
             {
               
@@ -66,7 +70,7 @@ namespace Pong_0._1
 
                 BalkenBX = (this.Width - this.Width / 10);
                 BalkenBY = this.Height / 2 - BalkenHeight;
-                System.Threading.Thread.Sleep(3000);
+                
 
             }
             Alarm++;
