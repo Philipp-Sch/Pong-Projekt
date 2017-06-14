@@ -51,15 +51,15 @@ namespace Pong_0._1
                 CollisionX = false;
 
             if (YA1 < YB1 && YB1 < YA2)
-                CollisionX = true;
+                CollisionY = true;
             if (YA1 < YB2 && YB2 < YA2)
-                CollisionX = true;
+                CollisionY = true;
             if (YB1 < YA1 && YA2 < YB2)
-                CollisionX = true;
+                CollisionY = true;
             if (YA1 < YB1 && YB2 < YA2)
-                CollisionX = true;
+                CollisionY = true;
             else
-                CollisionX = false;
+                CollisionY = false;
 
             if (CollisionX == true && CollisionY == true)
                 return true ;
