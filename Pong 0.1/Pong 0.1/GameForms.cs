@@ -24,6 +24,17 @@ namespace Pong_0._1
         int BalkenHeight;
         int BalkenWidth;
 
+
+        int Rechts = 0;
+        int Links = 0;
+        string Punktzahl;
+        int MaxPunktzahl = 5;
+        int MaxRunden;
+        int RundenLinks;
+        int RundenRechts;
+        string Rundenanzahl;
+
+
         bool BalkenAHoch = false;
         bool BalkenARunter = false;
         bool BalkenBHoch = false;
@@ -48,8 +59,28 @@ namespace Pong_0._1
         private void TimerEventProcessor(Object myObject, EventArgs myEventArgs)
         {
             myTimer.Stop();
+            if (Alarm ==1)
+            {
+                //System.Threading.Thread.Sleep(1000);
+            }
             if (Alarm == 0)
             {
+                Punktzahl = Links.ToString();
+                TextBoxLinkerSpieler.Clear();
+                TextBoxLinkerSpieler.AppendText(Punktzahl);
+                Punktzahl = Rechts.ToString();
+                TextBoxRechterSpieler.Clear();
+                TextBoxRechterSpieler.AppendText(Punktzahl);
+
+                Rundenanzahl = RundenLinks.ToString();
+                RundenAnzahlLinks.Clear();
+                RundenAnzahlLinks.AppendText(Rundenanzahl);
+                Rundenanzahl = RundenRechts.ToString();
+                RundenAnzahlRechts.Clear();
+                RundenAnzahlRechts.AppendText(Rundenanzahl);
+
+                
+              
                 Ballradius = 25;
                 BalkenHeight = 100;
                 BalkenWidth = 25;
@@ -62,6 +93,7 @@ namespace Pong_0._1
 
                 BalkenBX = (this.Width - this.Width / 10);
                 BalkenBY = this.Height / 2 - BalkenHeight;
+                
 
             }
             Alarm++;
@@ -84,17 +116,39 @@ namespace Pong_0._1
             }
             if (Bally == 0)
             {
-                ObenUnten = false;
+                ObenUnten = true;
             }
             if (BallX == Width - Ballradius)
             {
+                Links++;
                 RechtsLinks = false;
+                Alarm = 0;
             }
-            if (Bally == Height - Ballradius)
+            if (Bally == 440)
             {
                 ObenUnten = false;
             }
+            if (BallX==0)
+            {
+                Rechts++;
+                RechtsLinks = true;
+                Alarm = 0;
+            }
+            if(Links == MaxPunktzahl)
+            {
+                Alarm = 0;
+                Links = 0;
+                Rechts = 0;
+                RundenLinks++;
+            }
+            if(Rechts==MaxPunktzahl)
+            {
+                Alarm = 0;
+                Links = 0;
+                Rechts = 0;
+                RundenRechts++;
 
+            }
             Balkenbewegung();//Bei Buttonklick balken änderung
             Invalidate();
             myTimer.Start();
@@ -179,6 +233,11 @@ namespace Pong_0._1
                 }
             }
 
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }
