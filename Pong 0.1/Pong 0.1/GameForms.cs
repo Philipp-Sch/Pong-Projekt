@@ -35,7 +35,6 @@ namespace Pong_0._1
 
         bool Collisionrechts;
         bool Collisionlinks;
-        bool Test;
         public GameForms()
         {
             DoubleBuffered = true;
