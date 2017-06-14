@@ -30,17 +30,18 @@
         {
             this.PlayerAPunkte = new System.Windows.Forms.Label();
             this.PlayerBPunkte = new System.Windows.Forms.Label();
-            this.TextBoxLinkerSpieler = new System.Windows.Forms.TextBox();
-            this.TextBoxRechterSpieler = new System.Windows.Forms.TextBox();
             this.GewonnenRundenA = new System.Windows.Forms.TextBox();
             this.RundenzahlB = new System.Windows.Forms.TextBox();
-            this.RundenAnzahlRechts = new System.Windows.Forms.TextBox();
-            this.RundenAnzahlLinks = new System.Windows.Forms.TextBox();
+            this.LinkerSpielerLabel = new System.Windows.Forms.Label();
+            this.RechterSpielerLabel = new System.Windows.Forms.Label();
+            this.RundenLinksLabel = new System.Windows.Forms.Label();
+            this.RundenRechtsLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // PlayerAPunkte
             // 
             this.PlayerAPunkte.AutoSize = true;
+            this.PlayerAPunkte.BackColor = System.Drawing.Color.Transparent;
             this.PlayerAPunkte.ForeColor = System.Drawing.Color.White;
             this.PlayerAPunkte.Location = new System.Drawing.Point(12, 9);
             this.PlayerAPunkte.Name = "PlayerAPunkte";
@@ -51,34 +52,13 @@
             // PlayerBPunkte
             // 
             this.PlayerBPunkte.AutoSize = true;
+            this.PlayerBPunkte.BackColor = System.Drawing.Color.Transparent;
             this.PlayerBPunkte.ForeColor = System.Drawing.Color.White;
             this.PlayerBPunkte.Location = new System.Drawing.Point(639, 9);
             this.PlayerBPunkte.Name = "PlayerBPunkte";
             this.PlayerBPunkte.Size = new System.Drawing.Size(83, 13);
             this.PlayerBPunkte.TabIndex = 1;
             this.PlayerBPunkte.Text = "Player B Punkte";
-            // 
-            // TextBoxLinkerSpieler
-            // 
-            this.TextBoxLinkerSpieler.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.TextBoxLinkerSpieler.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TextBoxLinkerSpieler.Enabled = false;
-            this.TextBoxLinkerSpieler.ForeColor = System.Drawing.SystemColors.Info;
-            this.TextBoxLinkerSpieler.Location = new System.Drawing.Point(15, 25);
-            this.TextBoxLinkerSpieler.Name = "TextBoxLinkerSpieler";
-            this.TextBoxLinkerSpieler.Size = new System.Drawing.Size(100, 13);
-            this.TextBoxLinkerSpieler.TabIndex = 2;
-            // 
-            // TextBoxRechterSpieler
-            // 
-            this.TextBoxRechterSpieler.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.TextBoxRechterSpieler.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TextBoxRechterSpieler.Enabled = false;
-            this.TextBoxRechterSpieler.ForeColor = System.Drawing.SystemColors.Info;
-            this.TextBoxRechterSpieler.Location = new System.Drawing.Point(622, 25);
-            this.TextBoxRechterSpieler.Name = "TextBoxRechterSpieler";
-            this.TextBoxRechterSpieler.Size = new System.Drawing.Size(100, 13);
-            this.TextBoxRechterSpieler.TabIndex = 3;
             // 
             // GewonnenRundenA
             // 
@@ -105,29 +85,49 @@
             this.RundenzahlB.TabIndex = 5;
             this.RundenzahlB.Text = "Anzahl der Gewonnen Runden:";
             // 
-            // RundenAnzahlRechts
+            // LinkerSpielerLabel
             // 
-            this.RundenAnzahlRechts.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.RundenAnzahlRechts.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.RundenAnzahlRechts.Enabled = false;
-            this.RundenAnzahlRechts.ForeColor = System.Drawing.SystemColors.Info;
-            this.RundenAnzahlRechts.Location = new System.Drawing.Point(622, 434);
-            this.RundenAnzahlRechts.Name = "RundenAnzahlRechts";
-            this.RundenAnzahlRechts.Size = new System.Drawing.Size(100, 13);
-            this.RundenAnzahlRechts.TabIndex = 6;
+            this.LinkerSpielerLabel.AutoSize = true;
+            this.LinkerSpielerLabel.BackColor = System.Drawing.Color.Transparent;
+            this.LinkerSpielerLabel.ForeColor = System.Drawing.Color.White;
+            this.LinkerSpielerLabel.Location = new System.Drawing.Point(12, 22);
+            this.LinkerSpielerLabel.Name = "LinkerSpielerLabel";
+            this.LinkerSpielerLabel.Size = new System.Drawing.Size(66, 13);
+            this.LinkerSpielerLabel.TabIndex = 8;
+            this.LinkerSpielerLabel.Text = "PunkteLinks";
             // 
-            // RundenAnzahlLinks
+            // RechterSpielerLabel
             // 
-            this.RundenAnzahlLinks.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.RundenAnzahlLinks.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.RundenAnzahlLinks.Cursor = System.Windows.Forms.Cursors.No;
-            this.RundenAnzahlLinks.Enabled = false;
-            this.RundenAnzahlLinks.ForeColor = System.Drawing.SystemColors.Info;
-            this.RundenAnzahlLinks.Location = new System.Drawing.Point(33, 434);
-            this.RundenAnzahlLinks.Name = "RundenAnzahlLinks";
-            this.RundenAnzahlLinks.Size = new System.Drawing.Size(100, 13);
-            this.RundenAnzahlLinks.TabIndex = 7;
-            this.RundenAnzahlLinks.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.RechterSpielerLabel.AutoSize = true;
+            this.RechterSpielerLabel.BackColor = System.Drawing.Color.Transparent;
+            this.RechterSpielerLabel.ForeColor = System.Drawing.Color.White;
+            this.RechterSpielerLabel.Location = new System.Drawing.Point(647, 22);
+            this.RechterSpielerLabel.Name = "RechterSpielerLabel";
+            this.RechterSpielerLabel.Size = new System.Drawing.Size(75, 13);
+            this.RechterSpielerLabel.TabIndex = 9;
+            this.RechterSpielerLabel.Text = "PunkteRechts";
+            // 
+            // RundenLinksLabel
+            // 
+            this.RundenLinksLabel.AutoSize = true;
+            this.RundenLinksLabel.BackColor = System.Drawing.Color.Transparent;
+            this.RundenLinksLabel.ForeColor = System.Drawing.Color.White;
+            this.RundenLinksLabel.Location = new System.Drawing.Point(13, 431);
+            this.RundenLinksLabel.Name = "RundenLinksLabel";
+            this.RundenLinksLabel.Size = new System.Drawing.Size(82, 13);
+            this.RundenLinksLabel.TabIndex = 10;
+            this.RundenLinksLabel.Text = "Runden Rechts";
+            // 
+            // RundenRechtsLabel
+            // 
+            this.RundenRechtsLabel.AutoSize = true;
+            this.RundenRechtsLabel.BackColor = System.Drawing.Color.Transparent;
+            this.RundenRechtsLabel.ForeColor = System.Drawing.Color.White;
+            this.RundenRechtsLabel.Location = new System.Drawing.Point(647, 431);
+            this.RundenRechtsLabel.Name = "RundenRechtsLabel";
+            this.RundenRechtsLabel.Size = new System.Drawing.Size(73, 13);
+            this.RundenRechtsLabel.TabIndex = 11;
+            this.RundenRechtsLabel.Text = "Runden Links";
             // 
             // GameForms
             // 
@@ -135,12 +135,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(734, 461);
-            this.Controls.Add(this.RundenAnzahlLinks);
-            this.Controls.Add(this.RundenAnzahlRechts);
+            this.Controls.Add(this.RundenRechtsLabel);
+            this.Controls.Add(this.RundenLinksLabel);
+            this.Controls.Add(this.RechterSpielerLabel);
+            this.Controls.Add(this.LinkerSpielerLabel);
             this.Controls.Add(this.RundenzahlB);
             this.Controls.Add(this.GewonnenRundenA);
-            this.Controls.Add(this.TextBoxRechterSpieler);
-            this.Controls.Add(this.TextBoxLinkerSpieler);
             this.Controls.Add(this.PlayerBPunkte);
             this.Controls.Add(this.PlayerAPunkte);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -159,11 +159,11 @@
 
         private System.Windows.Forms.Label PlayerAPunkte;
         private System.Windows.Forms.Label PlayerBPunkte;
-        private System.Windows.Forms.TextBox TextBoxLinkerSpieler;
-        private System.Windows.Forms.TextBox TextBoxRechterSpieler;
         private System.Windows.Forms.TextBox GewonnenRundenA;
         private System.Windows.Forms.TextBox RundenzahlB;
-        private System.Windows.Forms.TextBox RundenAnzahlRechts;
-        private System.Windows.Forms.TextBox RundenAnzahlLinks;
+        private System.Windows.Forms.Label LinkerSpielerLabel;
+        private System.Windows.Forms.Label RechterSpielerLabel;
+        private System.Windows.Forms.Label RundenLinksLabel;
+        private System.Windows.Forms.Label RundenRechtsLabel;
     }
 }

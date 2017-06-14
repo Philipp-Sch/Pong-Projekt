@@ -12,7 +12,6 @@ namespace Pong_0._1
 {
     public partial class GameForms : Form
     {
-        //sdfdfgfdg
         Timer myTimer;
         int Alarm = 0;
         int BallX;
@@ -24,7 +23,7 @@ namespace Pong_0._1
         int BalkenBY;
         int BalkenHeight;
         int BalkenWidth;
-
+    
 
         int Rechts = 0;
         int Links = 0;
@@ -67,19 +66,21 @@ namespace Pong_0._1
             if (Alarm == 0)
             {
                 Punktzahl = Links.ToString();
-                TextBoxLinkerSpieler.Clear();
-                TextBoxLinkerSpieler.AppendText(Punktzahl);
+                LinkerSpielerLabel.Text = "";
+                LinkerSpielerLabel.Text = Punktzahl;
+
+
                 Punktzahl = Rechts.ToString();
-                TextBoxRechterSpieler.Clear();
-                TextBoxRechterSpieler.AppendText(Punktzahl);
+                RechterSpielerLabel.Text = "";
+                RechterSpielerLabel.Text = Punktzahl;
+        
 
-                Rundenanzahl = RundenLinks.ToString();
-                RundenAnzahlLinks.Clear();
-                RundenAnzahlLinks.AppendText(Rundenanzahl);
-                Rundenanzahl = RundenRechts.ToString();
-                RundenAnzahlRechts.Clear();
-                RundenAnzahlRechts.AppendText(Rundenanzahl);
+                RundenLinksLabel.Text = "";
+                RundenLinksLabel.Text = RundenLinks.ToString();
 
+
+                RundenRechtsLabel.Text = "";
+                RundenRechtsLabel.Text = RundenRechts.ToString();
                 
               
                 Ballradius = 25;
@@ -134,6 +135,27 @@ namespace Pong_0._1
                 Rechts++;
                 RechtsLinks = true;
                 Alarm = 0;
+            }
+            if(Links == MaxPunktzahl)
+            {
+                Alarm = 0;
+                Links = 0;
+                Rechts = 0;
+                RundenLinks++;
+            }
+            if(Rechts==MaxPunktzahl)
+            {
+                Alarm = 0;
+                Links = 0;
+                Rechts = 0;
+                RundenRechts++;
+
+            }
+
+            if (RundenRechts==MaxRunden)
+            {
+
+                
             }
             if(Links == MaxPunktzahl)
             {
@@ -206,7 +228,7 @@ namespace Pong_0._1
             {
                 if(BalkenAY -10 >= 0)
                 {
-                    BalkenAY -= 10;
+                BalkenAY -= 10;
                 }
             }
 
@@ -214,7 +236,7 @@ namespace Pong_0._1
             {
                 if(BalkenAY +140 +10 <= this.Height)
                 {
-                    BalkenAY += 10;
+                BalkenAY += 10;
                 }
             }
 
@@ -222,7 +244,7 @@ namespace Pong_0._1
             {
                 if(BalkenBY -10 >= 0)
                 {
-                    BalkenBY -= 10;
+                BalkenBY -= 10;
                 }
             }
 
@@ -230,8 +252,8 @@ namespace Pong_0._1
             {
                 if(BalkenBY +140 +10 <= this.Height)
                 {
-                    BalkenBY += 10;
-                }
+                BalkenBY += 10;
+        }
             }
 
 
