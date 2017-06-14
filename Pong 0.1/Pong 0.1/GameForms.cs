@@ -23,9 +23,17 @@ namespace Pong_0._1
         int BalkenBY;
         int BalkenHeight;
         int BalkenWidth;
+
+
         int Rechts = 0;
         int Links = 0;
         string Punktzahl;
+        int MaxPunktzahl = 5;
+        int MaxRunden;
+        int RundenLinks;
+        int RundenRechts;
+        string Rundenanzahl;
+
 
         bool BalkenAHoch = false;
         bool BalkenARunter = false;
@@ -53,7 +61,7 @@ namespace Pong_0._1
             myTimer.Stop();
             if (Alarm ==1)
             {
-                System.Threading.Thread.Sleep(1000);
+                //System.Threading.Thread.Sleep(1000);
             }
             if (Alarm == 0)
             {
@@ -63,6 +71,15 @@ namespace Pong_0._1
                 Punktzahl = Rechts.ToString();
                 TextBoxRechterSpieler.Clear();
                 TextBoxRechterSpieler.AppendText(Punktzahl);
+
+                Rundenanzahl = RundenLinks.ToString();
+                RundenAnzahlLinks.Clear();
+                RundenAnzahlLinks.AppendText(Rundenanzahl);
+                Rundenanzahl = RundenRechts.ToString();
+                RundenAnzahlRechts.Clear();
+                RundenAnzahlRechts.AppendText(Rundenanzahl);
+
+                
               
                 Ballradius = 25;
                 BalkenHeight = 100;
@@ -117,7 +134,21 @@ namespace Pong_0._1
                 RechtsLinks = true;
                 Alarm = 0;
             }
+            if(Links == MaxPunktzahl)
+            {
+                Alarm = 0;
+                Links = 0;
+                Rechts = 0;
+                RundenLinks++;
+            }
+            if(Rechts==MaxPunktzahl)
+            {
+                Alarm = 0;
+                Links = 0;
+                Rechts = 0;
+                RundenRechts++;
 
+            }
             Balkenbewegung();//Bei Buttonklick balken änderung
             Invalidate();
             myTimer.Start();
@@ -171,6 +202,11 @@ namespace Pong_0._1
                 BalkenBY -= 10;
             else if (BalkenBRunter == true)
                 BalkenBY += 10;
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

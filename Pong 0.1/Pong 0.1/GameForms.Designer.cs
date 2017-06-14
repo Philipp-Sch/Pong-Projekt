@@ -34,6 +34,8 @@
             this.TextBoxRechterSpieler = new System.Windows.Forms.TextBox();
             this.GewonnenRundenA = new System.Windows.Forms.TextBox();
             this.RundenzahlB = new System.Windows.Forms.TextBox();
+            this.RundenAnzahlRechts = new System.Windows.Forms.TextBox();
+            this.RundenAnzahlLinks = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // PlayerAPunkte
@@ -103,12 +105,38 @@
             this.RundenzahlB.TabIndex = 5;
             this.RundenzahlB.Text = "Anzahl der Gewonnen Runden:";
             // 
+            // RundenAnzahlRechts
+            // 
+            this.RundenAnzahlRechts.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.RundenAnzahlRechts.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.RundenAnzahlRechts.Enabled = false;
+            this.RundenAnzahlRechts.ForeColor = System.Drawing.SystemColors.Info;
+            this.RundenAnzahlRechts.Location = new System.Drawing.Point(622, 434);
+            this.RundenAnzahlRechts.Name = "RundenAnzahlRechts";
+            this.RundenAnzahlRechts.Size = new System.Drawing.Size(100, 13);
+            this.RundenAnzahlRechts.TabIndex = 6;
+            // 
+            // RundenAnzahlLinks
+            // 
+            this.RundenAnzahlLinks.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.RundenAnzahlLinks.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.RundenAnzahlLinks.Cursor = System.Windows.Forms.Cursors.No;
+            this.RundenAnzahlLinks.Enabled = false;
+            this.RundenAnzahlLinks.ForeColor = System.Drawing.SystemColors.Info;
+            this.RundenAnzahlLinks.Location = new System.Drawing.Point(33, 434);
+            this.RundenAnzahlLinks.Name = "RundenAnzahlLinks";
+            this.RundenAnzahlLinks.Size = new System.Drawing.Size(100, 13);
+            this.RundenAnzahlLinks.TabIndex = 7;
+            this.RundenAnzahlLinks.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            // 
             // GameForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(734, 461);
+            this.Controls.Add(this.RundenAnzahlLinks);
+            this.Controls.Add(this.RundenAnzahlRechts);
             this.Controls.Add(this.RundenzahlB);
             this.Controls.Add(this.GewonnenRundenA);
             this.Controls.Add(this.TextBoxRechterSpieler);
@@ -135,5 +163,7 @@
         private System.Windows.Forms.TextBox TextBoxRechterSpieler;
         private System.Windows.Forms.TextBox GewonnenRundenA;
         private System.Windows.Forms.TextBox RundenzahlB;
+        private System.Windows.Forms.TextBox RundenAnzahlRechts;
+        private System.Windows.Forms.TextBox RundenAnzahlLinks;
     }
 }
