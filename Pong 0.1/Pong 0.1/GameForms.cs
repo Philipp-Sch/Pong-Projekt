@@ -23,16 +23,8 @@ namespace Pong_0._1
         int BalkenBY;
         int BalkenHeight;
         int BalkenWidth;
-
-
-        int Rechts = 0;
-        int Links = 0;
-        string Punktzahl;
-        int MaxPunktzahl = 5;
-        int MaxRunden;
-        int RundenLinks;
-        int RundenRechts;
-        string Rundenanzahl;
+        int Rechts;
+        int Links;
 
 
         bool BalkenAHoch = false;
@@ -65,22 +57,7 @@ namespace Pong_0._1
             }
             if (Alarm == 0)
             {
-                Punktzahl = Links.ToString();
-                TextBoxLinkerSpieler.Clear();
-                TextBoxLinkerSpieler.AppendText(Punktzahl);
-                Punktzahl = Rechts.ToString();
-                TextBoxRechterSpieler.Clear();
-                TextBoxRechterSpieler.AppendText(Punktzahl);
 
-                Rundenanzahl = RundenLinks.ToString();
-                RundenAnzahlLinks.Clear();
-                RundenAnzahlLinks.AppendText(Rundenanzahl);
-                Rundenanzahl = RundenRechts.ToString();
-                RundenAnzahlRechts.Clear();
-                RundenAnzahlRechts.AppendText(Rundenanzahl);
-
-                
-              
                 Ballradius = 25;
                 BalkenHeight = 100;
                 BalkenWidth = 25;
@@ -120,36 +97,19 @@ namespace Pong_0._1
             }
             if (BallX == Width - Ballradius)
             {
-                Links++;
                 RechtsLinks = false;
-                Alarm = 0;
             }
-            if (Bally == 440)
+            if (Bally == Height - Ballradius)
             {
                 ObenUnten = false;
             }
             if (BallX==0)
             {
-                Rechts++;
                 RechtsLinks = true;
-                Alarm = 0;
-            }
-            if(Links == MaxPunktzahl)
-            {
-                Alarm = 0;
-                Links = 0;
-                Rechts = 0;
-                RundenLinks++;
-            }
-            if(Rechts==MaxPunktzahl)
-            {
-                Alarm = 0;
-                Links = 0;
-                Rechts = 0;
-                RundenRechts++;
-
             }
 
+            }
+        
             if (RundenRechts==MaxRunden)
             {
 
@@ -214,7 +174,7 @@ namespace Pong_0._1
                 BalkenBY += 10;
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }
