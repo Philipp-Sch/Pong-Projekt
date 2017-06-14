@@ -12,6 +12,7 @@ namespace Pong_0._1
 {
     public partial class GameForms : Form
     {
+        //sdfdfgfdg
         Timer myTimer;
         int Alarm = 0;
         int BallX;
@@ -23,8 +24,16 @@ namespace Pong_0._1
         int BalkenBY;
         int BalkenHeight;
         int BalkenWidth;
-        int Rechts;
-        int Links;
+
+
+        int Rechts = 0;
+        int Links = 0;
+        string Punktzahl;
+        int MaxPunktzahl = 5;
+        int MaxRunden;
+        int RundenLinks;
+        int RundenRechts;
+        string Rundenanzahl;
 
 
         bool BalkenAHoch = false;
@@ -53,11 +62,26 @@ namespace Pong_0._1
             myTimer.Stop();
             if (Alarm ==1)
             {
-                System.Threading.Thread.Sleep(1000);
+                //System.Threading.Thread.Sleep(1000);
             }
             if (Alarm == 0)
             {
+                Punktzahl = Links.ToString();
+                TextBoxLinkerSpieler.Clear();
+                TextBoxLinkerSpieler.AppendText(Punktzahl);
+                Punktzahl = Rechts.ToString();
+                TextBoxRechterSpieler.Clear();
+                TextBoxRechterSpieler.AppendText(Punktzahl);
 
+                Rundenanzahl = RundenLinks.ToString();
+                RundenAnzahlLinks.Clear();
+                RundenAnzahlLinks.AppendText(Rundenanzahl);
+                Rundenanzahl = RundenRechts.ToString();
+                RundenAnzahlRechts.Clear();
+                RundenAnzahlRechts.AppendText(Rundenanzahl);
+
+                
+              
                 Ballradius = 25;
                 BalkenHeight = 100;
                 BalkenWidth = 25;
@@ -97,26 +121,33 @@ namespace Pong_0._1
             }
             if (BallX == Width - Ballradius)
             {
+                Links++;
                 RechtsLinks = false;
+                Alarm = 0;
             }
-            if (Bally == Height - Ballradius)
+            if (Bally == 440)
             {
                 ObenUnten = false;
             }
             if (BallX==0)
             {
+                Rechts++;
                 RechtsLinks = true;
+                Alarm = 0;
             }
-
-            }
-        
-            if (RundenRechts==MaxRunden)
+            if(Links == MaxPunktzahl)
             {
-
-                
+                Alarm = 0;
+                Links = 0;
+                Rechts = 0;
+                RundenLinks++;
             }
-            if(RundenLinks==MaxRunden)
+            if(Rechts==MaxPunktzahl)
             {
+                Alarm = 0;
+                Links = 0;
+                Rechts = 0;
+                RundenRechts++;
 
             }
             Balkenbewegung();//Bei Buttonklick balken änderung
@@ -140,13 +171,21 @@ namespace Pong_0._1
         private void GameForms_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Down)
+
                 BalkenBRunter = true;
+
+
             if (e.KeyCode == Keys.S)
                 BalkenARunter = true;
+
+
             if (e.KeyCode == Keys.Up)
                 BalkenBHoch = true;
+
+
             if (e.KeyCode == Keys.W)
                 BalkenAHoch = true;
+
         }
 
         private void GameForms_KeyUp(object sender, KeyEventArgs e)
@@ -164,17 +203,41 @@ namespace Pong_0._1
         private void Balkenbewegung()
         {
             if (BalkenAHoch == true)
-                BalkenAY -= 10;
+            {
+                if(BalkenAY -10 >= 0)
+                {
+                    BalkenAY -= 10;
+                }
+            }
+
             else if (BalkenARunter == true)
-                BalkenAY += 10;
+            {
+                if(BalkenAY +140 +10 <= this.Height)
+                {
+                    BalkenAY += 10;
+                }
+            }
 
             if (BalkenBHoch == true)
-                BalkenBY -= 10;
-            else if (BalkenBRunter == true)
-                BalkenBY += 10;
+            {
+                if(BalkenBY -10 >= 0)
+                {
+                    BalkenBY -= 10;
+                }
+            }
+
+            else if(BalkenBRunter == true)
+            {
+                if(BalkenBY +140 +10 <= this.Height)
+                {
+                    BalkenBY += 10;
+                }
+            }
+
+
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
         }
