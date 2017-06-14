@@ -120,6 +120,9 @@
             this.StopLabel.Size = new System.Drawing.Size(150, 51);
             this.StopLabel.TabIndex = 5;
             this.StopLabel.Text = "Abbrechen";
+            this.StopLabel.Click += new System.EventHandler(this.StopLabel_Click);
+            this.StopLabel.MouseEnter += new System.EventHandler(this.StopLabel_MouseEnter);
+            this.StopLabel.MouseLeave += new System.EventHandler(this.StopLabel_MouseLeave);
             // 
             // SaveLabel
             // 
@@ -132,6 +135,8 @@
             this.SaveLabel.TabIndex = 6;
             this.SaveLabel.Text = "Speichern";
             this.SaveLabel.Click += new System.EventHandler(this.SaveLabel_Click);
+            this.SaveLabel.MouseEnter += new System.EventHandler(this.SaveLabel_MouseEnter);
+            this.SaveLabel.MouseLeave += new System.EventHandler(this.SaveLabel_MouseLeave);
             // 
             // SettingsForms
             // 
