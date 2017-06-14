@@ -23,6 +23,9 @@ namespace Pong_0._1
         int BalkenBY;
         int BalkenHeight;
         int BalkenWidth;
+        int Rechts;
+        int Links;
+        int Warten;
 
         bool BalkenAHoch = false;
         bool BalkenARunter = false;
@@ -50,6 +53,7 @@ namespace Pong_0._1
             myTimer.Stop();
             if (Alarm == 0)
             {
+              
                 Ballradius = 25;
                 BalkenHeight = 100;
                 BalkenWidth = 25;
@@ -62,6 +66,7 @@ namespace Pong_0._1
 
                 BalkenBX = (this.Width - this.Width / 10);
                 BalkenBY = this.Height / 2 - BalkenHeight;
+                System.Threading.Thread.Sleep(3000);
 
             }
             Alarm++;
@@ -84,7 +89,7 @@ namespace Pong_0._1
             }
             if (Bally == 0)
             {
-                ObenUnten = false;
+                ObenUnten = true;
             }
             if (BallX == Width - Ballradius)
             {
@@ -93,6 +98,10 @@ namespace Pong_0._1
             if (Bally == Height - Ballradius)
             {
                 ObenUnten = false;
+            }
+            if (BallX==0)
+            {
+                RechtsLinks = true;
             }
 
             Balkenbewegung();//Bei Buttonklick balken änderung
