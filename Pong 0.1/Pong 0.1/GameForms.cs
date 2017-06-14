@@ -12,6 +12,7 @@ namespace Pong_0._1
 {
     public partial class GameForms : Form
     {
+        //sdfdfgfdg
         Timer myTimer;
         int Alarm = 0;
         int BallX;
