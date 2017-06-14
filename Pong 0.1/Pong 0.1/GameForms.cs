@@ -61,7 +61,7 @@ namespace Pong_0._1
             myTimer.Stop();
             if (Alarm ==1)
             {
-                //System.Threading.Thread.Sleep(1000);
+                System.Threading.Thread.Sleep(1000);
             }
             if (Alarm == 0)
             {
