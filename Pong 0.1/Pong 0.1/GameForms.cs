@@ -48,7 +48,7 @@ namespace Pong_0._1
         private void TimerEventProcessor(Object myObject, EventArgs myEventArgs)
         {
             myTimer.Stop();
-            if(Alarm==0)
+            if (Alarm == 0)
             {
                 Ballradius = 25;
                 BalkenHeight = 100;
@@ -70,11 +70,11 @@ namespace Pong_0._1
             {
                 BallX = BallX + 1;
             }
-            if(RechtsLinks==false)
+            if (RechtsLinks == false)
             {
                 BallX = BallX - 1;
             }
-            if(ObenUnten== true)
+            if (ObenUnten == true)
             {
                 Bally = Bally + 1;
             }
@@ -86,18 +86,14 @@ namespace Pong_0._1
             {
                 ObenUnten = false;
             }
-            if (BallX == Width-Ballradius)
+            if (BallX == Width - Ballradius)
             {
                 RechtsLinks = false;
             }
-            if(Bally==Height-Ballradius)
+            if (Bally == Height - Ballradius)
             {
                 ObenUnten = false;
             }
-
-        private void TimerEventProcessor(Object myObject, EventArgs myEventArgs)
-        {
-            myTimer.Stop();
 
             Balkenbewegung();//Bei Buttonklick balken änderung
             Invalidate();
