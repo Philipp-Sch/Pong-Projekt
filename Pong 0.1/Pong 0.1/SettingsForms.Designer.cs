@@ -33,6 +33,8 @@
             this.RoundLabel = new System.Windows.Forms.Label();
             this.RoundComboBox = new System.Windows.Forms.ComboBox();
             this.GoalComboBox = new System.Windows.Forms.ComboBox();
+            this.StopLabel = new System.Windows.Forms.Label();
+            this.SaveLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // SettLabel
@@ -108,12 +110,37 @@
             this.GoalComboBox.Size = new System.Drawing.Size(74, 42);
             this.GoalComboBox.TabIndex = 4;
             // 
+            // StopLabel
+            // 
+            this.StopLabel.AutoSize = true;
+            this.StopLabel.Font = new System.Drawing.Font("Niagara Engraved", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.StopLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.StopLabel.Location = new System.Drawing.Point(41, 386);
+            this.StopLabel.Name = "StopLabel";
+            this.StopLabel.Size = new System.Drawing.Size(150, 51);
+            this.StopLabel.TabIndex = 5;
+            this.StopLabel.Text = "Abbrechen";
+            // 
+            // SaveLabel
+            // 
+            this.SaveLabel.AutoSize = true;
+            this.SaveLabel.Font = new System.Drawing.Font("Niagara Engraved", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SaveLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.SaveLabel.Location = new System.Drawing.Point(534, 386);
+            this.SaveLabel.Name = "SaveLabel";
+            this.SaveLabel.Size = new System.Drawing.Size(144, 51);
+            this.SaveLabel.TabIndex = 6;
+            this.SaveLabel.Text = "Speichern";
+            this.SaveLabel.Click += new System.EventHandler(this.SaveLabel_Click);
+            // 
             // SettingsForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(734, 461);
+            this.Controls.Add(this.SaveLabel);
+            this.Controls.Add(this.StopLabel);
             this.Controls.Add(this.GoalComboBox);
             this.Controls.Add(this.RoundComboBox);
             this.Controls.Add(this.RoundLabel);
@@ -134,5 +161,7 @@
         private System.Windows.Forms.Label RoundLabel;
         private System.Windows.Forms.ComboBox RoundComboBox;
         private System.Windows.Forms.ComboBox GoalComboBox;
+        private System.Windows.Forms.Label StopLabel;
+        private System.Windows.Forms.Label SaveLabel;
     }
 }
