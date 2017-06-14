@@ -10,7 +10,7 @@ namespace Pong_0._1
     {
         public Collider()
         {
-
+            //1
         }
     }
 }
