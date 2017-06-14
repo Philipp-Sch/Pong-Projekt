@@ -149,6 +149,16 @@ namespace Pong_0._1
                 RundenRechts++;
 
             }
+
+            if (RundenRechts==MaxRunden)
+            {
+
+                
+            }
+            if(RundenLinks==MaxRunden)
+            {
+
+            }
             Balkenbewegung();//Bei Buttonklick balken änderung
             Invalidate();
             myTimer.Start();
