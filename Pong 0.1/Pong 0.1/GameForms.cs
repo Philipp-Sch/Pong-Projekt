@@ -84,7 +84,7 @@ namespace Pong_0._1
             }
             if (Bally == 0)
             {
-                ObenUnten = false;
+                ObenUnten = true;
             }
             if (BallX == Width - Ballradius)
             {
@@ -93,6 +93,10 @@ namespace Pong_0._1
             if (Bally == Height - Ballradius)
             {
                 ObenUnten = false;
+            }
+            if (BallX==0)
+            {
+                RechtsLinks = true;
             }
 
             Balkenbewegung();//Bei Buttonklick balken änderung
