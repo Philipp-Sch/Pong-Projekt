@@ -97,12 +97,9 @@ namespace Pong_0._1
                 ObenUnten = false;
             }
 
-            //Linker Balken Collesion überprüfen
-            Collisionlinks = myCollider.Collision(BallX,BallX + Ballradius,Bally,Bally + Ballradius,BalkenAX,BalkenAX + BalkenWidth,BalkenAY,BalkenAY + BalkenHeight);
-            //Rechter Balken Collesion überprüfen
-            Collisionrechts = myCollider.Collision(BallX, BallX + Ballradius, Bally, Bally + Ballradius, BalkenBX, BalkenBX + BalkenWidth, BalkenBY, BalkenBY + BalkenHeight);
+            BallBalkenCollision();//Guckt ob Collision am Linken Balken oder Rechtem Balken stattfindet
 
-            Balkenbewegung();//Bei Buttonklick balken änderung
+            Balkenbewegung();//Bei Buttonklick Balkenänderung
             Invalidate();
             myTimer.Start();
         }
@@ -155,6 +152,30 @@ namespace Pong_0._1
                 BalkenBY -= 10;
             else if (BalkenBRunter == true)
                 BalkenBY += 10;
+        }
+
+        private void BallBalkenCollision()
+        {
+            //Linker Balken Collesion überprüfen
+            Collisionlinks = myCollider.Collision(BallX, BallX + Ballradius, Bally, Bally + Ballradius, BalkenAX, BalkenAX + BalkenWidth, BalkenAY, BalkenAY + BalkenHeight);
+            //Rechter Balken Collesion überprüfen
+            Collisionrechts = myCollider.Collision(BallX, BallX + Ballradius, Bally, Bally + Ballradius, BalkenBX, BalkenBX + BalkenWidth, BalkenBY, BalkenBY + BalkenHeight);
+
+            if (Collisionlinks == true || Collisionlinks == true)
+                Ballspieglung();
+        }
+
+        private void Ballspieglung()
+        {
+            if (ObenUnten = true)
+                ObenUnten = false;
+            else if (ObenUnten = false)
+                ObenUnten = true;
+
+            if (RechtsLinks = true)
+                RechtsLinks = false;
+            else if (RechtsLinks = false)
+                RechtsLinks = true;
         }
     }
 }
