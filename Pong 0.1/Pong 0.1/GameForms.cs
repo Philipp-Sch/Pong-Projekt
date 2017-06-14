@@ -35,6 +35,7 @@ namespace Pong_0._1
 
         bool Collisionrechts;
         bool Collisionlinks;
+        bool Test;
         public GameForms()
         {
             DoubleBuffered = true;
@@ -96,6 +97,7 @@ namespace Pong_0._1
             {
                 ObenUnten = false;
             }
+
             //Linker Balken Collesion überprüfen
             Collisionlinks = myCollider.Collision(BallX,BallX + Ballradius,Bally,Bally + Ballradius,BalkenAX,BalkenAX + BalkenWidth,BalkenAY,BalkenAY + BalkenHeight);
             //Rechter Balken Collesion überprüfen
