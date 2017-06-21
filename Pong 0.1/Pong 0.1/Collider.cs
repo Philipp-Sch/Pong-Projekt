@@ -41,22 +41,22 @@ namespace Pong_0._1
 
             if (XA1 < XB1 && XB1 < XA2)
                 CollisionX = true;
-            if (XA1 < XB2 && XB2 < XA2)
+            else if (XA1 < XB2 && XB2 < XA2)
                 CollisionX = true;
-            if (XB1 < XA1 && XA2 < XB2)
+            else if (XB1 < XA1 && XA2 < XB2)
                 CollisionX = true;
-            if (XA1 < XB1 && XB2 < XA2)
+            else if (XA1 < XB1 && XB2 < XA2)
                 CollisionX = true;
             else
                 CollisionX = false;
 
             if (YA1 < YB1 && YB1 < YA2)
                 CollisionY = true;
-            if (YA1 < YB2 && YB2 < YA2)
+            else if (YA1 < YB2 && YB2 < YA2)
                 CollisionY = true;
-            if (YB1 < YA1 && YA2 < YB2)
+            else if (YB1 < YA1 && YA2 < YB2)
                 CollisionY = true;
-            if (YA1 < YB1 && YB2 < YA2)
+            else if (YA1 < YB1 && YB2 < YA2)
                 CollisionY = true;
             else
                 CollisionY = false;

@@ -14,14 +14,18 @@ namespace Pong_0._1
     {
         Collider myCollider = new Collider();
         Timer myTimer;
+
         int Alarm = 0;
         int BallX;
         int Bally;
         int Ballradius;
+
         int BalkenAX;
         int BalkenAY;
+
         int BalkenBX;
         int BalkenBY;
+
         int BalkenHeight;
         int BalkenWidth;
 
