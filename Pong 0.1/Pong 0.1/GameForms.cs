@@ -13,6 +13,7 @@ namespace Pong_0._1
     public partial class GameForms : Form
     {
         SettingsForms Settins = new SettingsForms();
+        Collider myCollider = new Collider();
 
         Timer myTimer;
 
@@ -250,17 +251,19 @@ namespace Pong_0._1
 
             if (BalkenBHoch == true)
             {
-                if(BalkenBY -10 >= 0)
+                if (BalkenBY - 10 >= 0)
                 {
-                BalkenBY -= 10;
+                    BalkenBY -= 10;
                 }
             }
 
-            else if(BalkenBRunter == true)
+            else if (BalkenBRunter == true)
             {
-                if(BalkenBY +140 +10 <= this.Height)
+                if (BalkenBY + 140 + 10 <= this.Height)
                 {
-                BalkenBY += 10;
+                    BalkenBY += 10;
+                }
+            }
         }
 
         private void BallBalkenCollision()
@@ -268,7 +271,7 @@ namespace Pong_0._1
             //Linker Balken Collesion überprüfen
             Collisionlinks = myCollider.Collision(BallX, BallX + 2 * Ballradius, Bally, Bally + 2 * Ballradius, BalkenAX, BalkenAX + BalkenWidth, BalkenAY, BalkenAY + BalkenHeight);
             //Rechter Balken Collesion überprüfen
-            Collisionrechts = myCollider.Collision(BallX, BallX + 2 * Ballradius, Bally, Bally +  2 * Ballradius, BalkenBX, BalkenBX + BalkenWidth, BalkenBY, BalkenBY + BalkenHeight);
+            Collisionrechts = myCollider.Collision(BallX, BallX + Ballradius, Bally, Bally +  2 * Ballradius, BalkenBX, BalkenBX + BalkenWidth, BalkenBY, BalkenBY + BalkenHeight);
 
             if (Collisionlinks == true)
                 Ballspieglung();
@@ -287,11 +290,6 @@ namespace Pong_0._1
                 RechtsLinks = false;
             else if (RechtsLinks == false)
                 RechtsLinks = true;
-        }
-    }
-            }
-
-
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
