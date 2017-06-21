@@ -66,21 +66,21 @@ namespace Pong_0._1
             if (Alarm == 0)
             {
                 Punktzahl = Links.ToString();
-                LinkerSpielerLabel.Text = "";
-                LinkerSpielerLabel.Text = Punktzahl;
+                //LinkerSpielerLabel.Text = "";
+                //LinkerSpielerLabel.Text = Punktzahl;
 
 
-                Punktzahl = Rechts.ToString();
-                RechterSpielerLabel.Text = "";
-                RechterSpielerLabel.Text = Punktzahl;
+                //Punktzahl = Rechts.ToString();
+                //RechterSpielerLabel.Text = "";
+                //RechterSpielerLabel.Text = Punktzahl;
         
 
-                RundenLinksLabel.Text = "";
-                RundenLinksLabel.Text = RundenLinks.ToString();
+                //RundenLinksLabel.Text = "";
+                //RundenLinksLabel.Text = RundenLinks.ToString();
 
 
-                RundenRechtsLabel.Text = "";
-                RundenRechtsLabel.Text = RundenRechts.ToString();
+                //RundenRechtsLabel.Text = "";
+                //RundenRechtsLabel.Text = RundenRechts.ToString();
                 
               
                 Ballradius = 25;
