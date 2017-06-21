@@ -282,14 +282,26 @@ namespace Pong_0._1
         private void Ballspieglung()
         {
             if (ObenUnten == true)
-                ObenUnten = false;
+            {
+                //ObenUnten = false;
+            }
+
             else if (ObenUnten == false)
-                ObenUnten = true;
+            {
+                //ObenUnten = true;
+            }
+
 
             if (RechtsLinks == true)
+            {
                 RechtsLinks = false;
+            }
+
             else if (RechtsLinks == false)
+            {
                 RechtsLinks = true;
+            }
+
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
