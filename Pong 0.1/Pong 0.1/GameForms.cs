@@ -12,6 +12,8 @@ namespace Pong_0._1
 {
     public partial class GameForms : Form
     {
+        SettingsForms Settins = new SettingsForms();
+
         Timer myTimer;
         int Alarm = 0;
         int BallX;
@@ -65,11 +67,6 @@ namespace Pong_0._1
             }
             if (Alarm == 0)
             {
-                for (int i = 1000; i >= 0; i--)
-                {
-                    TimerLabel.Text = i.ToString();
-                }
-
                 Punktzahl = Links.ToString();
                 LinkerSpielerLabel.Text = "";
                 LinkerSpielerLabel.Text = Punktzahl;

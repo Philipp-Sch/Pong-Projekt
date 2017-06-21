@@ -36,7 +36,6 @@
             this.RechterSpielerLabel = new System.Windows.Forms.Label();
             this.RundenLinksLabel = new System.Windows.Forms.Label();
             this.RundenRechtsLabel = new System.Windows.Forms.Label();
-            this.TimerLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // PlayerAPunkte
@@ -130,24 +129,12 @@
             this.RundenRechtsLabel.TabIndex = 11;
             this.RundenRechtsLabel.Text = "Runden Links";
             // 
-            // TimerLabel
-            // 
-            this.TimerLabel.AutoSize = true;
-            this.TimerLabel.Font = new System.Drawing.Font("OCR A Extended", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TimerLabel.ForeColor = System.Drawing.Color.White;
-            this.TimerLabel.Location = new System.Drawing.Point(325, 200);
-            this.TimerLabel.Name = "TimerLabel";
-            this.TimerLabel.Size = new System.Drawing.Size(100, 99);
-            this.TimerLabel.TabIndex = 12;
-            this.TimerLabel.Text = "3";
-            // 
             // GameForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(734, 461);
-            this.Controls.Add(this.TimerLabel);
             this.Controls.Add(this.RundenRechtsLabel);
             this.Controls.Add(this.RundenLinksLabel);
             this.Controls.Add(this.RechterSpielerLabel);
@@ -178,6 +165,5 @@
         private System.Windows.Forms.Label RechterSpielerLabel;
         private System.Windows.Forms.Label RundenLinksLabel;
         private System.Windows.Forms.Label RundenRechtsLabel;
-        private System.Windows.Forms.Label TimerLabel;
     }
 }
