@@ -20,6 +20,8 @@ namespace Pong_0._1
         int Bally;
         int Ballradius;
 
+        int Ballspeed;
+
         int BalkenAX;
         int BalkenAY;
 
@@ -28,7 +30,7 @@ namespace Pong_0._1
 
         int BalkenHeight;
         int BalkenWidth;
-    
+
 
         int Rechts = 0;
         int Links = 0;
@@ -59,12 +61,13 @@ namespace Pong_0._1
             myTimer.Tick += new EventHandler(TimerEventProcessor);
             myTimer.Interval = 1;
             myTimer.Start();
+            Ballspeed = 5;
         }
 
         private void TimerEventProcessor(Object myObject, EventArgs myEventArgs)
         {
             myTimer.Stop();
-            if (Alarm ==1)
+            if (Alarm == 1)
             {
                 //System.Threading.Thread.Sleep(1000);
             }
@@ -78,7 +81,7 @@ namespace Pong_0._1
                 //Punktzahl = Rechts.ToString();
                 //RechterSpielerLabel.Text = "";
                 //RechterSpielerLabel.Text = Punktzahl;
-        
+
 
                 //RundenLinksLabel.Text = "";
                 //RundenLinksLabel.Text = RundenLinks.ToString();
@@ -86,8 +89,8 @@ namespace Pong_0._1
 
                 //RundenRechtsLabel.Text = "";
                 //RundenRechtsLabel.Text = RundenRechts.ToString();
-                
-              
+
+
                 Ballradius = 25;
                 BalkenHeight = 100;
                 BalkenWidth = 25;
@@ -100,30 +103,30 @@ namespace Pong_0._1
 
                 BalkenBX = (this.Width - this.Width / 10);
                 BalkenBY = this.Height / 2 - BalkenHeight;
-                
+
 
             }
             Alarm++;
 
             BallBalkenCollision();//Guckt ob Collision am Linken Balken oder Rechtem Balken stattfindet
-            
+
             if (RechtsLinks == true)
             {
-                BallX = BallX + 1;
+                BallX = BallX + Ballspeed;
             }
             if (RechtsLinks == false)
             {
-                BallX = BallX - 1;
+                BallX = BallX - Ballspeed;
             }
             if (ObenUnten == true)
             {
-                Bally = Bally + 1;
+                Bally = Bally + Ballspeed;
             }
             if (ObenUnten == false)
             {
-                Bally = Bally - 1;
+                Bally = Bally - Ballspeed;
             }
-            if (Bally == 0)
+            if (Bally <= 0)
             {
                 ObenUnten = true;
             }
@@ -133,24 +136,24 @@ namespace Pong_0._1
                 RechtsLinks = false;
                 Alarm = 0;
             }
-            if (Bally == 440)
+            if (Bally >= 440)
             {
                 ObenUnten = false;
             }
-            if (BallX==0)
+            if (BallX <= 0)
             {
                 Rechts++;
                 RechtsLinks = true;
                 Alarm = 0;
             }
-            if(Links == MaxPunktzahl)
+            if (Links == MaxPunktzahl)
             {
                 Alarm = 0;
                 Links = 0;
                 Rechts = 0;
                 RundenLinks++;
             }
-            if(Rechts==MaxPunktzahl)
+            if (Rechts == MaxPunktzahl)
             {
                 Alarm = 0;
                 Links = 0;
@@ -159,19 +162,19 @@ namespace Pong_0._1
 
             }
 
-            if (RundenRechts==MaxRunden)
+            if (RundenRechts == MaxRunden)
             {
 
-                
+
             }
-            if(Links == MaxPunktzahl)
+            if (Links == MaxPunktzahl)
             {
                 Alarm = 0;
                 Links = 0;
                 Rechts = 0;
                 RundenLinks++;
             }
-            if(Rechts==MaxPunktzahl)
+            if (Rechts == MaxPunktzahl)
             {
                 Alarm = 0;
                 Links = 0;
@@ -186,9 +189,9 @@ namespace Pong_0._1
 
         protected override void OnPaint(PaintEventArgs e)
         {
-            e.Graphics.FillRectangle(Brushes.White, new Rectangle(BalkenAX,BalkenAY ,BalkenWidth, BalkenHeight));//BalkenA
-            e.Graphics.FillRectangle(Brushes.White, new Rectangle(BalkenBX, BalkenBY,BalkenWidth, BalkenHeight));//BalkenB
-            e.Graphics.FillEllipse(Brushes.Yellow, new Rectangle(BallX,Bally,Ballradius,Ballradius));//Ball
+            e.Graphics.FillRectangle(Brushes.White, new Rectangle(BalkenAX, BalkenAY, BalkenWidth, BalkenHeight));//BalkenA
+            e.Graphics.FillRectangle(Brushes.White, new Rectangle(BalkenBX, BalkenBY, BalkenWidth, BalkenHeight));//BalkenB
+            e.Graphics.FillEllipse(Brushes.Yellow, new Rectangle(BallX, Bally, Ballradius, Ballradius));//Ball
 
             base.OnPaint(e);
         }
@@ -233,41 +236,43 @@ namespace Pong_0._1
         {
             if (BalkenAHoch == true)
             {
-                if(BalkenAY -10 >= 0)
+                if (BalkenAY - 10 >= 0)
                 {
-                BalkenAY -= 10;
+                    BalkenAY -= 10;
                 }
             }
 
             else if (BalkenARunter == true)
             {
-                if(BalkenAY +140 +10 <= this.Height)
+                if (BalkenAY + 140 + 10 <= this.Height)
                 {
-                BalkenAY += 10;
+                    BalkenAY += 10;
                 }
             }
 
             if (BalkenBHoch == true)
             {
-                if(BalkenBY -10 >= 0)
+                if (BalkenBY - 10 >= 0)
                 {
-                BalkenBY -= 10;
+                    BalkenBY -= 10;
                 }
             }
 
-            else if(BalkenBRunter == true)
+            else if (BalkenBRunter == true)
             {
-                if(BalkenBY +140 +10 <= this.Height)
+                if (BalkenBY + 140 + 10 <= this.Height)
                 {
-                BalkenBY += 10;
+                    BalkenBY += 10;
+                }
+            }
         }
 
-        private void BallBalkenCollision()
+        public void BallBalkenCollision()
         {
             //Linker Balken Collesion überprüfen
             Collisionlinks = myCollider.Collision(BallX, BallX + 2 * Ballradius, Bally, Bally + 2 * Ballradius, BalkenAX, BalkenAX + BalkenWidth, BalkenAY, BalkenAY + BalkenHeight);
             //Rechter Balken Collesion überprüfen
-            Collisionrechts = myCollider.Collision(BallX, BallX + 2 * Ballradius, Bally, Bally +  2 * Ballradius, BalkenBX, BalkenBX + BalkenWidth, BalkenBY, BalkenBY + BalkenHeight);
+            Collisionrechts = myCollider.Collision(BallX, BallX + 2 * Ballradius, Bally, Bally + 2 * Ballradius, BalkenBX, BalkenBX + BalkenWidth, BalkenBY, BalkenBY + BalkenHeight);
 
             if (Collisionlinks == true)
                 Ballspieglung();
@@ -286,11 +291,6 @@ namespace Pong_0._1
                 RechtsLinks = false;
             else if (RechtsLinks == false)
                 RechtsLinks = true;
-        }
-    }
-            }
-
-
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
