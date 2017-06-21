@@ -54,7 +54,7 @@ namespace Pong_0._1
    
         bool Collisionrechts = false;
         bool Collisionlinks = false;
-        bool Collision = false;
+
         public GameForms()
         {
             DoubleBuffered = true;
@@ -63,7 +63,7 @@ namespace Pong_0._1
             myTimer.Tick += new EventHandler(TimerEventProcessor);
             myTimer.Interval = 1;
             myTimer.Start();
-            Ballspeed = 5;
+            Ballspeed = 1;
         }
 
         private void TimerEventProcessor(Object myObject, EventArgs myEventArgs)
@@ -111,43 +111,9 @@ namespace Pong_0._1
             Alarm++;
 
             BallBalkenCollision();//Guckt ob Collision am Linken Balken oder Rechtem Balken stattfindet
+            Ballbewegung(); //Variabelen des Balles werden bearbeitet
+            RandCollision(); //Guckt ob der Ball eine der Wände berÜhrt
 
-            if (RechtsLinks == true)
-            {
-                BallX = BallX + Ballspeed;
-            }
-            if (RechtsLinks == false)
-            {
-                BallX = BallX - Ballspeed;
-            }
-            if (ObenUnten == true)
-            {
-                Bally = Bally + Ballspeed;
-            }
-            if (ObenUnten == false)
-            {
-                Bally = Bally - Ballspeed;
-            }
-            if (Bally <= 0)
-            {
-                ObenUnten = true;
-            }
-            if (BallX == Width - Ballradius)
-            {
-                Links++;
-                RechtsLinks = false;
-                Alarm = 0;
-            }
-            if (Bally >= 440)
-            {
-                ObenUnten = false;
-            }
-            if (BallX <= 0)
-            {
-                Rechts++;
-                RechtsLinks = true;
-                Alarm = 0;
-            }
             if (Links == MaxPunktzahl)
             {
                 Alarm = 0;
@@ -161,7 +127,6 @@ namespace Pong_0._1
                 Links = 0;
                 Rechts = 0;
                 RundenRechts++;
-
             }
 
             if (RundenRechts == MaxRunden)
@@ -205,21 +170,16 @@ namespace Pong_0._1
         private void GameForms_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Down)
-
                 BalkenBRunter = true;
-
 
             if (e.KeyCode == Keys.S)
                 BalkenARunter = true;
 
-
             if (e.KeyCode == Keys.Up)
                 BalkenBHoch = true;
 
-
             if (e.KeyCode == Keys.W)
                 BalkenAHoch = true;
-
         }
 
         private void GameForms_KeyUp(object sender, KeyEventArgs e)
@@ -269,17 +229,43 @@ namespace Pong_0._1
             }
         }
 
-        public void BallBalkenCollision()
+        private void BallBalkenCollision()
         {
             //Linker Balken Collesion überprüfen
             Collisionlinks = myCollider.Collision(BallX, BallX + 2 * Ballradius, Bally, Bally + 2 * Ballradius, BalkenAX, BalkenAX + BalkenWidth, BalkenAY, BalkenAY + BalkenHeight);
             //Rechter Balken Collesion überprüfen
-            Collisionrechts = myCollider.Collision(BallX, BallX + Ballradius, Bally, Bally +  2 * Ballradius, BalkenBX, BalkenBX + BalkenWidth, BalkenBY, BalkenBY + BalkenHeight);
+            Collisionrechts = myCollider.Collision(BallX, BallX + Ballradius, Bally, Bally + 2 * Ballradius, BalkenBX, BalkenBX + BalkenWidth, BalkenBY, BalkenBY + BalkenHeight);
 
             if (Collisionlinks == true)
+            {
                 Ballspieglung();
+                Ballspeed++;
+            }
             if (Collisionrechts == true)
+            {
                 Ballspieglung();
+                Ballspeed++;
+            }
+        }
+
+        private void Ballbewegung()
+        {
+            if (RechtsLinks == true)
+            {
+                BallX = BallX + Ballspeed;
+            }
+            if (RechtsLinks == false)
+            {
+                BallX = BallX - Ballspeed;
+            }
+            if (ObenUnten == true)
+            {
+                Bally = Bally + Ballspeed;
+            }
+            if (ObenUnten == false)
+            {
+                Bally = Bally - Ballspeed;
+            }
         }
 
         private void Ballspieglung()
@@ -303,6 +289,36 @@ namespace Pong_0._1
             else if (RechtsLinks == false)
             {
                 RechtsLinks = true;
+            }
+
+        }
+
+        private void RandCollision()
+        {
+            if (BallX >= Width - Ballradius)//Colision mit dem Unteren Rand
+            {
+                Links++;
+                RechtsLinks = false;
+                Alarm = 0;
+                Ballspeed = 1;
+            }
+
+            if (BallX <= 0)//Colision mit dem Oberen Rand
+            {
+                Rechts++;
+                RechtsLinks = true;
+                Alarm = 0;
+                Ballspeed = 1;
+            }
+
+            if (Bally + 2 * Ballradius + 10 >= this.Height) //Colision mit dem Rechten Rand 
+            {
+                ObenUnten = false;
+
+            }
+            if (Bally <= 0) //Colision mit dem linken Rand 
+            {
+                ObenUnten = true;
             }
 
         }
