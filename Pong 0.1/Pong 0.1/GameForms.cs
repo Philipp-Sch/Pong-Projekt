@@ -12,15 +12,20 @@ namespace Pong_0._1
 {
     public partial class GameForms : Form
     {
+        Collider myCollider = new Collider();
         Timer myTimer;
+
         int Alarm = 0;
         int BallX;
         int Bally;
         int Ballradius;
+
         int BalkenAX;
         int BalkenAY;
+
         int BalkenBX;
         int BalkenBY;
+
         int BalkenHeight;
         int BalkenWidth;
     
@@ -42,7 +47,10 @@ namespace Pong_0._1
 
         bool RechtsLinks = true;
         bool ObenUnten = true;
-   
+
+        bool Collisionrechts = false;
+        bool Collisionlinks = false;
+        bool Collision = false;
         public GameForms()
         {
             DoubleBuffered = true;
@@ -51,9 +59,6 @@ namespace Pong_0._1
             myTimer.Tick += new EventHandler(TimerEventProcessor);
             myTimer.Interval = 1;
             myTimer.Start();
-
-
-            
         }
 
         private void TimerEventProcessor(Object myObject, EventArgs myEventArgs)
@@ -100,6 +105,8 @@ namespace Pong_0._1
             }
             Alarm++;
 
+            BallBalkenCollision();//Guckt ob Collision am Linken Balken oder Rechtem Balken stattfindet
+            
             if (RechtsLinks == true)
             {
                 BallX = BallX + 1;
@@ -254,6 +261,33 @@ namespace Pong_0._1
                 {
                 BalkenBY += 10;
         }
+
+        private void BallBalkenCollision()
+        {
+            //Linker Balken Collesion überprüfen
+            Collisionlinks = myCollider.Collision(BallX, BallX + 2 * Ballradius, Bally, Bally + 2 * Ballradius, BalkenAX, BalkenAX + BalkenWidth, BalkenAY, BalkenAY + BalkenHeight);
+            //Rechter Balken Collesion überprüfen
+            Collisionrechts = myCollider.Collision(BallX, BallX + 2 * Ballradius, Bally, Bally +  2 * Ballradius, BalkenBX, BalkenBX + BalkenWidth, BalkenBY, BalkenBY + BalkenHeight);
+
+            if (Collisionlinks == true)
+                Ballspieglung();
+            if (Collisionrechts == true)
+                Ballspieglung();
+        }
+
+        private void Ballspieglung()
+        {
+            if (ObenUnten == true)
+                ObenUnten = false;
+            else if (ObenUnten == false)
+                ObenUnten = true;
+
+            if (RechtsLinks == true)
+                RechtsLinks = false;
+            else if (RechtsLinks == false)
+                RechtsLinks = true;
+        }
+    }
             }
 
 
