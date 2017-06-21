@@ -55,6 +55,7 @@ namespace Pong_0._1
         bool Collisionrechts = false;
         bool Collisionlinks = false;
 
+        int letzeteCollisionsseite;//0 = Keine 1 = rechts ,2 = links
         public GameForms()
         {
             DoubleBuffered = true;
@@ -238,13 +239,21 @@ namespace Pong_0._1
 
             if (Collisionlinks == true)
             {
-                Ballspieglung();
-                Ballspeed++;
+                if (letzeteCollisionsseite == 1  || letzeteCollisionsseite == 0)
+                {
+                    Ballspieglung();
+                    Ballspeed++;
+                    letzeteCollisionsseite = 2;
+                }
             }
             if (Collisionrechts == true)
             {
-                Ballspieglung();
-                Ballspeed++;
+                if (letzeteCollisionsseite == 2 || letzeteCollisionsseite == 0)
+                {
+                    Ballspieglung();
+                    Ballspeed++;
+                    letzeteCollisionsseite = 1;
+                }
             }
         }
 
@@ -272,12 +281,10 @@ namespace Pong_0._1
         {
             if (ObenUnten == true)
             {
-                //ObenUnten = false;
             }
 
             else if (ObenUnten == false)
             {
-                //ObenUnten = true;
             }
 
 
@@ -314,11 +321,12 @@ namespace Pong_0._1
             if (Bally + 2 * Ballradius + 10 >= this.Height) //Colision mit dem Rechten Rand 
             {
                 ObenUnten = false;
-
+                letzeteCollisionsseite = 0;
             }
             if (Bally <= 0) //Colision mit dem linken Rand 
             {
                 ObenUnten = true;
+                letzeteCollisionsseite = 0;
             }
 
         }
