@@ -12,33 +12,7 @@ namespace Pong_0._1
 {
     public partial class SettingsForms : Form
     {
-        #region Variablen mit Get, Set
-        //public string PlayerAName
-        //{
-        //    get { return PlayerAName; }
-        //    set { PlayerAName = value; }
-        //}
-
-        //public string PlayerBName
-        //{
-        //    get { return PlayerBName; }
-        //    set { PlayerBName = value; }
-        //}
-
-        //public int Runden
-        //{
-        //    get { return Runden; }
-        //    set { Runden = RoundComboBox.SelectedIndex; }
-        //}
-
-        //public int Tore
-        //{
-        //    get { return Tore; }
-        //    set { Tore = value; }
-        //}
-        #endregion
-
-
+        
         public SettingsForms()
         {
             InitializeComponent();
@@ -94,6 +68,14 @@ namespace Pong_0._1
         private void GoalComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            e.Graphics.FillRectangle(Brushes.White, new Rectangle(500, 250, 200, 20));//Balken Design
+            e.Graphics.FillEllipse(Brushes.Yellow, new Rectangle(500, 200, 50, 50));//Ball Design
+
+            base.OnPaint(e);
         }
     }
 }
