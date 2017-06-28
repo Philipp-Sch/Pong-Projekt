@@ -34,8 +34,8 @@ namespace Pong_0._1
         int BalkenWidth;
 
 
-        int Rechts = 0;
-        int Links = 0;
+        int RechtsPunkte = 0;
+        int LinksPunkte = 0;
         string Punktzahl;
         int MaxPunktzahl = 5;
         int MaxRunden;
@@ -79,7 +79,7 @@ namespace Pong_0._1
             }
             if (Alarm == 0)
             {
-                Punktzahl = Links.ToString();
+                //Punktzahl = Links.ToString();
                 //LinkerSpielerLabel.Text = "";
                 //LinkerSpielerLabel.Text = Punktzahl;
 
@@ -114,19 +114,20 @@ namespace Pong_0._1
             BallBalkenCollision();//Guckt ob Collision am Linken Balken oder Rechtem Balken stattfindet
             Ballbewegung(); //Variabelen des Balles werden bearbeitet
             RandCollision(); //Guckt ob der Ball eine der Wände berÜhrt
+            TextAktuallisierung();
 
-            if (Links == MaxPunktzahl)
+            if (LinksPunkte == MaxPunktzahl)
             {
                 Alarm = 0;
-                Links = 0;
-                Rechts = 0;
+                LinksPunkte = 0;
+                RechtsPunkte = 0;
                 RundenLinks++;
             }
-            if (Rechts == MaxPunktzahl)
+            if (RechtsPunkte == MaxPunktzahl)
             {
                 Alarm = 0;
-                Links = 0;
-                Rechts = 0;
+                LinksPunkte = 0;
+                RechtsPunkte = 0;
                 RundenRechts++;
             }
 
@@ -135,21 +136,7 @@ namespace Pong_0._1
 
 
             }
-            if (Links == MaxPunktzahl)
-            {
-                Alarm = 0;
-                Links = 0;
-                Rechts = 0;
-                RundenLinks++;
-            }
-            if (Rechts == MaxPunktzahl)
-            {
-                Alarm = 0;
-                Links = 0;
-                Rechts = 0;
-                RundenRechts++;
-
-            }
+          
             Balkenbewegung();//Bei Buttonklick balken änderung
             Invalidate();
             myTimer.Start();
@@ -304,7 +291,7 @@ namespace Pong_0._1
         {
             if (BallX >= Width - Ballradius)//Colision mit dem Unteren Rand
             {
-                Links++;
+                LinksPunkte++;
                 RechtsLinks = false;
                 Alarm = 0;
                 Ballspeed = 3;
@@ -312,7 +299,7 @@ namespace Pong_0._1
 
             if (BallX <= 0)//Colision mit dem Oberen Rand
             {
-                Rechts++;
+                RechtsPunkte++;
                 RechtsLinks = true;
                 Alarm = 0;
                 Ballspeed = 3;
@@ -329,8 +316,30 @@ namespace Pong_0._1
                 letzeteCollisionsseite = 0;
             }
 
-        }
 
+
+        }
+        private void TextAktuallisierung()
+        { 
+            //Hier werden die Punkte in das Label übertragen.
+            Punktzahl = LinksPunkte.ToString();
+            LinkerSpielerLabel.Text = "";
+            LinkerSpielerLabel.Text = Punktzahl;
+            Punktzahl = RechtsPunkte.ToString();
+            RechterSpielerLabel.Text = "";
+            RechterSpielerLabel.Text = Punktzahl;
+
+            //Hier Werden die Runden in das Label übertragen. 
+
+            Rundenanzahl = RundenLinks.ToString();
+            RundenLinksLabel.Text = "";
+            RundenLinksLabel.Text = Rundenanzahl;
+
+            Rundenanzahl = RundenRechts.ToString();
+            RundenRechtsLabel.Text = "";
+            RundenRechtsLabel.Text = Rundenanzahl;
+
+        }
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
