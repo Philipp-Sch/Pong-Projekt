@@ -147,6 +147,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "GameForms";
             this.Text = "GameForms";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GameForms_FormClosing);
             this.Load += new System.EventHandler(this.GameForms_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.GameForms_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.GameForms_KeyUp);

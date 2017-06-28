@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Pong_0._1
@@ -14,8 +15,24 @@ namespace Pong_0._1
     {
         SettingsForms Settins = new SettingsForms();
         Collider myCollider = new Collider();
+        static Random rnd = new Random();
+        Rectangle PowerUp;
+        Thread powerupthread = new Thread(() => 
+        {
+            while (true)
+            {
+                if(PowerUpzeigen ==false)
+                {
+                    if (rnd.NextDouble()<0.2)
+                    {
+                        PowerUpzeigen = true;
+                    }
+                }
+                Thread.Sleep(1000);
+            }
+        });
 
-        Timer myTimer;
+        System.Windows.Forms.Timer myTimer;
 
         int Alarm = 0;
         int BallX;
@@ -26,6 +43,12 @@ namespace Pong_0._1
 
         int BalkenAX;
         int BalkenAY;
+
+        int PowerupX;
+        int PowerupY;
+        int PowerupHeight;
+        int PowerupWidth;
+        int collisionCounter;
 
         int BalkenBX;
         int BalkenBY;
@@ -54,17 +77,31 @@ namespace Pong_0._1
    
         bool Collisionrechts = false;
         bool Collisionlinks = false;
+        bool CollisionPowerUp = false;
+        static bool PowerUpzeigen = false;
 
         int letzeteCollisionsseite;//0 = Keine 1 = rechts ,2 = links
         public GameForms()
         {
             DoubleBuffered = true;
             InitializeComponent();
-            myTimer = new Timer();
+            powerupthread.Start();
+            myTimer = new System.Windows.Forms.Timer();
+
             myTimer.Tick += new EventHandler(TimerEventProcessor);
             myTimer.Interval = 1;
             myTimer.Start();
             Ballspeed = 1;
+
+            PowerupX = this.Width / 2;
+            PowerupY = this.Height / 2;
+            PowerupHeight = 50;
+            PowerupWidth = 50;
+
+            Ballradius = 25;
+            BalkenHeight = 100;
+            BalkenWidth = 25;
+
         }
 
         private void TimerEventProcessor(Object myObject, EventArgs myEventArgs)
@@ -93,10 +130,6 @@ namespace Pong_0._1
                 //RundenRechtsLabel.Text = "";
                 //RundenRechtsLabel.Text = RundenRechts.ToString();
 
-
-                Ballradius = 25;
-                BalkenHeight = 100;
-                BalkenWidth = 25;
 
                 BallX = this.Width / 2 + Ballradius;
                 Bally = this.Height / 2 + Ballradius;
@@ -157,9 +190,17 @@ namespace Pong_0._1
 
         protected override void OnPaint(PaintEventArgs e)
         {
+            PowerUp = new Rectangle(PowerupX, PowerupY, 50, 50);
+
             e.Graphics.FillRectangle(Brushes.White, new Rectangle(BalkenAX, BalkenAY, BalkenWidth, BalkenHeight));//BalkenA
             e.Graphics.FillRectangle(Brushes.White, new Rectangle(BalkenBX, BalkenBY, BalkenWidth, BalkenHeight));//BalkenB
             e.Graphics.FillEllipse(Brushes.Yellow, new Rectangle(BallX, Bally, Ballradius, Ballradius));//Ball
+
+            if (PowerUpzeigen == true)
+            {
+            e.Graphics.FillRectangle(Brushes.White, PowerUp);//PowerUp
+            }
+            
 
             base.OnPaint(e);
         }
@@ -236,6 +277,8 @@ namespace Pong_0._1
             Collisionlinks = myCollider.Collision(BallX, BallX + 2 * Ballradius, Bally, Bally + 2 * Ballradius, BalkenAX, BalkenAX + BalkenWidth, BalkenAY, BalkenAY + BalkenHeight);
             //Rechter Balken Collesion überprüfen
             Collisionrechts = myCollider.Collision(BallX, BallX + Ballradius, Bally, Bally + 2 * Ballradius, BalkenBX, BalkenBX + BalkenWidth, BalkenBY, BalkenBY + BalkenHeight);
+            //Collesion mit Powerup prüfen
+            CollisionPowerUp = myCollider.Collision(BallX, BallX + 2 * Ballradius, Bally, Bally + 2 * Ballradius, PowerupX, PowerupX + PowerupWidth, PowerupY, PowerupY + PowerupHeight);
 
             if (Collisionlinks == true)
             {
@@ -246,7 +289,7 @@ namespace Pong_0._1
                     letzeteCollisionsseite = 2;
                 }
             }
-            if (Collisionrechts == true)
+            else if (Collisionrechts == true)
             {
                 if (letzeteCollisionsseite == 2 || letzeteCollisionsseite == 0)
                 {
@@ -255,6 +298,18 @@ namespace Pong_0._1
                     letzeteCollisionsseite = 1;
                 }
             }
+
+            else if(PowerUpzeigen == true && CollisionPowerUp == true)
+            {
+                MessageBox.Show("fdffdf");
+                PowerUpzeigen = false;
+                Invalidate();
+            }
+            else
+            {
+
+            }
+
         }
 
         private void Ballbewegung()
@@ -331,9 +386,28 @@ namespace Pong_0._1
 
         }
 
+        private void Powerups()
+        {
+
+        }
+
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void GameForms_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if(powerupthread.IsAlive)
+            {
+                try
+                {
+                    powerupthread.Abort();
+                }
+                catch (Exception)
+                {
+                }
+            }
         }
     }
 }
