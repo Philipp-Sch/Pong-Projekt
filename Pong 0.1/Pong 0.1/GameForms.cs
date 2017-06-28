@@ -41,9 +41,9 @@ namespace Pong_0._1
         bool RechtsLinks = true;
         bool ObenUnten = true;
 
-        bool Collisionrechts = false;
-        bool Collisionlinks = false;
-        bool Collision = false;
+        //bool Collisionrechts = false;
+        //bool Collisionlinks = false;
+        //bool Collision = false;
 
         bool Collisionrechtsoben = false;
         bool Collisionrechtsmitte = false;
@@ -196,28 +196,43 @@ namespace Pong_0._1
             Collisionrechtsoben = myCollider.PunktQuadratCollision(BallPunktRechtsX, BallPunktRechtsY, BalkenBX, BalkenBX + BalkenWidth, BalkenBY + 2 / 3 * BalkenHeight, BalkenBY + BalkenHeight);
 
             if (Collisionlinksoben == true)
-                Ballspieglung();
+                ObenBalkenCollision();
             if (Collisionlinksmitte == true)
-                Ballspieglung();
+                MitteBalkenCollision();
             if (Collisionlinksunten == true)
-                Ballspieglung();
+                UntenBalkenCollision();
 
             if (Collisionrechtsoben == true)
-                Ballspieglung();
+                ObenBalkenCollision();
             if (Collisionrechtsmitte == true)
-                Ballspieglung();
+                MitteBalkenCollision();
             if (Collisionrechtsunten == true)
-                Ballspieglung();
+                UntenBalkenCollision();
 
         }
 
-        private void Ballspieglung()
+        private void ObenBalkenCollision()
         {
-            if (ObenUnten == true)
-                ObenUnten = false;
-            else if (ObenUnten == false)
-                ObenUnten = true;
+            ObenUnten = false;
 
+            if (RechtsLinks == true)
+                RechtsLinks = false;
+            else if (RechtsLinks == false)
+                RechtsLinks = true;
+        }
+
+        private void UntenBalkenCollision()
+        {
+            ObenUnten = true;
+
+            if (RechtsLinks == true)
+                RechtsLinks = false;
+            else if (RechtsLinks == false)
+                RechtsLinks = true;
+        }
+
+        private void MitteBalkenCollision()
+        {
             if (RechtsLinks == true)
                 RechtsLinks = false;
             else if (RechtsLinks == false)
