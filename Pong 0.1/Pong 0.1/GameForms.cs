@@ -71,11 +71,7 @@ namespace Pong_0._1
                 Ballradius = 25;
                 BalkenHeight = 100;
                 BalkenWidth = 25;
-                //Mittelpunkt des Balles an der linken/rechten Seite
-                BallPunktRechtsX = BallX + Ballradius*2;
-                BallPunktRechtsY = Bally + Ballradius;
-                BallPunktLinksX = BallX;
-                BallPunktLinksY = Bally + Ballradius;
+
 
                 BallX = this.Width / 2 + Ballradius;
                 Bally = this.Height / 2 + Ballradius;
@@ -88,6 +84,11 @@ namespace Pong_0._1
 
             }
             Alarm++;
+                //Mittelpunkt des Balles an der linken/rechten Seite
+                BallPunktRechtsX = BallX + Ballradius*2;
+                BallPunktRechtsY = Bally + Ballradius;
+                BallPunktLinksX = BallX;
+                BallPunktLinksY = Bally + Ballradius;
 
             BallBalkenCollision();//Guckt ob Collision am Linken Balken oder Rechtem Balken stattfindet
             
