@@ -75,7 +75,7 @@ namespace Pong_0._1
             myTimer.Stop();
             if (Alarm == 1)
             {
-                AnzeigeGewinner.Enabled = false;
+               
                 System.Threading.Thread.Sleep(1000);
             }
             if (Alarm == 0)
@@ -100,8 +100,9 @@ namespace Pong_0._1
             Ballbewegung(); //Variabelen des Balles werden bearbeitet
             RandCollision(); //Guckt ob der Ball eine der Wände berÜhrt
             TextAktuallisierung(); //Hier werden Informationen dem User gegeben
-            RundenAktuallisieren();           // hier werden die Runden abgeglichen
+            
             Balkenbewegung();//Bei Buttonklick balken änderung
+            RundenAktuallisieren();           // hier werden die Runden abgeglichen
             Invalidate();
             myTimer.Start();
         }
@@ -329,26 +330,36 @@ namespace Pong_0._1
             {
              
                 
-                RundenRechts = 0;
-                RundenLinks = 0;
-                AnzeigeGewinner.Text = "";
+           
+                
 
                 AnzeigeGewinner.Text = "Spieler B hat gewonnen!";
                 System.Threading.Thread.Sleep(1000);
                 AnzeigeGewinner.Text = "";
+                RundenRechts = 0;
+                RundenLinks = 0;
+                this.Visible = false;
+                Pong Form = new Pong();
+                Form.ShowDialog();
+                this.Close();
                 
             }
             if (RundenLinks == MaxRunden)
             {
                
                 
-                RundenLinks = 0;
-                RundenRechts = 0;
-                AnzeigeGewinner.Text = "";
+               
 
                 AnzeigeGewinner.Text = "Spieler A hat gewonnen!";
                 System.Threading.Thread.Sleep(1000);
                 AnzeigeGewinner.Text = "";
+
+                RundenLinks = 0;
+                RundenRechts = 0;
+                this.Visible = false;
+                Pong Form = new Pong();
+                Form.ShowDialog();
+                this.Close();
                 
                
             }
