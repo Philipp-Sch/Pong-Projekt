@@ -40,7 +40,7 @@
             // SettLabel
             // 
             this.SettLabel.AutoSize = true;
-            this.SettLabel.Font = new System.Drawing.Font("Niagara Engraved", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SettLabel.Font = new System.Drawing.Font("Niagara Engraved", 36F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SettLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.SettLabel.Location = new System.Drawing.Point(279, 21);
             this.SettLabel.Name = "SettLabel";
@@ -51,11 +51,11 @@
             // GoalLabel
             // 
             this.GoalLabel.AutoSize = true;
-            this.GoalLabel.Font = new System.Drawing.Font("Niagara Engraved", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GoalLabel.Font = new System.Drawing.Font("Niagara Engraved", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GoalLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.GoalLabel.Location = new System.Drawing.Point(110, 234);
+            this.GoalLabel.Location = new System.Drawing.Point(43, 211);
             this.GoalLabel.Name = "GoalLabel";
-            this.GoalLabel.Size = new System.Drawing.Size(217, 51);
+            this.GoalLabel.Size = new System.Drawing.Size(172, 40);
             this.GoalLabel.TabIndex = 1;
             this.GoalLabel.Text = "Anzahl der Tore";
             this.GoalLabel.Click += new System.EventHandler(this.GoalLabel_Click);
@@ -63,11 +63,11 @@
             // RoundLabel
             // 
             this.RoundLabel.AutoSize = true;
-            this.RoundLabel.Font = new System.Drawing.Font("Niagara Engraved", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RoundLabel.Font = new System.Drawing.Font("Niagara Engraved", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RoundLabel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.RoundLabel.Location = new System.Drawing.Point(110, 168);
+            this.RoundLabel.Location = new System.Drawing.Point(43, 145);
             this.RoundLabel.Name = "RoundLabel";
-            this.RoundLabel.Size = new System.Drawing.Size(244, 51);
+            this.RoundLabel.Size = new System.Drawing.Size(192, 40);
             this.RoundLabel.TabIndex = 2;
             this.RoundLabel.Text = "Anzahl der Runden";
             // 
@@ -82,8 +82,11 @@
             "3",
             "4",
             "5",
-            "6"});
-            this.RoundComboBox.Location = new System.Drawing.Point(510, 177);
+            "6",
+            "7",
+            "8",
+            "9"});
+            this.RoundComboBox.Location = new System.Drawing.Point(306, 147);
             this.RoundComboBox.Name = "RoundComboBox";
             this.RoundComboBox.Size = new System.Drawing.Size(74, 42);
             this.RoundComboBox.TabIndex = 3;
@@ -103,10 +106,11 @@
             "7",
             "8",
             "9"});
-            this.GoalComboBox.Location = new System.Drawing.Point(510, 243);
+            this.GoalComboBox.Location = new System.Drawing.Point(306, 213);
             this.GoalComboBox.Name = "GoalComboBox";
             this.GoalComboBox.Size = new System.Drawing.Size(74, 42);
             this.GoalComboBox.TabIndex = 4;
+            this.GoalComboBox.SelectedIndexChanged += new System.EventHandler(this.GoalComboBox_SelectedIndexChanged);
             // 
             // StopLabel
             // 
@@ -152,6 +156,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "SettingsForms";
             this.Text = "Einstellungen";
+            this.Load += new System.EventHandler(this.SettingsForms_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -31,6 +31,7 @@
             this.PlayLabel = new System.Windows.Forms.Label();
             this.SettingsLabel = new System.Windows.Forms.Label();
             this.ExitLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // PlayLabel
@@ -39,7 +40,7 @@
             this.PlayLabel.BackColor = System.Drawing.Color.Transparent;
             this.PlayLabel.Font = new System.Drawing.Font("Niagara Solid", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PlayLabel.ForeColor = System.Drawing.Color.White;
-            this.PlayLabel.Location = new System.Drawing.Point(330, 125);
+            this.PlayLabel.Location = new System.Drawing.Point(340, 144);
             this.PlayLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.PlayLabel.Name = "PlayLabel";
             this.PlayLabel.Size = new System.Drawing.Size(71, 51);
@@ -56,7 +57,7 @@
             this.SettingsLabel.AutoSize = true;
             this.SettingsLabel.Font = new System.Drawing.Font("Niagara Engraved", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SettingsLabel.ForeColor = System.Drawing.Color.White;
-            this.SettingsLabel.Location = new System.Drawing.Point(330, 209);
+            this.SettingsLabel.Location = new System.Drawing.Point(326, 228);
             this.SettingsLabel.Name = "SettingsLabel";
             this.SettingsLabel.Size = new System.Drawing.Size(118, 51);
             this.SettingsLabel.TabIndex = 1;
@@ -70,7 +71,7 @@
             this.ExitLabel.AutoSize = true;
             this.ExitLabel.Font = new System.Drawing.Font("Niagara Engraved", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ExitLabel.ForeColor = System.Drawing.Color.White;
-            this.ExitLabel.Location = new System.Drawing.Point(330, 288);
+            this.ExitLabel.Location = new System.Drawing.Point(342, 307);
             this.ExitLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.ExitLabel.Name = "ExitLabel";
             this.ExitLabel.Size = new System.Drawing.Size(67, 51);
@@ -80,19 +81,31 @@
             this.ExitLabel.MouseEnter += new System.EventHandler(this.ExitLabel_MouseEnter);
             this.ExitLabel.MouseLeave += new System.EventHandler(this.ExitLabel_MouseLeave);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Modern No. 20", 48F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(278, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(201, 65);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "PONG";
+            // 
             // Pong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(734, 461);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.ExitLabel);
             this.Controls.Add(this.SettingsLabel);
             this.Controls.Add(this.PlayLabel);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Pong";
-            this.Text = "s";
+            this.Text = "PONG";
             this.Load += new System.EventHandler(this.Pong_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -104,6 +117,7 @@
         private System.Windows.Forms.Label PlayLabel;
         private System.Windows.Forms.Label SettingsLabel;
         private System.Windows.Forms.Label ExitLabel;
+        private System.Windows.Forms.Label label1;
     }
 }
 
