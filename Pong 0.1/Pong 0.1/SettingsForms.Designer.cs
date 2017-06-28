@@ -82,14 +82,12 @@
             "3",
             "4",
             "5",
-            "6",
-            "7",
-            "8",
-            "9"});
+            "6"});
             this.RoundComboBox.Location = new System.Drawing.Point(510, 177);
             this.RoundComboBox.Name = "RoundComboBox";
             this.RoundComboBox.Size = new System.Drawing.Size(74, 42);
             this.RoundComboBox.TabIndex = 3;
+            this.RoundComboBox.SelectedIndexChanged += new System.EventHandler(this.RoundComboBox_SelectedIndexChanged);
             // 
             // GoalComboBox
             // 
