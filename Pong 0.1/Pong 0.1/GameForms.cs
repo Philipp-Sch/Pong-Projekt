@@ -12,9 +12,7 @@ namespace Pong_0._1
 {
     public partial class GameForms : Form
     {
-        SettingsForms Settins = new SettingsForms();
         Collider myCollider = new Collider();
-
         Timer myTimer;
         
         int Alarm = 0;
@@ -41,8 +39,8 @@ namespace Pong_0._1
         int RechtsPunkte = 0;
         int LinksPunkte = 0;
         string Punktzahl;
-        int MaxPunktzahl = 3;
-        int MaxRunden = 2;
+        int MaxPunktzahl ;
+        int MaxRunden ;
         int RundenLinks;
         int RundenRechts;
         string Rundenanzahl;
@@ -70,8 +68,10 @@ namespace Pong_0._1
         bool Collisionlinks = false;
 
         int letzeteCollisionsseite;//0 = Keine 1 = rechts ,2 = links
-        public GameForms()
+        public GameForms(int Goals,int Rounds)
         {
+            MaxRunden = Rounds;
+            MaxPunktzahl = Goals;
             DoubleBuffered = true;
             InitializeComponent();
             myTimer = new Timer();

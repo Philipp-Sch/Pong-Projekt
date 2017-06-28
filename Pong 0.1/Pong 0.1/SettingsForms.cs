@@ -14,11 +14,24 @@ namespace Pong_0._1
     {
         private int BallX, BallY;   // Position für die Animation
         private int BallVx, BallVy; // Velocity für die Animation
+        private int Rounds = 2;
+        private int Goals = 3;
         
         public SettingsForms()
         {
             InitializeComponent();
+            RoundComboBox.Text = "2";
+            GoalComboBox.Text = "3";
         }
+        //public int getRounds()
+        //{
+        //    return Rounds;
+        //}
+
+        //public int getGoals()
+        //{
+        //    return Goals;
+        //}
 
         private void GoalLabel_Click(object sender, EventArgs e)
         {
@@ -27,12 +40,13 @@ namespace Pong_0._1
 
         private void SaveLabel_Click(object sender, EventArgs e)
         {
-
+            //Goals = GoalComboBox.SelectedIndex;
+            //Rounds = RoundComboBox.SelectedIndex;
         }
 
         private void StopLabel_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Visible = false;
         }
 
         #region Schrift Effekt
@@ -80,5 +94,6 @@ namespace Pong_0._1
 
             base.OnPaint(e);
         }
+
     }
 }
