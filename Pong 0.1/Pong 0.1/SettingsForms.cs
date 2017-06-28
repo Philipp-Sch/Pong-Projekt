@@ -12,6 +12,8 @@ namespace Pong_0._1
 {
     public partial class SettingsForms : Form
     {
+        private int BallX, BallY;   // Position für die Animation
+        private int BallVx, BallVy; // Velocity für die Animation
         
         public SettingsForms()
         {
@@ -72,8 +74,9 @@ namespace Pong_0._1
 
         protected override void OnPaint(PaintEventArgs e)
         {
+
             e.Graphics.FillRectangle(Brushes.White, new Rectangle(500, 250, 200, 20));//Balken Design
-            e.Graphics.FillEllipse(Brushes.Yellow, new Rectangle(500, 200, 50, 50));//Ball Design
+            e.Graphics.FillEllipse(Brushes.Yellow, new Rectangle(575, 200, 50, 50));//Ball Design
 
             base.OnPaint(e);
         }
