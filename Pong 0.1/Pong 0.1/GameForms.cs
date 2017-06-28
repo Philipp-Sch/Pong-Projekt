@@ -64,8 +64,8 @@ namespace Pong_0._1
             myTimer.Tick += new EventHandler(TimerEventProcessor);
             myTimer.Interval = 1;
             myTimer.Start();
-            Ballspeed = 5;
-            Ballradius = 50;
+            Ballspeed = 3;
+            Ballradius = 25;
             BalkenHeight = 100;
             BalkenWidth = 25;
         }
@@ -307,7 +307,7 @@ namespace Pong_0._1
                 Links++;
                 RechtsLinks = false;
                 Alarm = 0;
-                Ballspeed = 1;
+                Ballspeed = 3;
             }
 
             if (BallX <= 0)//Colision mit dem Oberen Rand
@@ -315,7 +315,7 @@ namespace Pong_0._1
                 Rechts++;
                 RechtsLinks = true;
                 Alarm = 0;
-                Ballspeed = 1;
+                Ballspeed = 3;
             }
 
             if (Bally + 2 * Ballradius + 10 >= this.Height) //Colision mit dem Rechten Rand 
