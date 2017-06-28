@@ -64,7 +64,10 @@ namespace Pong_0._1
             myTimer.Tick += new EventHandler(TimerEventProcessor);
             myTimer.Interval = 1;
             myTimer.Start();
-            Ballspeed = 1;
+            Ballspeed = 5;
+            Ballradius = 50;
+            BalkenHeight = 100;
+            BalkenWidth = 25;
         }
 
         private void TimerEventProcessor(Object myObject, EventArgs myEventArgs)
@@ -94,9 +97,6 @@ namespace Pong_0._1
                 //RundenRechtsLabel.Text = RundenRechts.ToString();
 
 
-                Ballradius = 25;
-                BalkenHeight = 100;
-                BalkenWidth = 25;
 
                 BallX = this.Width / 2 + Ballradius;
                 Bally = this.Height / 2 + Ballradius;
