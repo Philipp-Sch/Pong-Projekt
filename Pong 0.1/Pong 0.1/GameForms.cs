@@ -76,7 +76,7 @@ namespace Pong_0._1
             myTimer.Stop();
             if (Alarm == 1)
             {
-               
+
                 System.Threading.Thread.Sleep(1000);
             }
             if (Alarm == 0)
@@ -101,7 +101,6 @@ namespace Pong_0._1
             Ballbewegung(); //Variabelen des Balles werden bearbeitet
             RandCollision(); //Guckt ob der Ball eine der Wände berÜhrt
             TextAktuallisierung(); //Hier werden Informationen dem User gegeben
-            
             Balkenbewegung();//Bei Buttonklick balken änderung
             RundenAktuallisieren();           // hier werden die Runden abgeglichen
             Invalidate();
@@ -255,35 +254,34 @@ namespace Pong_0._1
 
         private void RandCollision()
         {
-            if (BallX >= Width - Ballradius)//Colision mit dem Unteren Rand
             {
-                LinksPunkte++;
-                RechtsLinks = false;
-                Alarm = 0;
-                Ballspeed = 3;
+                if (BallX >= Width - Ballradius)//Colision mit dem Rechten Rand
+                {
+                    LinksPunkte++;
+                    RechtsLinks = false;
+                    Alarm = 0;
+                    Ballspeed = 3;
+                }
+
+                if (BallX <= 0)//Colision mit dem linken Rand 
+                {
+                    RechtsPunkte++;
+                    RechtsLinks = true;
+                    Alarm = 0;
+                    Ballspeed = 3;
+                }
+
+                if (Bally + 2 * Ballradius + 10 >= this.Height) //Colision mit dem Unteren Rand
+                {
+                    ObenUnten = false;
+                    letzeteCollisionsseite = 0;
+                }
+                if (Bally <= 0) //Colision mit dem Oberen Rand
+                {
+                    ObenUnten = true;
+                    letzeteCollisionsseite = 0;
+                }
             }
-
-            if (BallX <= 0)//Colision mit dem Oberen Rand
-            {
-                RechtsPunkte++;
-                RechtsLinks = true;
-                Alarm = 0;
-                Ballspeed = 3;
-            }
-
-            if (Bally + 2 * Ballradius + 10 >= this.Height) //Colision mit dem Rechten Rand 
-            {
-                ObenUnten = false;
-                letzeteCollisionsseite = 0;
-            }
-            if (Bally <= 0) //Colision mit dem linken Rand 
-            {
-                ObenUnten = true;
-                letzeteCollisionsseite = 0;
-            }
-
-
-
         }
         private void TextAktuallisierung()
         { 
@@ -329,11 +327,6 @@ namespace Pong_0._1
 
             if (RundenRechts == MaxRunden)
             {
-
-
-
-
-
                 AnzeigeGewinner.Text = GewinnRechts;
                 System.Threading.Thread.Sleep(3000);
                 AnzeigeGewinner.Text = "";
@@ -347,10 +340,6 @@ namespace Pong_0._1
             }
             if (RundenLinks == MaxRunden)
             {
-
-
-
-
                 AnzeigeGewinner.Text = GewinnLinks;
                 System.Threading.Thread.Sleep(3000);
                 AnzeigeGewinner.Text = "";
@@ -361,12 +350,7 @@ namespace Pong_0._1
                 Pong Form = new Pong();
                 Form.ShowDialog();
                 this.Close();
-                
-               
             }
-
-            
-          
         }
     }
 }
