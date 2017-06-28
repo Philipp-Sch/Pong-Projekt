@@ -21,6 +21,10 @@ namespace Pong_0._1
         int BallX;
         int Bally;
         int Ballradius;
+        int BallPunktLinksX;
+        int BallPunktLinksY;
+        int BallPunktRechtsX;
+        int BallPunktRechtsY;
 
         int Ballspeed;
 
@@ -52,6 +56,19 @@ namespace Pong_0._1
 
         bool RechtsLinks = true;
         bool ObenUnten = true;
+
+        //bool Collisionrechts = false;
+        //bool Collisionlinks = false;
+        //bool Collision = false;
+
+        bool Collisionrechtsoben = false;
+        bool Collisionrechtsmitte = false;
+        bool Collisionrechtsunten = false;
+
+        bool Collisionlinksoben = false;
+        bool Collisionlinksmitte = false;
+        bool Collisionlinksunten = false;
+
    
         bool Collisionrechts = false;
         bool Collisionlinks = false;
@@ -96,6 +113,11 @@ namespace Pong_0._1
 
             }
             Alarm++;
+                //Mittelpunkt des Balles an der linken/rechten Seite
+                BallPunktRechtsX = BallX + Ballradius*2;
+                BallPunktRechtsY = Bally + Ballradius;
+                BallPunktLinksX = BallX;
+                BallPunktLinksY = Bally + Ballradius;
 
             BallBalkenCollision();//Guckt ob Collision am Linken Balken oder Rechtem Balken stattfindet
             Ballbewegung(); //Variabelen des Balles werden bearbeitet
@@ -184,10 +206,36 @@ namespace Pong_0._1
 
         private void BallBalkenCollision()
         {
-            //Linker Balken Collesion überprüfen
-            Collisionlinks = myCollider.Collision(BallX, BallX + 2 * Ballradius, Bally, Bally + 2 * Ballradius, BalkenAX, BalkenAX + BalkenWidth, BalkenAY, BalkenAY + BalkenHeight);
-            //Rechter Balken Collesion überprüfen
-            Collisionrechts = myCollider.Collision(BallX, BallX + Ballradius, Bally, Bally + 2 * Ballradius, BalkenBX, BalkenBX + BalkenWidth, BalkenBY, BalkenBY + BalkenHeight);
+            ////Linker Balken Collesion überprüfen
+            //Collisionlinks = myCollider.Collision(BallX, BallX + 2 * Ballradius, Bally, Bally + 2 * Ballradius, BalkenAX, BalkenAX + BalkenWidth, BalkenAY, BalkenAY + BalkenHeight);
+            ////Rechter Balken Collesion überprüfen
+            //Collisionrechts = myCollider.Collision(BallX, BallX + 2 * Ballradius, Bally, Bally + 2 * Ballradius, BalkenBX, BalkenBX + BalkenWidth, BalkenBY, BalkenBY + BalkenHeight);
+            //if (Collisionlinks == true)
+            //    Ballspieglung();
+            //if (Collisionrechts == true)
+            //    Ballspieglung();
+
+            Collisionlinksoben = myCollider.PunktQuadratCollision(BallPunktLinksX, BallPunktLinksY, BalkenAX, BalkenAX + BalkenWidth, BalkenAY, BalkenAY + 1 / 3 * BalkenHeight);
+            Collisionlinksoben = myCollider.PunktQuadratCollision(BallPunktLinksX, BallPunktLinksY, BalkenAX, BalkenAX + BalkenWidth, BalkenAY + 1 / 3 * BalkenHeight, BalkenAY + 2 / 3 * BalkenHeight);
+            Collisionlinksoben = myCollider.PunktQuadratCollision(BallPunktLinksX, BallPunktLinksY, BalkenAX, BalkenAX + BalkenWidth, BalkenAY + 2 / 3 * BalkenHeight, BalkenAY + BalkenHeight);
+
+            Collisionrechtsoben = myCollider.PunktQuadratCollision(BallPunktRechtsX, BallPunktRechtsY, BalkenBX, BalkenBX + BalkenWidth, BalkenBY, BalkenBY + 1 / 3 * BalkenHeight);
+            Collisionrechtsoben = myCollider.PunktQuadratCollision(BallPunktRechtsX, BallPunktRechtsY, BalkenBX, BalkenBX + BalkenWidth, BalkenBY + 1 / 3 * BalkenHeight, BalkenBY + 2 / 3 * BalkenHeight);
+            Collisionrechtsoben = myCollider.PunktQuadratCollision(BallPunktRechtsX, BallPunktRechtsY, BalkenBX, BalkenBX + BalkenWidth, BalkenBY + 2 / 3 * BalkenHeight, BalkenBY + BalkenHeight);
+
+            if (Collisionlinksoben == true)
+                ObenBalkenCollision();
+            if (Collisionlinksmitte == true)
+                MitteBalkenCollision();
+            if (Collisionlinksunten == true)
+                UntenBalkenCollision();
+
+            if (Collisionrechtsoben == true)
+                ObenBalkenCollision();
+            if (Collisionrechtsmitte == true)
+                MitteBalkenCollision();
+            if (Collisionrechtsunten == true)
+                UntenBalkenCollision();
 
             if (Collisionlinks == true)
             {
@@ -229,17 +277,28 @@ namespace Pong_0._1
             }
         }
 
-        private void Ballspieglung()
+        private void ObenBalkenCollision()
         {
-            if (ObenUnten == true)
-            {
-            }
+            ObenUnten = false;
 
-            else if (ObenUnten == false)
-            {
-            }
+            if (RechtsLinks == true)
+                RechtsLinks = false;
+            else if (RechtsLinks == false)
+                RechtsLinks = true;
+        }
 
+        private void UntenBalkenCollision()
+        {
+            ObenUnten = true;
 
+            if (RechtsLinks == true)
+                RechtsLinks = false;
+            else if (RechtsLinks == false)
+                RechtsLinks = true;
+        }
+
+        private void MitteBalkenCollision()
+        {
             if (RechtsLinks == true)
             {
                 RechtsLinks = false;
