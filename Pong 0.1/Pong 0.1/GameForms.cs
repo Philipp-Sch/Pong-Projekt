@@ -42,7 +42,8 @@ namespace Pong_0._1
         int RundenLinks;
         int RundenRechts;
         string Rundenanzahl;
-
+        string GewinnRechts = "Spieler B hat Gewonnen!";
+        string GewinnLinks = "Spieler A hat Gewonnen!";
 
         bool BalkenAHoch = false;
         bool BalkenARunter = false;
@@ -328,13 +329,13 @@ namespace Pong_0._1
 
             if (RundenRechts == MaxRunden)
             {
-             
-                
-           
-                
 
-                AnzeigeGewinner.Text = "Spieler B hat gewonnen!";
-                System.Threading.Thread.Sleep(1000);
+
+
+
+
+                AnzeigeGewinner.Text = GewinnRechts;
+                System.Threading.Thread.Sleep(3000);
                 AnzeigeGewinner.Text = "";
                 RundenRechts = 0;
                 RundenLinks = 0;
@@ -346,12 +347,12 @@ namespace Pong_0._1
             }
             if (RundenLinks == MaxRunden)
             {
-               
-                
-               
 
-                AnzeigeGewinner.Text = "Spieler A hat gewonnen!";
-                System.Threading.Thread.Sleep(1000);
+
+
+
+                AnzeigeGewinner.Text = GewinnLinks;
+                System.Threading.Thread.Sleep(3000);
                 AnzeigeGewinner.Text = "";
 
                 RundenLinks = 0;
