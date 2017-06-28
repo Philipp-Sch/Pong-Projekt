@@ -36,6 +36,7 @@
             this.RechterSpielerLabel = new System.Windows.Forms.Label();
             this.RundenLinksLabel = new System.Windows.Forms.Label();
             this.RundenRechtsLabel = new System.Windows.Forms.Label();
+            this.AnzeigeGewinner = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // PlayerAPunkte
@@ -129,12 +130,24 @@
             this.RundenRechtsLabel.TabIndex = 11;
             this.RundenRechtsLabel.Text = "Runden Links";
             // 
+            // AnzeigeGewinner
+            // 
+            this.AnzeigeGewinner.AutoSize = true;
+            this.AnzeigeGewinner.Enabled = false;
+            this.AnzeigeGewinner.ForeColor = System.Drawing.Color.White;
+            this.AnzeigeGewinner.Location = new System.Drawing.Point(343, 288);
+            this.AnzeigeGewinner.Name = "AnzeigeGewinner";
+            this.AnzeigeGewinner.Size = new System.Drawing.Size(48, 13);
+            this.AnzeigeGewinner.TabIndex = 12;
+            this.AnzeigeGewinner.Text = "Kontrolle";
+            // 
             // GameForms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.ClientSize = new System.Drawing.Size(734, 461);
+            this.Controls.Add(this.AnzeigeGewinner);
             this.Controls.Add(this.RundenRechtsLabel);
             this.Controls.Add(this.RundenLinksLabel);
             this.Controls.Add(this.RechterSpielerLabel);
@@ -165,5 +178,6 @@
         private System.Windows.Forms.Label RechterSpielerLabel;
         private System.Windows.Forms.Label RundenLinksLabel;
         private System.Windows.Forms.Label RundenRechtsLabel;
+        private System.Windows.Forms.Label AnzeigeGewinner;
     }
 }

@@ -38,7 +38,7 @@ namespace Pong_0._1
         int LinksPunkte = 0;
         string Punktzahl;
         int MaxPunktzahl = 5;
-        int MaxRunden;
+        int MaxRunden = 2;
         int RundenLinks;
         int RundenRechts;
         string Rundenanzahl;
@@ -75,27 +75,11 @@ namespace Pong_0._1
             myTimer.Stop();
             if (Alarm == 1)
             {
-                //System.Threading.Thread.Sleep(1000);
+                System.Threading.Thread.Sleep(1000);
             }
             if (Alarm == 0)
             {
-                //Punktzahl = Links.ToString();
-                //LinkerSpielerLabel.Text = "";
-                //LinkerSpielerLabel.Text = Punktzahl;
-
-
-                //Punktzahl = Rechts.ToString();
-                //RechterSpielerLabel.Text = "";
-                //RechterSpielerLabel.Text = Punktzahl;
-
-
-                //RundenLinksLabel.Text = "";
-                //RundenLinksLabel.Text = RundenLinks.ToString();
-
-
-                //RundenRechtsLabel.Text = "";
-                //RundenRechtsLabel.Text = RundenRechts.ToString();
-
+              
 
 
                 BallX = this.Width / 2 + Ballradius;
@@ -114,29 +98,8 @@ namespace Pong_0._1
             BallBalkenCollision();//Guckt ob Collision am Linken Balken oder Rechtem Balken stattfindet
             Ballbewegung(); //Variabelen des Balles werden bearbeitet
             RandCollision(); //Guckt ob der Ball eine der Wände berÜhrt
-            TextAktuallisierung();
-
-            if (LinksPunkte == MaxPunktzahl)
-            {
-                Alarm = 0;
-                LinksPunkte = 0;
-                RechtsPunkte = 0;
-                RundenLinks++;
-            }
-            if (RechtsPunkte == MaxPunktzahl)
-            {
-                Alarm = 0;
-                LinksPunkte = 0;
-                RechtsPunkte = 0;
-                RundenRechts++;
-            }
-
-            if (RundenRechts == MaxRunden)
-            {
-
-
-            }
-          
+            TextAktuallisierung(); //Hier werden Informationen dem User gegeben
+            RundenAktuallisieren();           // hier werden die Runden abgeglichen
             Balkenbewegung();//Bei Buttonklick balken änderung
             Invalidate();
             myTimer.Start();
@@ -343,6 +306,42 @@ namespace Pong_0._1
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
+        }
+        private void RundenAktuallisieren()
+        {
+            if (LinksPunkte == MaxPunktzahl)
+            {
+                Alarm = 0;
+                LinksPunkte = 0;
+                RechtsPunkte = 0;
+                RundenLinks++;
+            }
+            if (RechtsPunkte == MaxPunktzahl)
+            {
+                Alarm = 0;
+                LinksPunkte = 0;
+                RechtsPunkte = 0;
+                RundenRechts++;
+            }
+
+            if (RundenRechts == MaxRunden)
+            {
+                AnzeigeGewinner.Text = "";
+                AnzeigeGewinner.Enabled = true;
+                AnzeigeGewinner.Text = "Spieler B hat gewonnen!";
+                System.Threading.Thread.Sleep(1000);
+            }
+            if (RundenLinks == MaxRunden)
+            {
+                AnzeigeGewinner.Text = "";
+                AnzeigeGewinner.Enabled = true;
+                AnzeigeGewinner.Text = "Spieler A hat gewonnen!";
+                System.Threading.Thread.Sleep(1000);
+            }
+            
+            AnzeigeGewinner.Text = "";
+            AnzeigeGewinner.Enabled = false;
+          
         }
     }
 }
