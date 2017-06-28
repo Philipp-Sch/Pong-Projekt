@@ -130,12 +130,12 @@ namespace Pong_0._1
             YB1 = yb1;//Oben
             YB2 = yb2;//Unten
 
-            if (PunktStrichHorCollision(XA1, YA1, XB1, XB2, YB1) == true)
+            if (XB1 < XA1 && XB2 > XA1)
                 CollisionX = true;
             else
                 CollisionX = false;
 
-            if (PunktStrichVerCollision(XA1, YA1, XB1, YB1, YB2) == true)
+            if (YB1 < YA1 && YB2 > YA1)
                 CollisionY = true;
             else
                 CollisionY = false;

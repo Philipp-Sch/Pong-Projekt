@@ -19,6 +19,10 @@ namespace Pong_0._1
         int BallX;
         int Bally;
         int Ballradius;
+        int BallPunktLinksX;
+        int BallPunktLinksY;
+        int BallPunktRechtsX;
+        int BallPunktRechtsY;
 
         int BalkenAX;
         int BalkenAY;
@@ -40,6 +44,15 @@ namespace Pong_0._1
         bool Collisionrechts = false;
         bool Collisionlinks = false;
         bool Collision = false;
+
+        bool Collisionrechtsoben = false;
+        bool Collisionrechtsmitte = false;
+        bool Collisionrechtsunten = false;
+
+        bool Collisionlinksoben = false;
+        bool Collisionlinksmitte = false;
+        bool Collisionlinksunten = false;
+
         public GameForms()
         {
             DoubleBuffered = true;
@@ -58,6 +71,11 @@ namespace Pong_0._1
                 Ballradius = 25;
                 BalkenHeight = 100;
                 BalkenWidth = 25;
+                //Mittelpunkt des Balles an der linken/rechten Seite
+                BallPunktRechtsX = BallX + Ballradius*2;
+                BallPunktRechtsY = Bally + Ballradius;
+                BallPunktLinksX = BallX;
+                BallPunktLinksY = Bally + Ballradius;
 
                 BallX = this.Width / 2 + Ballradius;
                 Bally = this.Height / 2 + Ballradius;
@@ -159,15 +177,37 @@ namespace Pong_0._1
 
         private void BallBalkenCollision()
         {
-            //Linker Balken Collesion überprüfen
-            Collisionlinks = myCollider.Collision(BallX, BallX + 2 * Ballradius, Bally, Bally + 2 * Ballradius, BalkenAX, BalkenAX + BalkenWidth, BalkenAY, BalkenAY + BalkenHeight);
-            //Rechter Balken Collesion überprüfen
-            Collisionrechts = myCollider.Collision(BallX, BallX + 2 * Ballradius, Bally, Bally +  2 * Ballradius, BalkenBX, BalkenBX + BalkenWidth, BalkenBY, BalkenBY + BalkenHeight);
+            ////Linker Balken Collesion überprüfen
+            //Collisionlinks = myCollider.Collision(BallX, BallX + 2 * Ballradius, Bally, Bally + 2 * Ballradius, BalkenAX, BalkenAX + BalkenWidth, BalkenAY, BalkenAY + BalkenHeight);
+            ////Rechter Balken Collesion überprüfen
+            //Collisionrechts = myCollider.Collision(BallX, BallX + 2 * Ballradius, Bally, Bally + 2 * Ballradius, BalkenBX, BalkenBX + BalkenWidth, BalkenBY, BalkenBY + BalkenHeight);
+            //if (Collisionlinks == true)
+            //    Ballspieglung();
+            //if (Collisionrechts == true)
+            //    Ballspieglung();
 
-            if (Collisionlinks == true)
+            Collisionlinksoben = myCollider.PunktQuadratCollision(BallPunktLinksX, BallPunktLinksY, BalkenAX, BalkenAX + BalkenWidth, BalkenAY, BalkenAY + 1 / 3 * BalkenHeight);
+            Collisionlinksoben = myCollider.PunktQuadratCollision(BallPunktLinksX, BallPunktLinksY, BalkenAX, BalkenAX + BalkenWidth, BalkenAY + 1 / 3 * BalkenHeight, BalkenAY + 2 / 3 * BalkenHeight);
+            Collisionlinksoben = myCollider.PunktQuadratCollision(BallPunktLinksX, BallPunktLinksY, BalkenAX, BalkenAX + BalkenWidth, BalkenAY + 2 / 3 * BalkenHeight, BalkenAY + BalkenHeight);
+
+            Collisionrechtsoben = myCollider.PunktQuadratCollision(BallPunktRechtsX, BallPunktRechtsY, BalkenBX, BalkenBX + BalkenWidth, BalkenBY, BalkenBY + 1 / 3 * BalkenHeight);
+            Collisionrechtsoben = myCollider.PunktQuadratCollision(BallPunktRechtsX, BallPunktRechtsY, BalkenBX, BalkenBX + BalkenWidth, BalkenBY + 1 / 3 * BalkenHeight, BalkenBY + 2 / 3 * BalkenHeight);
+            Collisionrechtsoben = myCollider.PunktQuadratCollision(BallPunktRechtsX, BallPunktRechtsY, BalkenBX, BalkenBX + BalkenWidth, BalkenBY + 2 / 3 * BalkenHeight, BalkenBY + BalkenHeight);
+
+            if (Collisionlinksoben == true)
                 Ballspieglung();
-            if (Collisionrechts == true)
+            if (Collisionlinksmitte == true)
                 Ballspieglung();
+            if (Collisionlinksunten == true)
+                Ballspieglung();
+
+            if (Collisionrechtsoben == true)
+                Ballspieglung();
+            if (Collisionrechtsmitte == true)
+                Ballspieglung();
+            if (Collisionrechtsunten == true)
+                Ballspieglung();
+
         }
 
         private void Ballspieglung()
