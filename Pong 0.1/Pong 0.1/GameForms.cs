@@ -16,7 +16,7 @@ namespace Pong_0._1
         Collider myCollider = new Collider();
 
         Timer myTimer;
-
+        
         int Alarm = 0;
         int BallX;
         int Bally;
@@ -37,7 +37,7 @@ namespace Pong_0._1
         int RechtsPunkte = 0;
         int LinksPunkte = 0;
         string Punktzahl;
-        int MaxPunktzahl = 5;
+        int MaxPunktzahl = 3;
         int MaxRunden = 2;
         int RundenLinks;
         int RundenRechts;
@@ -75,6 +75,7 @@ namespace Pong_0._1
             myTimer.Stop();
             if (Alarm == 1)
             {
+                AnzeigeGewinner.Enabled = false;
                 System.Threading.Thread.Sleep(1000);
             }
             if (Alarm == 0)
@@ -326,21 +327,33 @@ namespace Pong_0._1
 
             if (RundenRechts == MaxRunden)
             {
+             
+                
+                RundenRechts = 0;
+                RundenLinks = 0;
                 AnzeigeGewinner.Text = "";
-                AnzeigeGewinner.Enabled = true;
+
                 AnzeigeGewinner.Text = "Spieler B hat gewonnen!";
                 System.Threading.Thread.Sleep(1000);
+                AnzeigeGewinner.Text = "";
+                
             }
             if (RundenLinks == MaxRunden)
             {
+               
+                
+                RundenLinks = 0;
+                RundenRechts = 0;
                 AnzeigeGewinner.Text = "";
-                AnzeigeGewinner.Enabled = true;
+
                 AnzeigeGewinner.Text = "Spieler A hat gewonnen!";
                 System.Threading.Thread.Sleep(1000);
+                AnzeigeGewinner.Text = "";
+                
+               
             }
+
             
-            AnzeigeGewinner.Text = "";
-            AnzeigeGewinner.Enabled = false;
           
         }
     }

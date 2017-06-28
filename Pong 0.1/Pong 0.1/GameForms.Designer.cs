@@ -133,13 +133,13 @@
             // AnzeigeGewinner
             // 
             this.AnzeigeGewinner.AutoSize = true;
-            this.AnzeigeGewinner.Enabled = false;
+            this.AnzeigeGewinner.BackColor = System.Drawing.Color.Transparent;
             this.AnzeigeGewinner.ForeColor = System.Drawing.Color.White;
-            this.AnzeigeGewinner.Location = new System.Drawing.Point(343, 288);
+            this.AnzeigeGewinner.Location = new System.Drawing.Point(312, 431);
             this.AnzeigeGewinner.Name = "AnzeigeGewinner";
-            this.AnzeigeGewinner.Size = new System.Drawing.Size(48, 13);
+            this.AnzeigeGewinner.Size = new System.Drawing.Size(45, 13);
             this.AnzeigeGewinner.TabIndex = 12;
-            this.AnzeigeGewinner.Text = "Kontrolle";
+            this.AnzeigeGewinner.Text = "Anzeige";
             // 
             // GameForms
             // 
