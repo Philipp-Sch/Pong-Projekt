@@ -51,20 +51,7 @@
             this.PlayLabel.Click += new System.EventHandler(this.label1_Click);
             this.PlayLabel.MouseEnter += new System.EventHandler(this.PlayLabel_MouseEnter);
             this.PlayLabel.MouseLeave += new System.EventHandler(this.PlayLabel_MouseLeave);
-            // 
-            // SettingsLabel
-            // 
-            this.SettingsLabel.AutoSize = true;
-            this.SettingsLabel.Font = new System.Drawing.Font("Niagara Engraved", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SettingsLabel.ForeColor = System.Drawing.Color.White;
-            this.SettingsLabel.Location = new System.Drawing.Point(326, 228);
-            this.SettingsLabel.Name = "SettingsLabel";
-            this.SettingsLabel.Size = new System.Drawing.Size(118, 51);
-            this.SettingsLabel.TabIndex = 1;
-            this.SettingsLabel.Text = "Settings";
-            this.SettingsLabel.Click += new System.EventHandler(this.SettingsLabel_Click);
-            this.SettingsLabel.MouseEnter += new System.EventHandler(this.SettingsLabel_MouseEnter);
-            this.SettingsLabel.MouseLeave += new System.EventHandler(this.SettingsLabel_MouseLeave);
+            
             // 
             // ExitLabel
             // 
