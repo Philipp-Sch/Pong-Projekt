@@ -12,6 +12,9 @@ namespace Pong_0._1
 {
     public partial class Pong : Form
     {
+        int Goals = 3;
+        int Rounds = 2;
+        SettingsForms neuesFormular = new SettingsForms();
         public Pong()
         {
             InitializeComponent();
@@ -20,7 +23,7 @@ namespace Pong_0._1
         private void label1_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            GameForms gameform = new GameForms();
+            GameForms gameform = new GameForms(Goals,Rounds);
             gameform.ShowDialog();
             this.Close();
         }
@@ -67,8 +70,14 @@ namespace Pong_0._1
 
         private void SettingsLabel_Click(object sender, EventArgs e)
         {
-            Form neuesFormular = new SettingsForms();
-            neuesFormular.Show(this);
+            neuesFormular.ShowDialog();
+
+            //if(neuesFormular.Visible == false)
+            //{
+            //    Goals = neuesFormular.getGoals();
+            //    Rounds = neuesFormular.getRounds();
+            //    neuesFormular.Close();          
+            //}           
         }
     }
 }
