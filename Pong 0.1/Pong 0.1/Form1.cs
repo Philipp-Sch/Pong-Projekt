@@ -14,7 +14,6 @@ namespace Pong_0._1
     {
         int Goals = 3;
         int Rounds = 2;
-        SettingsForms neuesFormular = new SettingsForms();
         public Pong()
         {
             InitializeComponent();
@@ -68,16 +67,6 @@ namespace Pong_0._1
             ExitLabel.Font = new Font("Niagara Solid", 36);
         }
 
-        private void SettingsLabel_Click(object sender, EventArgs e)
-        {
-            neuesFormular.ShowDialog();
-
-            //if(neuesFormular.Visible == false)
-            //{
-            //    Goals = neuesFormular.getGoals();
-            //    Rounds = neuesFormular.getRounds();
-            //    neuesFormular.Close();          
-            //}           
-        }
+        
     }
 }
