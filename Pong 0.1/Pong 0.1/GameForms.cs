@@ -63,8 +63,8 @@ namespace Pong_0._1
         int Rechts = 0;
         int Links = 0;
         string Punktzahl;
-        int MaxPunktzahl = 5;
-        int MaxRunden;
+        int MaxPunktzahl = 7;
+        int MaxRunden=3;
         int RundenLinks;
         int RundenRechts;
         string Rundenanzahl;
@@ -124,27 +124,11 @@ namespace Pong_0._1
             myTimer.Stop();
             if (Alarm == 1)
             {
-                //System.Threading.Thread.Sleep(1000);
+                System.Threading.Thread.Sleep(1000);
             }
             if (Alarm == 0)
             {
-                Punktzahl = Links.ToString();
-                //LinkerSpielerLabel.Text = "";
-                //LinkerSpielerLabel.Text = Punktzahl;
-              
-
-                //Punktzahl = Rechts.ToString();
-                //RechterSpielerLabel.Text = "";
-                //RechterSpielerLabel.Text = Punktzahl;
-
-
-                //RundenLinksLabel.Text = "";
-                //RundenLinksLabel.Text = RundenLinks.ToString();
-
-
-                //RundenRechtsLabel.Text = "";
-                //RundenRechtsLabel.Text = RundenRechts.ToString();
-
+               
 
                 BallX = this.Width / 2 + Ballradius;
                 Bally = this.Height / 2 + Ballradius;
