@@ -169,41 +169,7 @@ namespace Pong_0._1
             Ballbewegung(); //Variabelen des Balles werden bearbeitet
             RandCollision(); //Guckt ob der Ball eine der Wände berÜhrt
 
-            if (Links == MaxPunktzahl)
-            {
-                Alarm = 0;
-                Links = 0;
-                Rechts = 0;
-                RundenLinks++;
-            }
-            if (Rechts == MaxPunktzahl)
-            {
-                Alarm = 0;
-                Links = 0;
-                Rechts = 0;
-                RundenRechts++;
-            }
-
-            if (RundenRechts == MaxRunden)
-            {
-
-
-            }
-            if (Links == MaxPunktzahl)
-            {
-                Alarm = 0;
-                Links = 0;
-                Rechts = 0;
-                RundenLinks++;
-            }
-            if (Rechts == MaxPunktzahl)
-            {
-                Alarm = 0;
-                Links = 0;
-                Rechts = 0;
-                RundenRechts++;
-
-            }
+           
             Balkenbewegung();//Bei Buttonklick balken änderung
             RundenAktuallisieren();           // hier werden die Runden abgeglichen
             Invalidate();
@@ -289,6 +255,38 @@ namespace Pong_0._1
                     BalkenBY += 10;
                 }
             }
+        }
+        private void RundenAktuallisieren()
+        {
+            if (Links == MaxPunktzahl)
+            {
+                Alarm = 0;
+                Links = 0;
+                Rechts = 0;
+                RundenLinks++;
+            }
+            if (Rechts == MaxPunktzahl)
+            {
+                Alarm = 0;
+                Links = 0;
+                Rechts = 0;
+                RundenRechts++;
+            }
+            Punktzahl = Convert.ToString(Rechts);
+            RechterSpielerLabel.Text = "";
+            RechterSpielerLabel.Text = Punktzahl;
+            Punktzahl = Convert.ToString(Links);
+            LinkerSpielerLabel.Text = "";
+            LinkerSpielerLabel.Text = Punktzahl;
+            Rundenanzahl = Convert.ToString(RundenLinks);
+            RundenLinksLabel.Text = "";
+            RundenLinksLabel.Text = Rundenanzahl;
+            Rundenanzahl = Convert.ToString(RundenRechts);
+            RundenRechtsLabel.Text = "";
+            RundenRechtsLabel.Text = Rundenanzahl;
+
+
+          
         }
 
         private void BallBalkenCollision()
