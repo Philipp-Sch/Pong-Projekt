@@ -499,31 +499,35 @@ namespace Pong_0._1
                     powerupthread.Abort();
             }
                 catch (Exception)
-            {
-                AnzeigeGewinner.Text = GewinnRechts;
-                System.Threading.Thread.Sleep(3000);
-                AnzeigeGewinner.Text = "";
-                RundenRechts = 0;
-                RundenLinks = 0;
-                this.Visible = false;
-                Pong Form = new Pong();
-                Form.ShowDialog();
-                this.Close();
-                
-            }
-            if (RundenLinks == MaxRunden)
-            {
-                AnzeigeGewinner.Text = GewinnLinks;
-                System.Threading.Thread.Sleep(3000);
-                AnzeigeGewinner.Text = "";
+                {
+                    if (RundenRechts == MaxRunden)
+                    {
+                        AnzeigeGewinner.Text = GewinnRechts;
+                        System.Threading.Thread.Sleep(3000);
+                        AnzeigeGewinner.Text = "";
+                        RundenRechts = 0;
+                        RundenLinks = 0;
+                        this.Visible = false;
+                        Pong Form = new Pong();
+                        Form.ShowDialog();
+                        this.Close();
 
-                RundenLinks = 0;
-                RundenRechts = 0;
-                this.Visible = false;
-                Pong Form = new Pong();
-                Form.ShowDialog();
-                this.Close();
-            }
+                    }
+                    if (RundenLinks == MaxRunden)
+                    {
+                        AnzeigeGewinner.Text = GewinnLinks;
+                        System.Threading.Thread.Sleep(3000);
+                        AnzeigeGewinner.Text = "";
+
+                        RundenLinks = 0;
+                        RundenRechts = 0;
+                        this.Visible = false;
+                        Pong Form = new Pong();
+                        Form.ShowDialog();
+                        this.Close();
+                    }
+                }
+              
             }
         }
     }
