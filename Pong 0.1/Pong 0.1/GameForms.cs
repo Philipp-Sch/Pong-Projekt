@@ -306,21 +306,6 @@ namespace Pong_0._1
 
         private void BallBalkenCollision()
         {
-            //Linker Balken Collesion überprüfen
-            Collisionlinks = myCollider.Collision(BallX, BallX + 2 * Ballradius, Bally, Bally + 2 * Ballradius, BalkenAX, BalkenAX + BalkenWidth, BalkenAY, BalkenAY + BalkenHeight);
-            //Rechter Balken Collesion überprüfen
-            Collisionrechts = myCollider.Collision(BallX, BallX + Ballradius, Bally, Bally + 2 * Ballradius, BalkenBX, BalkenBX + BalkenWidth, BalkenBY, BalkenBY + BalkenHeight);
-            //Collesion mit Powerup prüfen
-            CollisionPowerUp = myCollider.Collision(BallX, BallX + Ballradius, Bally, Bally + Ballradius, PowerupX, PowerupX + PowerupWidth, PowerupY, PowerupY + PowerupHeight);
-            //Alter Collider
-            ////Linker Balken Collesion überprüfen
-            //Collisionlinks = myCollider.Collision(BallX, BallX + 2 * Ballradius, Bally, Bally + 2 * Ballradius, BalkenAX, BalkenAX + BalkenWidth, BalkenAY, BalkenAY + BalkenHeight);
-            ////Rechter Balken Collesion überprüfen
-            //Collisionrechts = myCollider.Collision(BallX, BallX + 2 * Ballradius, Bally, Bally + 2 * Ballradius, BalkenBX, BalkenBX + BalkenWidth, BalkenBY, BalkenBY + BalkenHeight);
-            //if (Collisionlinks == true)
-            //    Ballspieglung();
-            //if (Collisionrechts == true)
-            //    Ballspieglung();
 
             //Neuer Collider mit 3 geteilten Balken 
             Collisionlinksoben = myCollider.PunktQuadratCollision(BallPunktLinksX, BallPunktLinksY, BalkenAX, BalkenAX + BalkenWidth, BalkenAY, BalkenAY + BalkenHeight / 3);
