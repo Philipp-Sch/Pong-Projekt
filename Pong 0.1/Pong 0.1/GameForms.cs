@@ -299,13 +299,11 @@ namespace Pong_0._1
             Rundenanzahl = Convert.ToString(RundenRechts);
             RundenRechtsLabel.Text = "";
             RundenRechtsLabel.Text = Rundenanzahl;
-
-
-          
         }
 
         private void BallBalkenCollision()
         {
+            CollisionPowerUp = myCollider.Collision(BallX, BallX + Ballradius, Bally, Bally + Ballradius, PowerupX, PowerupX + PowerupWidth, PowerupY, PowerupY + PowerupHeight);
 
             //Neuer Collider mit 3 geteilten Balken 
             Collisionlinksoben = myCollider.PunktQuadratCollision(BallPunktLinksX, BallPunktLinksY, BalkenAX, BalkenAX + BalkenWidth, BalkenAY, BalkenAY + BalkenHeight / 3);
@@ -316,19 +314,22 @@ namespace Pong_0._1
             Collisionrechtsmitte = myCollider.PunktQuadratCollision(BallPunktRechtsX, BallPunktRechtsY, BalkenBX, BalkenBX + BalkenWidth, BalkenBY + (BalkenHeight / 3), BalkenBY + 2 * (BalkenHeight / 3));
             Collisionrechtsunten = myCollider.PunktQuadratCollision(BallPunktRechtsX, BallPunktRechtsY, BalkenBX, BalkenBX + BalkenWidth, BalkenBY + 2* (BalkenHeight / 3), BalkenBY + BalkenHeight);
 
-            if (Collisionlinksoben == true && Collisionlinks == false)
+            if (Collisionlinksoben == true)
             {
+                if (Collisionlinks == false)
                 ObenBalkenCollision();
                 Collisionlinks = true;
             }
-            else if (Collisionlinksmitte == true && Collisionlinks == false)
+            else if (Collisionlinksmitte == true )
             {
-                MitteBalkenCollision();
+                if (Collisionlinks == false)
+                    MitteBalkenCollision();
                 Collisionlinks = true;
             }
-            else if (Collisionlinksunten == true && Collisionlinks == false)
+            else if (Collisionlinksunten == true)
             {
-                UntenBalkenCollision();
+                if (Collisionlinks == false)
+                    UntenBalkenCollision();
                 Collisionlinks = true;
             }
             else
@@ -337,19 +338,22 @@ namespace Pong_0._1
             }
 
 
-            if (Collisionrechtsoben == true && Collisionrechts == false)
+            if (Collisionrechtsoben == true)
             {
-                ObenBalkenCollision();
+                if (Collisionrechts == false)
+                    ObenBalkenCollision();
                 Collisionrechts = true;
             }
-            else if (Collisionrechtsmitte == true && Collisionrechts == false)
+            else if (Collisionrechtsmitte == true)
             {
-                MitteBalkenCollision();
+                if (Collisionrechts == false)
+                    MitteBalkenCollision();
                 Collisionrechts = true;
             }
-            else if (Collisionrechtsunten == true && Collisionrechts == false)
+            else if (Collisionrechtsunten == true)
             {
-                UntenBalkenCollision();
+                if (Collisionrechts == false)
+                    UntenBalkenCollision();
                 Collisionrechts = true;
             }
             else
