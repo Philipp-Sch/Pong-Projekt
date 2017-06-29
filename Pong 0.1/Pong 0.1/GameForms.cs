@@ -13,7 +13,6 @@ namespace Pong_0._1
 {
     public partial class GameForms : Form
     {
-        SettingsForms Settins = new SettingsForms();
         Collider myCollider = new Collider();
         static Random rnd = new Random();
         Rectangle PowerUp;
@@ -33,11 +32,15 @@ namespace Pong_0._1
         });
 
         System.Windows.Forms.Timer myTimer;
-
+        
         int Alarm = 0;
         int BallX;
         int Bally;
         int Ballradius;
+        int BallPunktLinksX;
+        int BallPunktLinksY;
+        int BallPunktRechtsX;
+        int BallPunktRechtsY;
 
         int Ballspeed;
 
@@ -75,7 +78,16 @@ namespace Pong_0._1
 
         bool RechtsLinks = true;
         bool ObenUnten = true;
+   
+        bool Collisionrechtsoben = false;
+        bool Collisionrechtsmitte = false;
+        bool Collisionrechtsunten = false;
 
+        bool Collisionlinksoben = false;
+        bool Collisionlinksmitte = false;
+        bool Collisionlinksunten = false;
+
+   
         bool Collisionrechts = false;
         bool Collisionlinks = false;
         bool CollisionPowerUp = false;
@@ -83,8 +95,10 @@ namespace Pong_0._1
         static bool PowerUpzeigen = false;
 
         int letzeteCollisionsseite;//0 = Keine 1 = rechts ,2 = links
-        public GameForms()
+        public GameForms(int Goals,int Rounds)
         {
+            MaxRunden = Rounds;
+            MaxPunktzahl = Goals;
             DoubleBuffered = true;
             InitializeComponent();
             powerupthread.Start();
@@ -103,7 +117,6 @@ namespace Pong_0._1
             Ballradius = 25;
             BalkenHeight = 100;
             BalkenWidth = 25;
-
         }
 
         private void TimerEventProcessor(Object myObject, EventArgs myEventArgs)
@@ -118,7 +131,7 @@ namespace Pong_0._1
                 Punktzahl = Links.ToString();
                 //LinkerSpielerLabel.Text = "";
                 //LinkerSpielerLabel.Text = Punktzahl;
-
+              
 
                 //Punktzahl = Rechts.ToString();
                 //RechterSpielerLabel.Text = "";
@@ -143,11 +156,17 @@ namespace Pong_0._1
                 BalkenBY = this.Height / 2 - BalkenHeight;
                 BallIstAmStarten = true;
 
+
             }
             Alarm++;
+                //Mittelpunkt des Balles an der linken/rechten Seite
+                BallPunktRechtsX = BallX + Ballradius;
+                BallPunktRechtsY = Bally + (Ballradius/2);
+                BallPunktLinksX = BallX;
+            BallPunktLinksY = Bally + (Ballradius / 2);
 
-            Ballbewegung(); //Variabelen des Balles werden bearbeitet
             BallBalkenCollision();//Guckt ob Collision am Linken Balken oder Rechtem Balken stattfindet
+            Ballbewegung(); //Variabelen des Balles werden bearbeitet
             RandCollision(); //Guckt ob der Ball eine der Wände berÜhrt
 
             if (Links == MaxPunktzahl)
@@ -186,6 +205,7 @@ namespace Pong_0._1
 
             }
             Balkenbewegung();//Bei Buttonklick balken änderung
+            RundenAktuallisieren();           // hier werden die Runden abgeglichen
             Invalidate();
             myTimer.Start();
         }
@@ -279,12 +299,71 @@ namespace Pong_0._1
             Collisionrechts = myCollider.Collision(BallX, BallX + Ballradius, Bally, Bally + 2 * Ballradius, BalkenBX, BalkenBX + BalkenWidth, BalkenBY, BalkenBY + BalkenHeight);
             //Collesion mit Powerup prüfen
             CollisionPowerUp = myCollider.Collision(BallX, BallX + Ballradius, Bally, Bally + Ballradius, PowerupX, PowerupX + PowerupWidth, PowerupY, PowerupY + PowerupHeight);
+            //Alter Collider
+            ////Linker Balken Collesion überprüfen
+            //Collisionlinks = myCollider.Collision(BallX, BallX + 2 * Ballradius, Bally, Bally + 2 * Ballradius, BalkenAX, BalkenAX + BalkenWidth, BalkenAY, BalkenAY + BalkenHeight);
+            ////Rechter Balken Collesion überprüfen
+            //Collisionrechts = myCollider.Collision(BallX, BallX + 2 * Ballradius, Bally, Bally + 2 * Ballradius, BalkenBX, BalkenBX + BalkenWidth, BalkenBY, BalkenBY + BalkenHeight);
+            //if (Collisionlinks == true)
+            //    Ballspieglung();
+            //if (Collisionrechts == true)
+            //    Ballspieglung();
+
+            //Neuer Collider mit 3 geteilten Balken 
+            Collisionlinksoben = myCollider.PunktQuadratCollision(BallPunktLinksX, BallPunktLinksY, BalkenAX, BalkenAX + BalkenWidth, BalkenAY, BalkenAY + BalkenHeight / 3);
+            Collisionlinksmitte = myCollider.PunktQuadratCollision(BallPunktLinksX, BallPunktLinksY, BalkenAX, BalkenAX + BalkenWidth, BalkenAY + BalkenHeight / 3, BalkenAY + 2 * (BalkenHeight/3));
+            Collisionlinksunten = myCollider.PunktQuadratCollision(BallPunktLinksX, BallPunktLinksY, BalkenAX, BalkenAX + BalkenWidth, BalkenAY + 2 * (BalkenHeight / 3), BalkenAY + BalkenHeight);
+
+            Collisionrechtsoben = myCollider.PunktQuadratCollision(BallPunktRechtsX, BallPunktRechtsY, BalkenBX, BalkenBX + BalkenWidth, BalkenBY, BalkenBY + (BalkenHeight / 3));
+            Collisionrechtsmitte = myCollider.PunktQuadratCollision(BallPunktRechtsX, BallPunktRechtsY, BalkenBX, BalkenBX + BalkenWidth, BalkenBY + (BalkenHeight / 3), BalkenBY + 2 * (BalkenHeight / 3));
+            Collisionrechtsunten = myCollider.PunktQuadratCollision(BallPunktRechtsX, BallPunktRechtsY, BalkenBX, BalkenBX + BalkenWidth, BalkenBY + 2* (BalkenHeight / 3), BalkenBY + BalkenHeight);
+
+            if (Collisionlinksoben == true)
+            {
+                ObenBalkenCollision();
+                Collisionlinks = true;
+            }
+            else if (Collisionlinksmitte == true)
+            {
+                MitteBalkenCollision();
+                Collisionlinks = true;
+            }
+            else if (Collisionlinksunten == true)
+            {
+                UntenBalkenCollision();
+                Collisionlinks = true;
+            }
+            else
+            {
+                Collisionlinks = false;
+            }
+
+
+            if (Collisionrechtsoben == true)
+            {
+                ObenBalkenCollision();
+                Collisionrechts = true;
+            }
+            else if (Collisionrechtsmitte == true)
+            {
+                MitteBalkenCollision();
+                Collisionrechts = true;
+            }
+            else if (Collisionrechtsunten == true)
+            {
+                UntenBalkenCollision();
+                Collisionrechts = true;
+            }
+            else
+            {
+                Collisionrechts = false;
+            }
 
             if (Collisionlinks == true)
             {
                 if (letzeteCollisionsseite == 1 || letzeteCollisionsseite == 0)
                 {
-                    Ballspieglung();
+
                     Ballspeed++;
                     letzeteCollisionsseite = 2;
                 }
@@ -293,7 +372,6 @@ namespace Pong_0._1
             {
                 if (letzeteCollisionsseite == 2 || letzeteCollisionsseite == 0)
                 {
-                    Ballspieglung();
                     Ballspeed++;
                     letzeteCollisionsseite = 1;
                 }
@@ -310,7 +388,6 @@ namespace Pong_0._1
             {
 
             }
-
         }
 
         private void Ballbewegung()
@@ -340,17 +417,28 @@ namespace Pong_0._1
             }
         }
 
-        private void Ballspieglung()
+        private void ObenBalkenCollision()
         {
-            if (ObenUnten == true)
-            {
+            ObenUnten = false;
+
+            if (RechtsLinks == true)
+                RechtsLinks = false;
+            else if (RechtsLinks == false)
+                RechtsLinks = true;
             }
 
-            else if (ObenUnten == false)
+        private void UntenBalkenCollision()
             {
+            ObenUnten = true;
+
+            if (RechtsLinks == true)
+                RechtsLinks = false;
+            else if (RechtsLinks == false)
+                RechtsLinks = true;
             }
 
-
+        private void MitteBalkenCollision()
+        {
             if (RechtsLinks == true)
             {
                 RechtsLinks = false;
@@ -366,7 +454,8 @@ namespace Pong_0._1
 
         private void RandCollision()
         {
-            if (BallX >= Width - Ballradius)//Colision mit dem Unteren Rand
+            {
+                if (BallX >= Width - Ballradius)//Colision mit dem Rechten Rand
             {
                 Links++;
                 RechtsLinks = false;
@@ -376,7 +465,7 @@ namespace Pong_0._1
                 PowerUpzeigen = false;
             }
 
-            if (BallX <= 0)//Colision mit dem Oberen Rand
+                if (BallX <= 0)//Colision mit dem linken Rand 
             {
                 Rechts++;
                 RechtsLinks = true;
@@ -385,17 +474,17 @@ namespace Pong_0._1
                 PowerUpzeigen = false;
             }
 
-            if (Bally + 2 * Ballradius + 10 >= this.Height) //Colision mit dem Rechten Rand 
+                if (Bally + 2 * Ballradius + 10 >= this.Height) //Colision mit dem Unteren Rand
             {
                 ObenUnten = false;
                 letzeteCollisionsseite = 0;
             }
-            if (Bally <= 0) //Colision mit dem linken Rand 
+                if (Bally <= 0) //Colision mit dem Oberen Rand
             {
                 ObenUnten = true;
                 letzeteCollisionsseite = 0;
             }
-
+            }
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -408,46 +497,35 @@ namespace Pong_0._1
             if (powerupthread.IsAlive)
             {
                 try
-                {
+            {
                     powerupthread.Abort();
-                }
+            }
                 catch (Exception)
-                {
+            {
+                AnzeigeGewinner.Text = GewinnRechts;
+                System.Threading.Thread.Sleep(3000);
+                AnzeigeGewinner.Text = "";
+                RundenRechts = 0;
+                RundenLinks = 0;
+                this.Visible = false;
+                Pong Form = new Pong();
+                Form.ShowDialog();
+                this.Close();
+                
+            }
+            if (RundenLinks == MaxRunden)
+            {
+                AnzeigeGewinner.Text = GewinnLinks;
+                System.Threading.Thread.Sleep(3000);
+                AnzeigeGewinner.Text = "";
 
-
-
-
-
-                    AnzeigeGewinner.Text = GewinnRechts;
-                    System.Threading.Thread.Sleep(3000);
-                    AnzeigeGewinner.Text = "";
-                    RundenRechts = 0;
-                    RundenLinks = 0;
-                    this.Visible = false;
-                    Pong Form = new Pong();
-                    Form.ShowDialog();
-                    this.Close();
-
-                }
-                if (RundenLinks == MaxRunden)
-                {
-
-
-
-
-                    AnzeigeGewinner.Text = GewinnLinks;
-                    System.Threading.Thread.Sleep(3000);
-                    AnzeigeGewinner.Text = "";
-
-                    RundenLinks = 0;
-                    RundenRechts = 0;
-                    this.Visible = false;
-                    Pong Form = new Pong();
-                    Form.ShowDialog();
-                    this.Close();
-
-
-                }
+                RundenLinks = 0;
+                RundenRechts = 0;
+                this.Visible = false;
+                Pong Form = new Pong();
+                Form.ShowDialog();
+                this.Close();
+            }
             }
         }
     }
