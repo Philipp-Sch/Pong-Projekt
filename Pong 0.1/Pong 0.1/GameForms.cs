@@ -63,8 +63,8 @@ namespace Pong_0._1
         int Rechts = 0;
         int Links = 0;
         string Punktzahl;
-        int MaxPunktzahl = 7;
-        int MaxRunden=3;
+        int MaxPunktzahl;
+        int MaxRunden;
         int RundenLinks;
         int RundenRechts;
         string Rundenanzahl;
@@ -153,9 +153,10 @@ namespace Pong_0._1
             Ballbewegung(); //Variabelen des Balles werden bearbeitet
             RandCollision(); //Guckt ob der Ball eine der Wände berÜhrt
 
-           
+            
             Balkenbewegung();//Bei Buttonklick balken änderung
             RundenAktuallisieren();           // hier werden die Runden abgeglichen
+            FormWechseln(); //Hier wird die Form bei MaxRunden Geschlossen
             Invalidate();
             myTimer.Start();
         }
@@ -238,6 +239,36 @@ namespace Pong_0._1
                 {
                     BalkenBY += 10;
                 }
+            }
+        }
+
+        private void FormWechseln()
+        {
+            if (RundenRechts == MaxRunden)
+            {
+                AnzeigeGewinner.Text = GewinnRechts;
+                System.Threading.Thread.Sleep(3000);
+                AnzeigeGewinner.Text = "";
+                RundenRechts = 0;
+                RundenLinks = 0;
+                this.Visible = false;
+                Pong Form = new Pong();
+                Form.ShowDialog();
+                this.Close();
+
+            }
+            if (RundenLinks == MaxRunden)
+            {
+                AnzeigeGewinner.Text = GewinnLinks;
+                System.Threading.Thread.Sleep(3000);
+                AnzeigeGewinner.Text = "";
+
+                RundenLinks = 0;
+                RundenRechts = 0;
+                this.Visible = false;
+                Pong Form = new Pong();
+                Form.ShowDialog();
+                this.Close();
             }
         }
         private void RundenAktuallisieren()
@@ -484,32 +515,7 @@ namespace Pong_0._1
             }
                 catch (Exception)
                 {
-                    if (RundenRechts == MaxRunden)
-                    {
-                        AnzeigeGewinner.Text = GewinnRechts;
-                        System.Threading.Thread.Sleep(3000);
-                        AnzeigeGewinner.Text = "";
-                        RundenRechts = 0;
-                        RundenLinks = 0;
-                        this.Visible = false;
-                        Pong Form = new Pong();
-                        Form.ShowDialog();
-                        this.Close();
-
-                    }
-                    if (RundenLinks == MaxRunden)
-                    {
-                        AnzeigeGewinner.Text = GewinnLinks;
-                        System.Threading.Thread.Sleep(3000);
-                        AnzeigeGewinner.Text = "";
-
-                        RundenLinks = 0;
-                        RundenRechts = 0;
-                        this.Visible = false;
-                        Pong Form = new Pong();
-                        Form.ShowDialog();
-                        this.Close();
-                    }
+                   
                 }
               
             }

@@ -12,8 +12,8 @@ namespace Pong_0._1
 {
     public partial class Pong : Form
     {
-        int Goals = 3;
-        int Rounds = 2;
+        int Goals = 7;
+        int Rounds = 3;
         public Pong()
         {
             InitializeComponent();
