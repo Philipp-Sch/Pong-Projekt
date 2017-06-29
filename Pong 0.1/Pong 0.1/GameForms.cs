@@ -220,17 +220,17 @@ namespace Pong_0._1
             Collisionrechtsmitte = myCollider.PunktQuadratCollision(BallPunktRechtsX, BallPunktRechtsY, BalkenBX, BalkenBX + BalkenWidth, BalkenBY + (BalkenHeight / 3), BalkenBY + 2 * (BalkenHeight / 3));
             Collisionrechtsunten = myCollider.PunktQuadratCollision(BallPunktRechtsX, BallPunktRechtsY, BalkenBX, BalkenBX + BalkenWidth, BalkenBY + 2* (BalkenHeight / 3), BalkenBY + BalkenHeight);
 
-            if (Collisionlinksoben == true)
+            if (Collisionlinksoben == true && Collisionlinks == false)
             {
                 ObenBalkenCollision();
                 Collisionlinks = true;
             }
-            else if (Collisionlinksmitte == true)
+            else if (Collisionlinksmitte == true && Collisionlinks == false)
             {
                 MitteBalkenCollision();
                 Collisionlinks = true;
             }
-            else if (Collisionlinksunten == true)
+            else if (Collisionlinksunten == true && Collisionlinks == false)
             {
                 UntenBalkenCollision();
                 Collisionlinks = true;
@@ -241,17 +241,17 @@ namespace Pong_0._1
             }
 
 
-            if (Collisionrechtsoben == true)
+            if (Collisionrechtsoben == true && Collisionrechts == false)
             {
                 ObenBalkenCollision();
                 Collisionrechts = true;
             }
-            else if (Collisionrechtsmitte == true)
+            else if (Collisionrechtsmitte == true && Collisionrechts == false)
             {
                 MitteBalkenCollision();
                 Collisionrechts = true;
             }
-            else if (Collisionrechtsunten == true)
+            else if (Collisionrechtsunten == true && Collisionrechts == false)
             {
                 UntenBalkenCollision();
                 Collisionrechts = true;
