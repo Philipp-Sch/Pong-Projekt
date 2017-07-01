@@ -108,5 +108,15 @@ namespace Pong_0._1
         {
             saveLabel.Font = new FontManager().CreateFont(36);
         }
+
+        private void settings2Label_MouseEnter(object sender, EventArgs e)
+        {
+            settings2Label.Font = new FontManager().CreateFont(40);
+        }
+
+        private void settings2Label_MouseLeave(object sender, EventArgs e)
+        {
+            settings2Label.Font = new FontManager().CreateFont(36);
+        }
     }
 }
