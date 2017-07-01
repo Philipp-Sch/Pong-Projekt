@@ -88,5 +88,25 @@ namespace Pong_0._1
         {
             goalsLabel.Text = goalsTrackBar.Value.ToString();
         }
+
+        private void cancelLabel_MouseEnter(object sender, EventArgs e)
+        {
+            cancelLabel.Font = new FontManager().CreateFont(40);
+        }
+
+        private void cancelLabel_MouseLeave(object sender, EventArgs e)
+        {
+            cancelLabel.Font = new FontManager().CreateFont(36);
+        }
+
+        private void saveLabel_MouseEnter(object sender, EventArgs e)
+        {
+            saveLabel.Font = new FontManager().CreateFont(40);
+        }
+
+        private void saveLabel_MouseLeave(object sender, EventArgs e)
+        {
+            saveLabel.Font = new FontManager().CreateFont(36);
+        }
     }
 }

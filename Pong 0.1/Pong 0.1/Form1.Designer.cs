@@ -157,6 +157,8 @@
             this.cancelLabel.TabIndex = 3;
             this.cancelLabel.Text = "Abbrechen";
             this.cancelLabel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.cancelLabel_MouseClick);
+            this.cancelLabel.MouseEnter += new System.EventHandler(this.cancelLabel_MouseEnter);
+            this.cancelLabel.MouseLeave += new System.EventHandler(this.cancelLabel_MouseLeave);
             // 
             // saveLabel
             // 
@@ -169,6 +171,8 @@
             this.saveLabel.TabIndex = 2;
             this.saveLabel.Text = "Speichern";
             this.saveLabel.MouseClick += new System.Windows.Forms.MouseEventHandler(this.saveLabel_MouseClick);
+            this.saveLabel.MouseEnter += new System.EventHandler(this.saveLabel_MouseEnter);
+            this.saveLabel.MouseLeave += new System.EventHandler(this.saveLabel_MouseLeave);
             // 
             // settings2Label
             // 
