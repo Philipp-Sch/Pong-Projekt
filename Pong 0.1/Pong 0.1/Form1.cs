@@ -31,8 +31,8 @@ namespace Pong_0._1
         private void Pong_Load(object sender, EventArgs e)
         {
             settingsPanel.Hide();
-            cancelLabel.Font = new FontManager().CreateFont(36);
-            cancelLabel.Font = new FontManager().CreateFont(36);
+            //cancelLabel.Font = new FontManager().CreateFont(36);
+            //cancelLabel.Font = new FontManager().CreateFont(36);
         }
 
         private void ExitLabel_Click(object sender, EventArgs e)
@@ -68,7 +68,7 @@ namespace Pong_0._1
         private void settings2Label_MouseClick(object sender, MouseEventArgs e)
         {
             settingsPanel.Show();
-            settings2Label.Hide();
+            settings2Label.Hide(); //hier müsste der fehler irgendwo liegen
         }
 
         private void cancelLabel_MouseClick(object sender, MouseEventArgs e)
