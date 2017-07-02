@@ -31,8 +31,6 @@ namespace Pong_0._1
         private void Pong_Load(object sender, EventArgs e)
         {
             settingsPanel.Hide();
-            //cancelLabel.Font = new FontManager().CreateFont(36);
-            //cancelLabel.Font = new FontManager().CreateFont(36);
         }
 
         private void ExitLabel_Click(object sender, EventArgs e)
@@ -122,7 +120,7 @@ namespace Pong_0._1
 
         private void settingsPanel_Paint(object sender, PaintEventArgs e)
         {
-
+            e.Graphics.FillRectangle(Brushes.Red, new Rectangle(10, 10, 50, 1000)); //NEUES ROTES DESIGN ;)
         }
     }
 }

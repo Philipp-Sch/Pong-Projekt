@@ -109,9 +109,9 @@
             this.settingsPanel.Controls.Add(this.cancelLabel);
             this.settingsPanel.Controls.Add(this.saveLabel);
             this.settingsPanel.Font = new System.Drawing.Font("Niagara Solid", 36F, System.Drawing.FontStyle.Bold);
-            this.settingsPanel.Location = new System.Drawing.Point(12, 12);
+            this.settingsPanel.Location = new System.Drawing.Point(12, 0);
             this.settingsPanel.Name = "settingsPanel";
-            this.settingsPanel.Size = new System.Drawing.Size(709, 436);
+            this.settingsPanel.Size = new System.Drawing.Size(700, 450);
             this.settingsPanel.TabIndex = 5;
             this.settingsPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.settingsPanel_Paint);
             // 
@@ -187,7 +187,7 @@
             // cancelLabel
             // 
             this.cancelLabel.AutoSize = true;
-            this.cancelLabel.BackColor = System.Drawing.Color.Black;
+            this.cancelLabel.BackColor = System.Drawing.Color.Transparent;
             this.cancelLabel.Font = new System.Drawing.Font("Niagara Solid", 36F, System.Drawing.FontStyle.Bold);
             this.cancelLabel.ForeColor = System.Drawing.SystemColors.Window;
             this.cancelLabel.Location = new System.Drawing.Point(26, 359);
