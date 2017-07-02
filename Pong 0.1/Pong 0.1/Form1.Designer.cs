@@ -33,18 +33,18 @@
             this.ExitLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.settingsPanel = new System.Windows.Forms.Panel();
+            this.goals2Label = new System.Windows.Forms.Label();
+            this.goalsLabel = new System.Windows.Forms.Label();
+            this.goalsTrackBar = new System.Windows.Forms.TrackBar();
             this.rounds2Label = new System.Windows.Forms.Label();
             this.roundsLabel = new System.Windows.Forms.Label();
             this.roundsTrackBar = new System.Windows.Forms.TrackBar();
             this.cancelLabel = new System.Windows.Forms.Label();
             this.saveLabel = new System.Windows.Forms.Label();
             this.settings2Label = new System.Windows.Forms.Label();
-            this.goals2Label = new System.Windows.Forms.Label();
-            this.goalsLabel = new System.Windows.Forms.Label();
-            this.goalsTrackBar = new System.Windows.Forms.TrackBar();
             this.settingsPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.roundsTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.goalsTrackBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roundsTrackBar)).BeginInit();
             this.SuspendLayout();
             // 
             // PlayLabel
@@ -108,10 +108,46 @@
             this.settingsPanel.Controls.Add(this.roundsTrackBar);
             this.settingsPanel.Controls.Add(this.cancelLabel);
             this.settingsPanel.Controls.Add(this.saveLabel);
+            this.settingsPanel.Font = new System.Drawing.Font("Niagara Solid", 36F, System.Drawing.FontStyle.Bold);
             this.settingsPanel.Location = new System.Drawing.Point(12, 12);
             this.settingsPanel.Name = "settingsPanel";
             this.settingsPanel.Size = new System.Drawing.Size(709, 436);
             this.settingsPanel.TabIndex = 5;
+            this.settingsPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.settingsPanel_Paint);
+            // 
+            // goals2Label
+            // 
+            this.goals2Label.AutoSize = true;
+            this.goals2Label.BackColor = System.Drawing.Color.Black;
+            this.goals2Label.Font = new System.Drawing.Font("Niagara Solid", 36F, System.Drawing.FontStyle.Bold);
+            this.goals2Label.ForeColor = System.Drawing.SystemColors.Window;
+            this.goals2Label.Location = new System.Drawing.Point(215, 38);
+            this.goals2Label.Name = "goals2Label";
+            this.goals2Label.Size = new System.Drawing.Size(214, 51);
+            this.goals2Label.TabIndex = 9;
+            this.goals2Label.Text = "Anzahl der Tore";
+            // 
+            // goalsLabel
+            // 
+            this.goalsLabel.AutoSize = true;
+            this.goalsLabel.BackColor = System.Drawing.Color.Black;
+            this.goalsLabel.Font = new System.Drawing.Font("Niagara Solid", 36F, System.Drawing.FontStyle.Bold);
+            this.goalsLabel.ForeColor = System.Drawing.SystemColors.Window;
+            this.goalsLabel.Location = new System.Drawing.Point(511, 74);
+            this.goalsLabel.Name = "goalsLabel";
+            this.goalsLabel.Size = new System.Drawing.Size(31, 51);
+            this.goalsLabel.TabIndex = 8;
+            this.goalsLabel.Text = "1";
+            // 
+            // goalsTrackBar
+            // 
+            this.goalsTrackBar.Location = new System.Drawing.Point(215, 92);
+            this.goalsTrackBar.Minimum = 1;
+            this.goalsTrackBar.Name = "goalsTrackBar";
+            this.goalsTrackBar.Size = new System.Drawing.Size(290, 45);
+            this.goalsTrackBar.TabIndex = 7;
+            this.goalsTrackBar.Value = 1;
+            this.goalsTrackBar.Scroll += new System.EventHandler(this.goalsTrackBar_Scroll);
             // 
             // rounds2Label
             // 
@@ -196,40 +232,6 @@
             this.settings2Label.MouseEnter += new System.EventHandler(this.settings2Label_MouseEnter);
             this.settings2Label.MouseLeave += new System.EventHandler(this.settings2Label_MouseLeave);
             // 
-            // goals2Label
-            // 
-            this.goals2Label.AutoSize = true;
-            this.goals2Label.BackColor = System.Drawing.Color.Black;
-            this.goals2Label.Font = new System.Drawing.Font("Niagara Solid", 36F, System.Drawing.FontStyle.Bold);
-            this.goals2Label.ForeColor = System.Drawing.SystemColors.Window;
-            this.goals2Label.Location = new System.Drawing.Point(215, 38);
-            this.goals2Label.Name = "goals2Label";
-            this.goals2Label.Size = new System.Drawing.Size(214, 51);
-            this.goals2Label.TabIndex = 9;
-            this.goals2Label.Text = "Anzahl der Tore";
-            // 
-            // goalsLabel
-            // 
-            this.goalsLabel.AutoSize = true;
-            this.goalsLabel.BackColor = System.Drawing.Color.Black;
-            this.goalsLabel.Font = new System.Drawing.Font("Niagara Solid", 36F, System.Drawing.FontStyle.Bold);
-            this.goalsLabel.ForeColor = System.Drawing.SystemColors.Window;
-            this.goalsLabel.Location = new System.Drawing.Point(511, 74);
-            this.goalsLabel.Name = "goalsLabel";
-            this.goalsLabel.Size = new System.Drawing.Size(31, 51);
-            this.goalsLabel.TabIndex = 8;
-            this.goalsLabel.Text = "1";
-            // 
-            // goalsTrackBar
-            // 
-            this.goalsTrackBar.Location = new System.Drawing.Point(215, 92);
-            this.goalsTrackBar.Minimum = 1;
-            this.goalsTrackBar.Name = "goalsTrackBar";
-            this.goalsTrackBar.Size = new System.Drawing.Size(290, 45);
-            this.goalsTrackBar.TabIndex = 7;
-            this.goalsTrackBar.Value = 1;
-            this.goalsTrackBar.Scroll += new System.EventHandler(this.goalsTrackBar_Scroll);
-            // 
             // Pong
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -251,8 +253,8 @@
             this.Load += new System.EventHandler(this.Pong_Load);
             this.settingsPanel.ResumeLayout(false);
             this.settingsPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.roundsTrackBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.goalsTrackBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.roundsTrackBar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

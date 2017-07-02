@@ -13,7 +13,7 @@ namespace Pong_0._1
     public partial class Pong : Form
     {
         int Goals = 7;
-        int Rounds = 3;
+        int Rounds = 1;
         public Pong()
         {
             InitializeComponent();
@@ -23,7 +23,7 @@ namespace Pong_0._1
         private void label1_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            GameForms gameform = new GameForms(goals,rounds);
+            GameForms gameform = new GameForms(Goals,Rounds);
             gameform.ShowDialog();
             this.Close();
         }
@@ -118,6 +118,11 @@ namespace Pong_0._1
         private void settings2Label_MouseLeave(object sender, EventArgs e)
         {
             settings2Label.Font = new FontManager().CreateFont(36);
+        }
+
+        private void settingsPanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
