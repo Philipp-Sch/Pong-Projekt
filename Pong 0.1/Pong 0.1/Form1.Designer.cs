@@ -111,7 +111,7 @@
             this.settingsPanel.Font = new System.Drawing.Font("Niagara Solid", 36F, System.Drawing.FontStyle.Bold);
             this.settingsPanel.Location = new System.Drawing.Point(12, 0);
             this.settingsPanel.Name = "settingsPanel";
-            this.settingsPanel.Size = new System.Drawing.Size(700, 450);
+            this.settingsPanel.Size = new System.Drawing.Size(710, 450);
             this.settingsPanel.TabIndex = 5;
             this.settingsPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.settingsPanel_Paint);
             // 

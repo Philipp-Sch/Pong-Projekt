@@ -66,7 +66,7 @@ namespace Pong_0._1
         private void settings2Label_MouseClick(object sender, MouseEventArgs e)
         {
             settingsPanel.Show();
-            settings2Label.Hide(); //hier müsste der fehler irgendwo liegen
+            settings2Label.Hide(); 
         }
 
         private void cancelLabel_MouseClick(object sender, MouseEventArgs e)
@@ -77,7 +77,7 @@ namespace Pong_0._1
 
         private void saveLabel_MouseClick(object sender, MouseEventArgs e)
         {
-            Rounds = roundsTrackBar.Value;
+            Rounds = roundsTrackBar.Value; //Einstellungen werden Übernommen also Runden und die anzahl der tore ;)
             Goals = goalsTrackBar.Value;
             settingsPanel.Hide();
             settings2Label.Show();
