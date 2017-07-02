@@ -12,9 +12,8 @@ namespace Pong_0._1
 {
     public partial class Pong : Form
     {
-        int goals = 3;
-        int rounds = 2;
-
+        int Goals = 7;
+        int Rounds = 3;
         public Pong()
         {
             InitializeComponent();
@@ -31,7 +30,9 @@ namespace Pong_0._1
 
         private void Pong_Load(object sender, EventArgs e)
         {
-
+            settingsPanel.Hide();
+            cancelLabel.Font = new FontManager().CreateFont(36);
+            cancelLabel.Font = new FontManager().CreateFont(36);
         }
 
         private void ExitLabel_Click(object sender, EventArgs e)
@@ -41,24 +42,82 @@ namespace Pong_0._1
 
         private void PlayLabel_MouseEnter(object sender, EventArgs e)
         {
-            PlayLabel.Font = new Font("Niagara Solid", 40);
+            PlayLabel.Font = new FontManager().CreateFont(40);
         }
 
         private void PlayLabel_MouseLeave(object sender, EventArgs e)
         {
-            PlayLabel.Font = new Font("Niagara Solid", 36);
+            PlayLabel.Font = new FontManager().CreateFont(36);
         }
 
         private void ExitLabel_MouseEnter(object sender, EventArgs e)
         {
-            ExitLabel.Font = new Font("Niagara Solid", 40);
+            ExitLabel.Font = new FontManager().CreateFont(40);
         }
 
         private void ExitLabel_MouseLeave(object sender, EventArgs e)
         {
-            ExitLabel.Font = new Font("Niagara Solid", 36);
+            ExitLabel.Font = new FontManager().CreateFont(36);
         }
 
+        private void roundsTrackBar_Scroll(object sender, EventArgs e)
+        {
+            roundsLabel.Text = roundsTrackBar.Value.ToString();
+        }
+
+        private void settings2Label_MouseClick(object sender, MouseEventArgs e)
+        {
+            settingsPanel.Show();
+            settings2Label.Hide();
+        }
+
+        private void cancelLabel_MouseClick(object sender, MouseEventArgs e)
+        {
+            settingsPanel.Hide();
+            settings2Label.Show();
+        }
+
+        private void saveLabel_MouseClick(object sender, MouseEventArgs e)
+        {
+            Rounds = roundsTrackBar.Value;
+            Goals = goalsTrackBar.Value;
+            settingsPanel.Hide();
+            settings2Label.Show();
+        }
+
+        private void goalsTrackBar_Scroll(object sender, EventArgs e)
+        {
+            goalsLabel.Text = goalsTrackBar.Value.ToString();
+        }
+
+        private void cancelLabel_MouseEnter(object sender, EventArgs e)
+        {
+            cancelLabel.Font = new FontManager().CreateFont(40);
+        }
+
+        private void cancelLabel_MouseLeave(object sender, EventArgs e)
+        {
+            cancelLabel.Font = new FontManager().CreateFont(36);
+        }
+
+        private void saveLabel_MouseEnter(object sender, EventArgs e)
+        {
+            saveLabel.Font = new FontManager().CreateFont(40);
+        }
+
+        private void saveLabel_MouseLeave(object sender, EventArgs e)
+        {
+            saveLabel.Font = new FontManager().CreateFont(36);
+        }
+
+        private void settings2Label_MouseEnter(object sender, EventArgs e)
+        {
+            settings2Label.Font = new FontManager().CreateFont(40);
+        }
         
+        private void settings2Label_MouseLeave(object sender, EventArgs e)
+        {
+            settings2Label.Font = new FontManager().CreateFont(36);
+        }
     }
 }
