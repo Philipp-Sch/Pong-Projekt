@@ -51,7 +51,13 @@
             this.PlayLabel.Click += new System.EventHandler(this.label1_Click);
             this.PlayLabel.MouseEnter += new System.EventHandler(this.PlayLabel_MouseEnter);
             this.PlayLabel.MouseLeave += new System.EventHandler(this.PlayLabel_MouseLeave);
-            
+            // 
+            // SettingsLabel
+            // 
+            this.SettingsLabel.Location = new System.Drawing.Point(0, 0);
+            this.SettingsLabel.Name = "SettingsLabel";
+            this.SettingsLabel.Size = new System.Drawing.Size(100, 23);
+            this.SettingsLabel.TabIndex = 4;
             // 
             // ExitLabel
             // 
@@ -90,7 +96,9 @@
             this.Controls.Add(this.SettingsLabel);
             this.Controls.Add(this.PlayLabel);
             this.Cursor = System.Windows.Forms.Cursors.Default;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
             this.Name = "Pong";
             this.Text = "PONG";
             this.Load += new System.EventHandler(this.Pong_Load);

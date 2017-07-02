@@ -184,13 +184,13 @@ namespace Pong_0._1
             if (e.KeyCode == Keys.Down)
                 BalkenBRunter = true;
 
-            if (e.KeyCode == Keys.S)
+            else if (e.KeyCode == Keys.S)
                 BalkenARunter = true;
 
-            if (e.KeyCode == Keys.Up)
+            else if (e.KeyCode == Keys.Up)
                 BalkenBHoch = true;
 
-            if (e.KeyCode == Keys.W)
+            else if (e.KeyCode == Keys.W)
                 BalkenAHoch = true;
         }
 
@@ -198,11 +198,11 @@ namespace Pong_0._1
         {
             if (e.KeyCode == Keys.Down)
                 BalkenBRunter = false;
-            if (e.KeyCode == Keys.S)
+            else if (e.KeyCode == Keys.S)
                 BalkenARunter = false;
-            if (e.KeyCode == Keys.Up)
+            else if (e.KeyCode == Keys.Up)
                 BalkenBHoch = false;
-            if (e.KeyCode == Keys.W)
+            else if (e.KeyCode == Keys.W)
                 BalkenAHoch = false;
         }
 

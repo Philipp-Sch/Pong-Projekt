@@ -12,17 +12,19 @@ namespace Pong_0._1
 {
     public partial class Pong : Form
     {
-        int Goals = 3;
-        int Rounds = 2;
+        int goals = 3;
+        int rounds = 2;
+
         public Pong()
         {
             InitializeComponent();
+            
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
             this.Visible = false;
-            GameForms gameform = new GameForms(Goals,Rounds);
+            GameForms gameform = new GameForms(goals,rounds);
             gameform.ShowDialog();
             this.Close();
         }
