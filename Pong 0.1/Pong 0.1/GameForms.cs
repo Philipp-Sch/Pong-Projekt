@@ -107,7 +107,7 @@ namespace Pong_0._1
             myTimer.Tick += new EventHandler(TimerEventProcessor);
             myTimer.Interval = 1;
             myTimer.Start();
-            Ballspeed = 1;
+            Ballspeed = 4;
 
             PowerupX = this.Width / 2;
             PowerupY = this.Height / 2;
@@ -462,7 +462,7 @@ namespace Pong_0._1
                 Links++;
                 RechtsLinks = false;
                 Alarm = 0;
-                Ballspeed = 1;
+                Ballspeed = 4;
 
                 PowerUpzeigen = false;
             }
@@ -472,7 +472,7 @@ namespace Pong_0._1
                 Rechts++;
                 RechtsLinks = true;
                 Alarm = 0;
-                Ballspeed = 1;
+                Ballspeed = 4;
                 PowerUpzeigen = false;
             }
 
